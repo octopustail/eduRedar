@@ -1,0 +1,35 @@
+{
+  "name": "eduredar",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev-build": "webpack --config webpack.dev.config.js",
+    "build": "webpack --config build/webpack.conf.js --color",
+    "dev-start": "webpack-dev-server --config webpack.dev.config.js --color --progress"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react-hot-loader": "^3.0.0",
+    "webpack": "^3.11.0"
+  }
+}
