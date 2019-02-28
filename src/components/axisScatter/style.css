@@ -1,0 +1,16 @@
+.axisScatter {
+  width: 600px;
+  height: 800px;
+}
+
+.axisScatter path {
+  fill: none;
+  stroke: #999;
+  stroke-dasharray: 2 3;
+}
+
+.axisScatter text {
+  font-size: 13px;
+
+  stroke: #222;
+}

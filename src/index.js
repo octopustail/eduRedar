@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux'
-import Counter from './components/Counter/Counter'
-import {AppIndex} from './components/Index'
-import UserInfo from './containers/User_Info'
+import {AppIndex} from './components/AppIndex'
 import store from './reducers/store'
-import ZumaGraph from './components/zumaGraph/zumaComponent'
+
 
 /* 热模块替换*/
 if (module.hot) {
@@ -14,8 +12,7 @@ if (module.hot) {
 
 ReactDom.render(
         <Provider store = {store}>
-            {/* <AppIndex/>
-            <Counter/> */}
-            <ZumaGraph/>
+            <AppIndex/>
+
         </Provider>
   , document.getElementById('app'));
