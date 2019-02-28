@@ -1,0 +1,3395 @@
+{
+   
+    "2010011010023": {
+        "food": [
+            [
+                {
+                    "sdate": "2011-03-01",
+                    "stime": "11:48:03",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-01",
+                    "stime": "18:02:13",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-02",
+                    "stime": "07:03:11",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-02",
+                    "stime": "07:05:20",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-02",
+                    "stime": "12:06:12",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-02",
+                    "stime": "17:59:35",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-03",
+                    "stime": "06:57:36",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-03",
+                    "stime": "17:55:06",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-04",
+                    "stime": "06:57:50",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-04",
+                    "stime": "18:04:43",
+                    "stype": "food",
+                    "scost": 5.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-06",
+                    "stime": "11:50:02",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-07",
+                    "stime": "06:52:22",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-07",
+                    "stime": "11:52:47",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-07",
+                    "stime": "17:54:25",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-08",
+                    "stime": "06:52:57",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-08",
+                    "stime": "06:55:03",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-08",
+                    "stime": "11:47:33",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-09",
+                    "stime": "06:57:19",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-09",
+                    "stime": "18:00:48",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-09",
+                    "stime": "18:01:06",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-10",
+                    "stime": "06:59:19",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-10",
+                    "stime": "11:56:51",
+                    "stype": "food",
+                    "scost": 7.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-11",
+                    "stime": "06:58:48",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-11",
+                    "stime": "17:21:53",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-12",
+                    "stime": "08:21:04",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-12",
+                    "stime": "11:29:01",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-12",
+                    "stime": "17:16:44",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-13",
+                    "stime": "08:56:18",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-13",
+                    "stime": "08:56:58",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-13",
+                    "stime": "17:24:58",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-14",
+                    "stime": "06:56:39",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-14",
+                    "stime": "06:58:51",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-14",
+                    "stime": "12:01:04",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-14",
+                    "stime": "17:58:54",
+                    "stype": "food",
+                    "scost": 3.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-15",
+                    "stime": "07:00:33",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-15",
+                    "stime": "07:00:59",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-15",
+                    "stime": "17:57:34",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-16",
+                    "stime": "07:00:24",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-16",
+                    "stime": "07:02:09",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-16",
+                    "stime": "12:15:26",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-17",
+                    "stime": "07:07:13",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-17",
+                    "stime": "11:40:07",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-17",
+                    "stime": "11:46:45",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-17",
+                    "stime": "17:38:53",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-18",
+                    "stime": "07:02:31",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-18",
+                    "stime": "07:03:39",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-18",
+                    "stime": "11:55:05",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-18",
+                    "stime": "17:58:41",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-19",
+                    "stime": "08:34:19",
+                    "stype": "food",
+                    "scost": 1.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-19",
+                    "stime": "08:34:33",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-19",
+                    "stime": "11:32:18",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-19",
+                    "stime": "11:32:39",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-19",
+                    "stime": "17:08:20",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-20",
+                    "stime": "08:24:45",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-20",
+                    "stime": "08:25:23",
+                    "stype": "food",
+                    "scost": 1.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-20",
+                    "stime": "12:00:24",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-20",
+                    "stime": "17:27:37",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-21",
+                    "stime": "06:59:10",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-21",
+                    "stime": "06:59:14",
+                    "stype": "food",
+                    "scost": 0.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-21",
+                    "stime": "07:00:36",
+                    "stype": "food",
+                    "scost": 1.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-21",
+                    "stime": "11:58:31",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-21",
+                    "stime": "17:54:22",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-22",
+                    "stime": "07:01:36",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-22",
+                    "stime": "11:55:10",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-22",
+                    "stime": "17:54:37",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-23",
+                    "stime": "07:05:32",
+                    "stype": "food",
+                    "scost": 1.05
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-23",
+                    "stime": "11:58:00",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-23",
+                    "stime": "18:02:26",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-24",
+                    "stime": "07:02:16",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-24",
+                    "stime": "07:05:03",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-24",
+                    "stime": "12:19:14",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-24",
+                    "stime": "17:45:30",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-25",
+                    "stime": "07:01:08",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-25",
+                    "stime": "07:01:38",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-25",
+                    "stime": "11:28:02",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-25",
+                    "stime": "11:28:22",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-25",
+                    "stime": "17:13:20",
+                    "stype": "food",
+                    "scost": 5.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-26",
+                    "stime": "08:19:11",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-27",
+                    "stime": "08:41:21",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-27",
+                    "stime": "08:41:32",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-27",
+                    "stime": "12:04:02",
+                    "stype": "food",
+                    "scost": 5.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-27",
+                    "stime": "12:04:56",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-28",
+                    "stime": "06:56:32",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-28",
+                    "stime": "06:57:40",
+                    "stype": "food",
+                    "scost": 1.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-28",
+                    "stime": "12:04:55",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-29",
+                    "stime": "07:06:47",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-29",
+                    "stime": "07:08:51",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-29",
+                    "stime": "11:52:00",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-29",
+                    "stime": "17:37:49",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-30",
+                    "stime": "07:02:38",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-30",
+                    "stime": "07:03:51",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-30",
+                    "stime": "12:07:41",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-30",
+                    "stime": "18:01:43",
+                    "stype": "food",
+                    "scost": 3.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-31",
+                    "stime": "07:05:00",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-31",
+                    "stime": "07:06:53",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-31",
+                    "stime": "07:06:56",
+                    "stype": "food",
+                    "scost": 0.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-31",
+                    "stime": "12:12:34",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-31",
+                    "stime": "17:40:24",
+                    "stype": "food",
+                    "scost": 5.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-01",
+                    "stime": "07:06:50",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-01",
+                    "stime": "07:09:26",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-01",
+                    "stime": "12:13:13",
+                    "stype": "food",
+                    "scost": 3.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-01",
+                    "stime": "18:00:37",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-02",
+                    "stime": "07:00:33",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-02",
+                    "stime": "07:01:00",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-02",
+                    "stime": "11:58:45",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-02",
+                    "stime": "17:56:48",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-03",
+                    "stime": "08:52:00",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-06",
+                    "stime": "07:00:56",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-06",
+                    "stime": "07:01:21",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-06",
+                    "stime": "17:56:34",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-06",
+                    "stime": "17:56:47",
+                    "stype": "food",
+                    "scost": 4.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-06",
+                    "stime": "18:04:40",
+                    "stype": "food",
+                    "scost": 4.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-07",
+                    "stime": "07:05:27",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-07",
+                    "stime": "07:07:26",
+                    "stype": "food",
+                    "scost": 1.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-07",
+                    "stime": "12:11:38",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-07",
+                    "stime": "17:54:30",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-08",
+                    "stime": "07:01:16",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-08",
+                    "stime": "07:01:47",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-08",
+                    "stime": "12:09:45",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-08",
+                    "stime": "17:23:04",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-09",
+                    "stime": "09:08:33",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-09",
+                    "stime": "17:54:03",
+                    "stype": "food",
+                    "scost": 5.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-09",
+                    "stime": "17:54:31",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-10",
+                    "stime": "08:04:13",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-10",
+                    "stime": "08:04:36",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-10",
+                    "stime": "17:25:38",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-11",
+                    "stime": "07:03:41",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-11",
+                    "stime": "07:05:32",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-12",
+                    "stime": "07:11:02",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-12",
+                    "stime": "07:12:54",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-12",
+                    "stime": "11:52:24",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-12",
+                    "stime": "17:38:51",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-13",
+                    "stime": "07:01:44",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-13",
+                    "stime": "07:02:42",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-13",
+                    "stime": "12:02:30",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-13",
+                    "stime": "18:04:03",
+                    "stype": "food",
+                    "scost": 4.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-14",
+                    "stime": "07:09:21",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-14",
+                    "stime": "07:10:00",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-14",
+                    "stime": "17:38:19",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-15",
+                    "stime": "07:02:15",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-15",
+                    "stime": "07:05:49",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-15",
+                    "stime": "11:53:11",
+                    "stype": "food",
+                    "scost": 3.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-16",
+                    "stime": "08:14:02",
+                    "stype": "food",
+                    "scost": 2.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-16",
+                    "stime": "11:09:04",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-17",
+                    "stime": "08:02:45",
+                    "stype": "food",
+                    "scost": 1.83
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-17",
+                    "stime": "11:17:23",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-17",
+                    "stime": "17:54:26",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-18",
+                    "stime": "06:54:47",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-18",
+                    "stime": "06:55:56",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-18",
+                    "stime": "12:06:29",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-18",
+                    "stime": "18:00:55",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-19",
+                    "stime": "07:07:35",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-19",
+                    "stime": "07:07:50",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-19",
+                    "stime": "11:47:47",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-19",
+                    "stime": "17:27:40",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-20",
+                    "stime": "06:59:25",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-20",
+                    "stime": "07:00:37",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-20",
+                    "stime": "12:11:20",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-20",
+                    "stime": "18:13:49",
+                    "stype": "food",
+                    "scost": 5.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-21",
+                    "stime": "07:07:52",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-21",
+                    "stime": "07:10:13",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-21",
+                    "stime": "11:23:51",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-21",
+                    "stime": "18:01:54",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-22",
+                    "stime": "07:03:43",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-22",
+                    "stime": "07:06:22",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-22",
+                    "stime": "11:49:46",
+                    "stype": "food",
+                    "scost": 5.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-22",
+                    "stime": "17:09:46",
+                    "stype": "food",
+                    "scost": 3.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-23",
+                    "stime": "08:17:00",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-23",
+                    "stime": "11:08:36",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-24",
+                    "stime": "08:15:13",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-24",
+                    "stime": "11:19:49",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-25",
+                    "stime": "06:59:44",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-25",
+                    "stime": "07:01:37",
+                    "stype": "food",
+                    "scost": 1.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-25",
+                    "stime": "11:56:25",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-25",
+                    "stime": "17:58:56",
+                    "stype": "food",
+                    "scost": 4.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-26",
+                    "stime": "06:59:37",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-26",
+                    "stime": "07:01:34",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-26",
+                    "stime": "11:42:50",
+                    "stype": "food",
+                    "scost": 3.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-26",
+                    "stime": "17:43:49",
+                    "stype": "food",
+                    "scost": 1.53
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-27",
+                    "stime": "07:03:53",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-27",
+                    "stime": "07:06:51",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-27",
+                    "stime": "17:57:17",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-28",
+                    "stime": "07:02:33",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-28",
+                    "stime": "07:05:33",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-28",
+                    "stime": "11:21:10",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-28",
+                    "stime": "17:45:06",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-29",
+                    "stime": "06:58:03",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-29",
+                    "stime": "07:00:18",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-29",
+                    "stime": "11:30:47",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-29",
+                    "stime": "11:31:14",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-29",
+                    "stime": "17:58:52",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-29",
+                    "stime": "17:59:22",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-01",
+                    "stime": "08:50:36",
+                    "stype": "food",
+                    "scost": 1.43
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-03",
+                    "stime": "07:13:38",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-03",
+                    "stime": "17:36:22",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-04",
+                    "stime": "06:54:25",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-04",
+                    "stime": "06:56:12",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-04",
+                    "stime": "12:04:15",
+                    "stype": "food",
+                    "scost": 4.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-04",
+                    "stime": "17:48:35",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-05",
+                    "stime": "06:58:42",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-05",
+                    "stime": "11:25:00",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-05",
+                    "stime": "17:55:10",
+                    "stype": "food",
+                    "scost": 6.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-06",
+                    "stime": "07:01:50",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-06",
+                    "stime": "11:21:34",
+                    "stype": "food",
+                    "scost": 3.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-06",
+                    "stime": "17:26:17",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-07",
+                    "stime": "09:11:49",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-07",
+                    "stime": "09:12:55",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-07",
+                    "stime": "12:18:55",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-07",
+                    "stime": "17:56:34",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-08",
+                    "stime": "08:25:14",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-08",
+                    "stime": "11:59:41",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-08",
+                    "stime": "17:32:35",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-09",
+                    "stime": "06:55:06",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-09",
+                    "stime": "11:51:51",
+                    "stype": "food",
+                    "scost": 4.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-09",
+                    "stime": "18:01:08",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-10",
+                    "stime": "07:00:35",
+                    "stype": "food",
+                    "scost": 1.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-10",
+                    "stime": "07:03:24",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-10",
+                    "stime": "11:38:32",
+                    "stype": "food",
+                    "scost": 3.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-10",
+                    "stime": "17:29:20",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-10",
+                    "stime": "17:31:18",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "07:00:18",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "07:03:20",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "12:01:33",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "17:58:13",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "17:58:52",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-12",
+                    "stime": "06:59:12",
+                    "stype": "food",
+                    "scost": 3.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-12",
+                    "stime": "11:31:05",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-12",
+                    "stime": "18:05:18",
+                    "stype": "food",
+                    "scost": 5.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-13",
+                    "stime": "07:04:00",
+                    "stype": "food",
+                    "scost": 3.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-13",
+                    "stime": "11:29:06",
+                    "stype": "food",
+                    "scost": 5.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-13",
+                    "stime": "17:58:30",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-13",
+                    "stime": "18:00:57",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-13",
+                    "stime": "18:12:44",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-14",
+                    "stime": "11:52:56",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-15",
+                    "stime": "08:13:00",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-15",
+                    "stime": "11:54:28",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-15",
+                    "stime": "11:54:41",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-15",
+                    "stime": "17:24:19",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-15",
+                    "stime": "17:26:11",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-16",
+                    "stime": "07:01:47",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-16",
+                    "stime": "12:01:09",
+                    "stype": "food",
+                    "scost": 3.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-16",
+                    "stime": "17:54:49",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-17",
+                    "stime": "06:56:04",
+                    "stype": "food",
+                    "scost": 1.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-17",
+                    "stime": "06:56:30",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-17",
+                    "stime": "11:32:36",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-17",
+                    "stime": "17:25:27",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-18",
+                    "stime": "06:59:02",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-18",
+                    "stime": "11:58:48",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-25",
+                    "stime": "11:57:05",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-25",
+                    "stime": "17:57:16",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-25",
+                    "stime": "17:58:01",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-26",
+                    "stime": "07:08:14",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-26",
+                    "stime": "11:32:47",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-26",
+                    "stime": "11:33:09",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-26",
+                    "stime": "17:56:24",
+                    "stype": "food",
+                    "scost": 4.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-27",
+                    "stime": "07:06:39",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-27",
+                    "stime": "11:39:32",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-27",
+                    "stime": "16:57:04",
+                    "stype": "food",
+                    "scost": 5.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-27",
+                    "stime": "17:08:27",
+                    "stype": "food",
+                    "scost": 0.83
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-28",
+                    "stime": "08:11:20",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-28",
+                    "stime": "11:53:30",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-28",
+                    "stime": "18:24:01",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-29",
+                    "stime": "08:04:39",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-29",
+                    "stime": "11:54:18",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-29",
+                    "stime": "17:23:37",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-29",
+                    "stime": "17:23:54",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-30",
+                    "stime": "07:03:28",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-30",
+                    "stime": "12:03:28",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-30",
+                    "stime": "18:02:07",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-30",
+                    "stime": "18:02:15",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-31",
+                    "stime": "07:06:17",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-31",
+                    "stime": "17:36:37",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-01",
+                    "stime": "07:03:47",
+                    "stype": "food",
+                    "scost": 2.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-01",
+                    "stime": "11:44:47",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-01",
+                    "stime": "18:02:25",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-02",
+                    "stime": "07:09:13",
+                    "stype": "food",
+                    "scost": 2.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-02",
+                    "stime": "11:32:22",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-02",
+                    "stime": "11:34:14",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-02",
+                    "stime": "18:21:27",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-03",
+                    "stime": "07:10:11",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-03",
+                    "stime": "12:04:05",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-04",
+                    "stime": "08:18:14",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-04",
+                    "stime": "12:24:09",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-04",
+                    "stime": "17:27:58",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-05",
+                    "stime": "11:37:05",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-05",
+                    "stime": "17:51:54",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-06",
+                    "stime": "07:37:12",
+                    "stype": "food",
+                    "scost": 1.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-06",
+                    "stime": "11:59:18",
+                    "stype": "food",
+                    "scost": 4.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-06",
+                    "stime": "17:30:19",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-07",
+                    "stime": "07:08:12",
+                    "stype": "food",
+                    "scost": 4.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-07",
+                    "stime": "12:43:23",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-07",
+                    "stime": "17:32:04",
+                    "stype": "food",
+                    "scost": 4.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-08",
+                    "stime": "07:02:22",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-08",
+                    "stime": "12:09:34",
+                    "stype": "food",
+                    "scost": 3.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-08",
+                    "stime": "17:59:21",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-09",
+                    "stime": "07:02:36",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-09",
+                    "stime": "11:57:53",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-10",
+                    "stime": "06:58:39",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-10",
+                    "stime": "11:52:55",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-11",
+                    "stime": "08:15:31",
+                    "stype": "food",
+                    "scost": 2.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-11",
+                    "stime": "11:40:55",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-11",
+                    "stime": "17:48:22",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-12",
+                    "stime": "08:07:56",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-12",
+                    "stime": "08:16:56",
+                    "stype": "food",
+                    "scost": 0.03
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-12",
+                    "stime": "11:42:32",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-12",
+                    "stime": "18:15:00",
+                    "stype": "food",
+                    "scost": 5.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-13",
+                    "stime": "07:07:09",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-13",
+                    "stime": "11:48:24",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-13",
+                    "stime": "18:01:02",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-14",
+                    "stime": "07:13:37",
+                    "stype": "food",
+                    "scost": 2.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-14",
+                    "stime": "17:59:07",
+                    "stype": "food",
+                    "scost": 4.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-15",
+                    "stime": "07:09:16",
+                    "stype": "food",
+                    "scost": 2.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-15",
+                    "stime": "11:38:52",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-15",
+                    "stime": "11:39:29",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-15",
+                    "stime": "18:03:06",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-16",
+                    "stime": "07:14:42",
+                    "stype": "food",
+                    "scost": 2.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-16",
+                    "stime": "11:26:52",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-17",
+                    "stime": "07:10:43",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-17",
+                    "stime": "12:05:24",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-18",
+                    "stime": "08:01:41",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-18",
+                    "stime": "11:36:26",
+                    "stype": "food",
+                    "scost": 3.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-18",
+                    "stime": "17:59:58",
+                    "stype": "food",
+                    "scost": 5.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-20",
+                    "stime": "07:45:27",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-20",
+                    "stime": "12:11:15",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-20",
+                    "stime": "18:13:44",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-21",
+                    "stime": "07:56:35",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-21",
+                    "stime": "11:10:31",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-21",
+                    "stime": "17:39:04",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-22",
+                    "stime": "07:36:37",
+                    "stype": "food",
+                    "scost": 2.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-22",
+                    "stime": "11:58:32",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-22",
+                    "stime": "18:15:12",
+                    "stype": "food",
+                    "scost": 3.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-23",
+                    "stime": "07:55:36",
+                    "stype": "food",
+                    "scost": 3.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-23",
+                    "stime": "11:45:34",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-23",
+                    "stime": "17:36:34",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-24",
+                    "stime": "08:10:04",
+                    "stype": "food",
+                    "scost": 3.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-24",
+                    "stime": "11:49:31",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-24",
+                    "stime": "11:50:40",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-25",
+                    "stime": "08:17:41",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-25",
+                    "stime": "11:51:42",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-25",
+                    "stime": "11:53:08",
+                    "stype": "food",
+                    "scost": 3.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-25",
+                    "stime": "17:08:51",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-25",
+                    "stime": "17:12:02",
+                    "stype": "food",
+                    "scost": 1.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-26",
+                    "stime": "08:24:10",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-26",
+                    "stime": "12:03:25",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-26",
+                    "stime": "17:51:56",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-27",
+                    "stime": "08:07:00",
+                    "stype": "food",
+                    "scost": 2.9
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-27",
+                    "stime": "17:44:38",
+                    "stype": "food",
+                    "scost": 5.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-28",
+                    "stime": "08:21:42",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-28",
+                    "stime": "11:46:48",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-29",
+                    "stime": "08:10:52",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-29",
+                    "stime": "11:07:22",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-29",
+                    "stime": "17:29:50",
+                    "stype": "food",
+                    "scost": 3.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-30",
+                    "stime": "07:31:59",
+                    "stype": "food",
+                    "scost": 3.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-30",
+                    "stime": "12:19:59",
+                    "stype": "food",
+                    "scost": 3.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-30",
+                    "stime": "17:37:50",
+                    "stype": "food",
+                    "scost": 3.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-30",
+                    "stime": "17:49:38",
+                    "stype": "food",
+                    "scost": 1.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-01",
+                    "stime": "08:19:33",
+                    "stype": "food",
+                    "scost": 3.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-01",
+                    "stime": "11:08:49",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-01",
+                    "stime": "17:24:02",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-02",
+                    "stime": "08:16:44",
+                    "stype": "food",
+                    "scost": 3.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-02",
+                    "stime": "11:55:04",
+                    "stype": "food",
+                    "scost": 4.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-03",
+                    "stime": "08:58:22",
+                    "stype": "food",
+                    "scost": 1.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-03",
+                    "stime": "11:47:00",
+                    "stype": "food",
+                    "scost": 2.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-04",
+                    "stime": "08:18:27",
+                    "stype": "food",
+                    "scost": 2.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-04",
+                    "stime": "11:02:10",
+                    "stype": "food",
+                    "scost": 4.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-04",
+                    "stime": "18:01:46",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-05",
+                    "stime": "08:22:57",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-06",
+                    "stime": "08:51:29",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-27",
+                    "stime": "18:25:54",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-28",
+                    "stime": "08:31:29",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-28",
+                    "stime": "08:31:37",
+                    "stype": "food",
+                    "scost": 0.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-28",
+                    "stime": "11:31:27",
+                    "stype": "food",
+                    "scost": 4.5
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-28",
+                    "stime": "17:06:33",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "07:01:11",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "12:06:19",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "12:06:34",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "17:59:51",
+                    "stype": "food",
+                    "scost": 3.3
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "18:00:09",
+                    "stype": "food",
+                    "scost": 5.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-30",
+                    "stime": "07:07:12",
+                    "stype": "food",
+                    "scost": 1.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-30",
+                    "stime": "07:07:41",
+                    "stype": "food",
+                    "scost": 0.7
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-30",
+                    "stime": "12:12:13",
+                    "stype": "food",
+                    "scost": 4.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-30",
+                    "stime": "17:41:00",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-31",
+                    "stime": "07:05:23",
+                    "stype": "food",
+                    "scost": 2.6
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-31",
+                    "stime": "12:00:34",
+                    "stype": "food",
+                    "scost": 2.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-31",
+                    "stime": "17:47:31",
+                    "stype": "food",
+                    "scost": 4.8
+                }
+            ]
+        ],
+        "library": [
+            [
+                {
+                    "sdate": "2011-03-06",
+                    "stime": "10:04:38",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-06",
+                    "stime": "14:02:41",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-10",
+                    "stime": "08:24:46",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-11",
+                    "stime": "17:44:46",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-13",
+                    "stime": "09:20:51",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-15",
+                    "stime": "08:21:11",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-18",
+                    "stime": "20:29:04",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-19",
+                    "stime": "17:37:15",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-03-27",
+                    "stime": "15:55:04",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-08",
+                    "stime": "18:01:17",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-16",
+                    "stime": "17:13:01",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-04-23",
+                    "stime": "17:03:29",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-05",
+                    "stime": "10:58:13",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-13",
+                    "stime": "20:15:02",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-27",
+                    "stime": "17:45:37",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-31",
+                    "stime": "10:33:01",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-05",
+                    "stime": "13:18:17",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-07",
+                    "stime": "10:30:27",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-09",
+                    "stime": "15:08:34",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-10",
+                    "stime": "14:09:45",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-14",
+                    "stime": "14:44:50",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-15",
+                    "stime": "14:26:56",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-22",
+                    "stime": "15:29:03",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-30",
+                    "stime": "07:48:01",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-07-01",
+                    "stime": "14:29:12",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-27",
+                    "stime": "14:33:26",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-28",
+                    "stime": "08:49:44",
+                    "stype": "library",
+                    "scost": 0.0
+                }
+            ]
+        ],
+        "shower": [
+            [
+                {
+                    "sdate": "2011-03-08",
+                    "stime": "23:09:01",
+                    "stype": "shower",
+                    "scost": 1.0
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "23:10:10",
+                    "stype": "shower",
+                    "scost": 1.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-11",
+                    "stime": "23:10:56",
+                    "stype": "shower",
+                    "scost": 0.2
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-17",
+                    "stime": "22:38:39",
+                    "stype": "shower",
+                    "scost": 0.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-05-17",
+                    "stime": "22:39:41",
+                    "stype": "shower",
+                    "scost": 0.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-27",
+                    "stime": "21:55:42",
+                    "stype": "shower",
+                    "scost": 0.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-06-27",
+                    "stime": "21:59:40",
+                    "stype": "shower",
+                    "scost": 0.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-27",
+                    "stime": "22:50:34",
+                    "stype": "shower",
+                    "scost": 0.4
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "22:54:39",
+                    "stype": "shower",
+                    "scost": 0.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "22:54:59",
+                    "stype": "shower",
+                    "scost": 0.1
+                }
+            ],
+            [
+                {
+                    "sdate": "2011-08-29",
+                    "stime": "22:56:45",
+                    "stype": "shower",
+                    "scost": 0.4
+                }
+            ]
+        ]
+    }
+}
