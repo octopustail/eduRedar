@@ -1,0 +1,23 @@
+.axis text {
+  font: 10px sans-serif;
+
+  fill: #f3f3f3;
+}
+
+.axis line,
+.axis circle {
+  fill: none;
+  stroke: steelblue;
+  stroke-dasharray: 4;
+}
+
+.axis:last-of-type circle {
+  stroke: steelblue;
+  stroke-dasharray: none;
+}
+
+.line {
+  fill: none;
+  stroke: orange;
+  stroke-width: 3px;
+}

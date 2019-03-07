@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const proxyUrl = 'http://localhost:3033'
 module.exports = {
     
     entry: [
@@ -16,9 +17,13 @@ module.exports = {
 
     devServer:{
         contentBase: './public',
-        historyApiFallback: true,
+        historyApiFallback: false,
         host: '0.0.0.0',
-        hot: true
+        hot: true,
+        proxy:{
+            '/api':'http://localhost:3033',
+            '/studentRecord':'http://localhost:3033'
+        }
     },
 
     plugins: [
