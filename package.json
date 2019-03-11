@@ -10,6 +10,7 @@
     "start-dev": "webpack-dev-server --config webpack.dev.config.js --color --progress"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",

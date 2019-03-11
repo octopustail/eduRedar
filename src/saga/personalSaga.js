@@ -1,6 +1,7 @@
 import {take,call,put,select} from 'redux-saga/effects'
 import {actionType as IndexAction} from '../reducers'
 import {actionType as PersonalAction} from '../reducers/person'
+import {get,post} from '../fetch/fetch'
 
 export function* getPersonalRecord(id){
     yield put({type:IndexAction.FETCH_START});
@@ -19,7 +20,8 @@ export function* getPersonalRecordFlow(){
         let res = yield call(getPersonalRecord,req.id)
 
         if(res){
-            if(code === 0){
+            if(res.code === 0){
+                console.log(res)
                 yield put({type:PersonalAction.GET_PERSONAL_RECORDS,data:res.data})
             }
         }
