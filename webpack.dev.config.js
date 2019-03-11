@@ -4,7 +4,7 @@ const proxyUrl = 'http://localhost:3033'
 module.exports = {
     
     entry: [
-        'react-hot-loader/patch',
+        'react-hot-loader/patch','babel-polyfill',
         path.join(__dirname,'src/index.js')],
 
     output:{

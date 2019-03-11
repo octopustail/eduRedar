@@ -61,11 +61,11 @@ redarGraph.initGraph = function (el) {
         .attr("dy", ".35em")
         .style("text-anchor", function (d) { return d < 270 && d > 90 ? "end" : null; })
         .attr("transform", function (d) {
-            console.log(d)
+            // console.log(d)
             return d < 270 && d > 90 ? "rotate(180 " + (radius + 6) + ",0)" : null;
         })
         .text(function (d, i) { 
-            console.log(d,i)
+            // console.log(d,i)
             return i * 3 + ":00" });
 
     let line = d3.radialLine()
