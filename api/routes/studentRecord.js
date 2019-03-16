@@ -8,6 +8,7 @@ function studentRecordDataProcess(req,res,next){
     StuRecord.findOne()
     .then(result =>{
         responseData.stuRecord = result;
+        console.log('result',result)
         util.responseClient(res,200,0,'success',responseData)
     })
 }

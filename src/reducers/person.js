@@ -14,7 +14,7 @@ export const actionType = {
 }
 
 const initialState = {
-    personal_records: {"sid":"2030403"},
+    personal_records: {},
     borrowed_books: {},
     gpa: {},
     math: {},

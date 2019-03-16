@@ -26,11 +26,9 @@ class Person extends Component {
     componentDidMount() {
         //拿着学号去请求学生的record等信息
         // this.props.get_personal_records(this.props.info)
-        console.log('componentDidMount',this.props)
         this.props.get_personal_records("2904201011")
     }
     componentDidUpdate(){
-        console.log('componentDidUpdate',this.props)
     }
 }
 

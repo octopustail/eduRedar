@@ -29,7 +29,6 @@ axios.interceptors.response.use(function(res){
 })
 
 export function get(url){
-    console.log(url)
     return axios.get(url,config)
 }
 export function post(url){

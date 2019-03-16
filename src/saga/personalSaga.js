@@ -21,13 +21,8 @@ export function* getPersonalRecordFlow(){
 
         if(res){
             if(res.code === 0){
-                console.log(res)
                 yield put({type:PersonalAction.RESPONSE_PERSONAL_RECORDS,data:res.data})
             }
         }
     }
-}
-
-export function* helloSaga(){
-    console.log('hello saga')
 }

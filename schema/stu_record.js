@@ -5,7 +5,7 @@ module.exports = new mongoose.Schema({
     food:Array,
     shower:Array,
     library:Array,
-    hotWater:Array,
+    hotwater:Array,
     sems:Number,
 
 })
