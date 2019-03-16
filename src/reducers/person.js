@@ -14,7 +14,7 @@ export const actionType = {
 }
 
 const initialState = {
-    personal_records: {},
+    personal_records: {"sid":"2030403"},
     borrowed_books: {},
     gpa: {},
     math: {},
@@ -23,11 +23,10 @@ const initialState = {
 }
 
 export const actions = {
-    get_personal_records: function (id, sem) {
+    get_personal_records: function (id) {
         return {
             type: actionType.GET_PERSONAL_RECORDS,
-            id,
-            sem
+            id
             // records
         }
     },
@@ -68,11 +67,11 @@ export const actions = {
 }
 
 export function reducer(state = initialState, action) {
-    switch (actionType) {
+    switch (action.type) {
         case actionType.RESPONSE_PERSONAL_RECORDS:
             return {
                 ...state,
-                personal_records: [...action.data.personal_records]
+                personal_records: action.data.stuRecord
             }
         case actionType.RESPONSE_BOOK_BORROW: {
             return {

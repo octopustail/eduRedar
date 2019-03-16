@@ -4,8 +4,9 @@ import { color } from 'd3';
 
 let redarGraph = {}
 
-redarGraph.initGraph = function (el) {
+redarGraph.initGraph = function (el,data) {
     //MaxMin时间要转化成分钟的相对时间 MaxDay:一学期的总天数，应该用相对时间计算获
+    console.log(data)
     const MaxMin = 60 * 24
     const MaxDay = 200
     const width = 500
@@ -13,7 +14,7 @@ redarGraph.initGraph = function (el) {
     const margin = 100
     const radius = Math.min(height, height) / 2
 
-    let data = [[3, 133],
+    let Mockdata = [[3, 133],
     [480, 80], [0, 0], [180, 199]]
 
     const angle = d3.scaleLinear()
@@ -79,13 +80,14 @@ redarGraph.initGraph = function (el) {
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
     svg.selectAll("point")
-        .data(data)
+        .data(Mockdata)
         .enter()
         .append("circle")
         .attr("class", "point")
         .attr("transform", function (d) {
-            const coors = line([d]).slice(1).slice(0, -1);
-            return `translate(${coors})`
+            const coors = line([d])
+            let coors1= coors.slice(1).slice(0, -1);
+            return `translate(${coors1})`
         })
         .attr("r", 8)
         .attr("fill", function (d, i) {

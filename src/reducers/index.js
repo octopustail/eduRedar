@@ -27,23 +27,23 @@ export const actions = {
 
 export function reducer(state = initialState, action) {
     switch (action.type) {
-        case action.FETCH_START:
+        case actionType.FETCH_START:
             return {
                 ...state,
                 isFetching: true
             }
-        case action.FETCH_END:
+        case actionType.FETCH_END:
             return {
                 ...state,
                 isFetching: false
             }
-        case action.SET_MESSAGE:
+        case actionType.SET_MESSAGE:
             return {
                 ...state,
                 isFetching: false,
                 msg: {
-                    type: action.msgType,
-                    content: action.msgContent
+                    type: actionType.msgType,
+                    content: actionType.msgContent
                 }
             }
         default:
@@ -52,5 +52,5 @@ export function reducer(state = initialState, action) {
 }
 
 export default combineReducers({ 
-    person, reducer 
+    person, index:reducer 
 })

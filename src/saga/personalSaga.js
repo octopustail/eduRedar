@@ -22,7 +22,7 @@ export function* getPersonalRecordFlow(){
         if(res){
             if(res.code === 0){
                 console.log(res)
-                yield put({type:PersonalAction.GET_PERSONAL_RECORDS,data:res.data})
+                yield put({type:PersonalAction.RESPONSE_PERSONAL_RECORDS,data:res.data})
             }
         }
     }
