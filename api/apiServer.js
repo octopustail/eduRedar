@@ -34,3 +34,5 @@ mongoose.connect(`mongodb://${dbHost}:${dbPort}/eduRedar`, function (err) {
         }
     });
 })
+
+mongoose.set("debug",true)
