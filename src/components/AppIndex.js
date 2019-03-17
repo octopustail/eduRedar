@@ -28,7 +28,7 @@ export class AppIndex extends Component {
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <Counter/> */}
-                <SankeyGraph/>
+                {/* <SankeyGraph/> */}
                 
                 <Person info = {this.state.selectStudent}/>
             </div>
