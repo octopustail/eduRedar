@@ -36,8 +36,8 @@ redarGraph.initGraph = function (el, data) {
     }
     const MaxMin = 60 * 24
     const MaxDay = 200
-    const width = 1000
-    const height = 1000
+    const width = 500
+    const height = 500
     const margin = 100
     // const radius = Math.min(height, height) / 2
      const radius = Math.min(400, 400) / 2
