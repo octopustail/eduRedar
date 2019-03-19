@@ -19,6 +19,7 @@
     "d3": "^4.0.0",
     "debug": "~2.6.9",
     "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.15-beta.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "http-proxy": "^1.17.0",

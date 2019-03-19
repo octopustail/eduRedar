@@ -1,34 +1,58 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
 import ParallelCoordinate from '../ParallelCoordinates/ParallelCoordinateComponents'
 import SankeyGraph from '../sankeyGraph/SankeyGraphComponent'
-import Heatmap from '../HeatmapGraph/HeatmaoGraphComponent'
+import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
 
-class Genaral extends Component{
-    constructor(props){
+import { actions as generalAction } from '../../reducers/general'
+const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
+
+
+class Genaral extends Component {
+    constructor(props) {
         super(props)
     }
 
-    onBrushSelected(param,instance) {
+    onBrushSelected(param, instance) {
         console.log('brush event', param)
     }
 
-    onChartClick(param,instance){
-        console.log('click',param)
+    onChartClick(param, instance) {
+        console.log('click', param)
     }
 
-    render(){
+    render() {
         const onEvents = {
-            onClick:this.onChartClick,
+            onClick: this.onChartClick,
             onBrushSelected: this.onBrushSelected
         }
-        return(
+        return (
             <div>
-            <Heatmap/>
-            <SankeyGraph/>
-            <ParallelCoordinate onEvents={onEvents}/>
+                <Heatmap />
+                <SankeyGraph data={this.props.data} />
+                <ParallelCoordinate onEvents={onEvents} />
             </div>
         )
     }
+
+    componentDidMount(){
+        this.props.get_general_gpa_flow_record('type:any')
+    }
 }
 
-export default Genaral
+function mapDispatchToProps(dispatch){
+    return {
+        get_general_gpa_flow_record:bindActionCreators(get_general_gpa_flow_record,dispatch)
+    }
+}
+function mapStateToProps(state){
+    return{
+        general_gpa:state.general.general_gpa,
+        general_flow:state.general.general_flow,
+        general_records:state.general.general_records
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Genaral)

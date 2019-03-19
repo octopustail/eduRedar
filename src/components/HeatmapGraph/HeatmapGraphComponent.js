@@ -514,10 +514,10 @@ class Heatmap extends Component {
     }
     componentDidUpdate() {
         //因为RedarGraph的组件的Mount是在Person之前完成的，所以说获取数据的操作放在了DidUpdate里面
-        let elem = this.refs.redarGraph
-        let data = this.props.data
+        // let elem = this.heatmap
+        // let data = this.props.data
 
-        redarGraph.initGraph(elem, data)
+        // redarGraph.initGraph(elem, data)
     }
 }
 export default Heatmap

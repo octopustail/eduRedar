@@ -22,7 +22,9 @@ module.exports = {
         hot: true,
         proxy:{
             '/api':'http://localhost:3033',
-            '/studentRecord':'http://localhost:3033'
+            '/studentRecord':'http://localhost:3033',
+            '/studentGpa':'http://localhost:3033'
+
         }
     },
 
