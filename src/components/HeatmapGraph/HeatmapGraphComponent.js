@@ -9,18 +9,30 @@ class Heatmap extends Component {
         this.heatmap = null;
         this.state = {
             data: {
-                outer: [{ len: 31, color: "#8dd3c7", label: "January", id: "january" },
-                { len: 28, color: "#ffffb3", label: "February", id: "february" },
-                { len: 31, color: "#bebada", label: "March", id: "march" },
-                { len: 30, color: "#fb8072", label: "April", id: "april" },
-                { len: 31, color: "#80b1d3", label: "May", id: "may" },
-                { len: 30, color: "#fdb462", label: "June", id: "june" },
-                { len: 31, color: "#b3de69", label: "July", id: "july" },
-                { len: 31, color: "#fccde5", label: "August", id: "august" },
-                { len: 30, color: "#d9d9d9", label: "September", id: "september" },
-                { len: 31, color: "#bc80bd", label: "October", id: "october" },
-                { len: 30, color: "#ccebc5", label: "November", id: "november" },
-                { len: 31, color: "#ffed6f", label: "December", id: "december" }],
+                // outer: [{ len: 31, color: "#8dd3c7", label: "January", id: "january" },
+                // { len: 28, color: "#ffffb3", label: "February", id: "february" },
+                // { len: 31, color: "#bebada", label: "March", id: "march" },
+                // { len: 30, color: "#fb8072", label: "April", id: "april" },
+                // { len: 31, color: "#80b1d3", label: "May", id: "may" },
+                // { len: 30, color: "#fdb462", label: "June", id: "june" },
+                // { len: 31, color: "#b3de69", label: "July", id: "july" },
+                // { len: 31, color: "#fccde5", label: "August", id: "august" },
+                // { len: 30, color: "#d9d9d9", label: "September", id: "september" },
+                // { len: 31, color: "#bc80bd", label: "October", id: "october" },
+                // { len: 30, color: "#ccebc5", label: "November", id: "november" },
+                // { len: 31, color: "#ffed6f", label: "December", id: "december" }],
+                outer: [{ len: 4, color: "#8dd3c7", label: "Begin1", id: "Beginning1" },
+                { len: 14, color: "#ffffb3", label: "MiddleS1", id: "MiddleStage1" },
+                { len: 4, color: "#d9d9d9", label: "fTest1", id: "finalTest1" },
+                { len: 2, color: "#bebada", label: "voca1", id: "vocation1" },
+
+                { len: 2, color: "#bebada", label: "voca1", id: "vocation2" },
+                { len: 4, color: "#d9d9d9", label: "fTest2", id: "finalTest2" },
+                { len: 14, color: "#ffffb3", label: "MiddleS2", id: "MiddleStage2" },
+                { len: 4, color: "#8dd3c7", label: "Begin2", id: "Beginning2" },
+
+
+                ],
                 inner: [{
                     block_id: 'january',
                     start: 0,
@@ -411,28 +423,109 @@ class Heatmap extends Component {
         let elem = this.heatmap
         let data = {}
         data.outer = this.state.data.outer
-        data.inner = this.state.data.inner
-        data.test = this.state.data.test
+
+        data.mouths = this.props.data
         this.initGraph(elem, data)
     }
 
     initGraph = (elem, d) => {
+
         let data = d
+        if (JSON.stringify(data.mouths) === '{}') { return }
         let myCircos = new Circos({
             container: elem,
             width: 500,
             height: 500
         })
-
-        let dayoff = d.test.map((d) => {
-            return {
-                block_id: d[0],
-                start: parseInt(d[1]),
-                end: parseInt(d[2]),
-                value: parseInt(d[3]),
-
+        let weekoff = []
+        // console.log(data)
+        const countByweek = []
+        const countByWeekSems = {}
+        const sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
+        for (let s = 0; s < sems.length; s++) {
+            let sem = sems[s]
+            for (let i = 0; i < 24; i++) {
+                countByweek[i] = data.mouths.reduce((pre, item) => {
+                    return parseInt(item[sem][i]) + pre
+                }, 0)
             }
+            //JS的数组是一个引用对象
+            countByWeekSems[sem] = [...countByweek]
+
+        }
+
+        let arr1 = ['sems1', 'sems3', 'sems5']
+        let arr2 = ['sems2', 'sems4', 'sems6']
+
+        arr1.forEach((key) => {
+            let week = countByWeekSems[key].map((item, idx) => {
+
+                let index, id
+                if (idx < 4) {
+                    index = idx
+                    id = 'Beginning1'
+                } else if (idx >= 4 && idx < 18) {
+                    index = idx - 4
+                    id = 'MiddleStage1'
+                } else if (idx >= 18 && idx < 22) {
+                    index = idx - 18
+                    id = 'finalTest1'
+                } else {
+                    index = idx - 22
+                    id = 'vocation1'
+                }
+
+                return {
+                    block_id: id,
+                    start: index,
+                    end: index + 1,
+                    value: item
+                }
+
+            })
+            weekoff.push(week)
         })
+console.log('weekoff',weekoff)
+        arr2.forEach((key) => {
+            let week = countByWeekSems[key].map((item, idx) => {
+                let index, id
+                if (idx < 4) {
+                    index = idx
+                    id = 'Beginning2'
+                } else if (idx >= 4 && idx < 18) {
+                    index = idx - 4
+                    id = 'MiddleStage2'
+                } else if (idx >= 18 && idx < 22) {
+                    index = idx - 18
+                    id = 'finalTest2'
+                } else{
+                    index = idx - 22
+                    id = 'vocation2'
+                }
+                return {
+                    block_id: id,
+                    start: index,
+                    end: index + 1,
+                    value: parseInt(item)
+                }
+
+            })
+            weekoff.push(week)
+        })
+
+
+        // let dayoff = d.mouths.map((d) => {
+        //     return {
+        //         block_id: d[0],
+        //         start: parseInt(d[1]),
+        //         end: parseInt(d[2]),
+        //         value: parseInt(d[3]),
+
+        //     }
+        // })
+
+        //处理数据
+
         const configuration = {
             innerRadius: 180,
             outerRadius: 200,
@@ -467,39 +560,39 @@ class Heatmap extends Component {
         }
 
         myCircos.layout(data.outer, configuration)
-            .heatmap('heat-maptest1', dayoff, {
-                innerRadius: 0.9,
-                outerRadius: 0.8,
+            .heatmap('heat-maptest1', weekoff[0], {
+                innerRadius: 0.95,
+                outerRadius: 0.85,
                 logScale: false,
-                color: 'Blues'
+                color: 'YlOrRd'
             })
-            .heatmap('heat-maptest2', dayoff, {
-                innerRadius: 0.8,
-                outerRadius: 0.7,
+            .heatmap('heat-maptest2', weekoff[1], {
+                innerRadius: 0.85,
+                outerRadius: 0.75,
                 logScale: false,
-                color: 'PiYG'
+                color: 'YlOrRd'
             })
-            .heatmap('heat-maptest5', dayoff, {
-                innerRadius: 0.7,
-                outerRadius: 0.6,
+            .heatmap('heat-maptest5', weekoff[2], {
+                innerRadius: 0.75,
+                outerRadius: 0.65,
                 logScale: false,
-                color: 'PuOr'
+                color: 'YlOrRd'
             })
-            .heatmap('heat-maptest6', dayoff, {
-                innerRadius: 0.6,
-                outerRadius: 0.5,
+            .heatmap('heat-maptest6', weekoff[3], {
+                innerRadius: 0.95,
+                outerRadius: 0.85,
                 logScale: false,
-                color: 'PRGn'
+                color: 'YlOrRd'
             })
-            .heatmap('heat-maptest3', dayoff, {
-                innerRadius: 0.4,
-                outerRadius: 0.3,
+            .heatmap('heat-maptest3', weekoff[4], {
+                innerRadius: 0.85,
+                outerRadius: 0.75,
                 logScale: false,
-                color: 'Purples'
+                color: 'YlOrRd'
             })
-            .heatmap('heat-maptest4', dayoff, {
-                innerRadius: 0.2,
-                outerRadius: 0.1,
+            .heatmap('heat-maptest4', weekoff[5], {
+                innerRadius: 0.75,
+                outerRadius: 0.65,
                 logScale: false,
                 color: 'YlOrRd'
             })
@@ -517,7 +610,12 @@ class Heatmap extends Component {
         // let elem = this.heatmap
         // let data = this.props.data
 
-        // redarGraph.initGraph(elem, data)
+        let elem = this.heatmap
+        let data = {}
+        data.outer = this.state.data.outer
+
+        data.mouths = this.props.data
+        this.initGraph(elem, data)
     }
 }
 export default Heatmap

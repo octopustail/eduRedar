@@ -8,7 +8,7 @@ function studentGPADataProcess(req, res, next) {
     // let queryID = req.query.stype || null
 
     let responseData = { gpa: [], flow: [], records: [] }
-
+//这么写真的非常丑陋，希望通过promise的方式来进行两次查询异步控制，当两次都查询都返回结果的时候在response，但是没有做到。之后代码优化的点
     stuGPA.find({ sid: { $regex: /^201006/ } })
         .then(result => {
 
@@ -17,7 +17,7 @@ function studentGPADataProcess(req, res, next) {
             stuLib10s.find({ sid: { $regex: /^2906/ } })
                 .then((result) => {
                     console.log('result2', result)
-                    responseData.flow = result
+                    responseData.records = result
                     util.responseClient(res, 200, 0, 'success', responseData)
                 })
 
