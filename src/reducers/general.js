@@ -29,9 +29,9 @@ export function reducer(state = initialState, action) {
         case actionType.RESPONSE_GENERAL_GPA_FLOW_RECORD:
             return {
                 ...state,
-                general_gpa: action.data.generalGpa,
-                gpa_flow: action.data.gpa_flow,
-                general_records: action.data.general_records
+                general_gpa: action.data.gpa,
+                gpa_flow: action.data.flow,
+                general_records: action.data.records
             }
         default:
             return state
