@@ -32,7 +32,6 @@ class SankeyGraph extends Component {
         
     }
     dataFormatForSankey = (result) => {
-        console.log(result)
         let nodes = [],
             links = [],
             data,
@@ -55,13 +54,13 @@ class SankeyGraph extends Component {
 
             // console.log('slist', slist)
             slist.forEach((item) => {
-                console.log(item)
+                // console.log(item)
                 nodes[0].value.push(item.sid)
 
                 const s4 = (parseFloat(item['sems4']).toFixed(2) >= 85)
                 const s5 = (parseFloat(item['sems5']).toFixed(2) >= 85)
                 const s6 = (parseFloat(item['sems6']).toFixed(2) >= 85)
-                console.log(s4, s5, s6)
+                // console.log(s4, s5, s6)
                 if (s4 && s5 && s6) {
                     links[0].value++; links[1].value++; links[2].value++
                     nodes[1].value.push(item.sid); nodes[2].value.push(item.sid); nodes[3].value.push(item.sid)
@@ -136,14 +135,14 @@ class SankeyGraph extends Component {
 
     getOption = (data) => {
         console.log(data)
-        const colorGroup = { a1: "#ff0", b1: '#00f', c1: '#0f0' }
 
         return {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{b} :{c}"
 
-            },
+            // tooltip: {
+            //     trigger: 'item',
+            //     formatter: "{c}"
+
+            // },
             series: {
                 type: 'sankey',
                 layout: 'none',
@@ -151,10 +150,21 @@ class SankeyGraph extends Component {
                 data: data.nodes,
                 links: data.links,
                 color: [
-                    '#30588C',
-                    '#77C3F2',
+                    '#FA8670',
+                    '#319D50',
                     '#FAA805'
                 ],
+                lineStyle:{
+                    color:'source',
+                    opacity:0.4
+                },
+                label:{
+                    show:false,
+                    backgroundColor:"rgba(0,0,0,0.3)",
+                    color:"#fff",
+                    padding:[4,3],
+                    borderRadius:3
+                }
                 
             }
         }
@@ -170,8 +180,8 @@ class SankeyGraph extends Component {
             'click': this.onChartClick
         }
         return (
-            <div className="sankey-graph">
-                <ReactEcharts option={this.getOption(this.dataFormatForSankey(this.props.data))} style={{ height: 500, width: 500 }} onEvents={onEvents} />
+            <div className="sankey">
+                <ReactEcharts option={this.getOption(this.dataFormatForSankey(this.props.data))} style={{ height: this.state.height, width: this.state.width }} onEvents={onEvents} />
             </div>
         )
     }

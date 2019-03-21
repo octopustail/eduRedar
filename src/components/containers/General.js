@@ -8,7 +8,7 @@ import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
-
+import style from './style.css'
 
 class Genaral extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class Genaral extends Component {
                 return (ave < 60)
             }
         }
-        return { result:d.filter(filterFunc[t]),stype:t}
+        return { result: d.filter(filterFunc[t]), stype: t }
     }
 
     render() {
@@ -53,10 +53,17 @@ class Genaral extends Component {
             onBrushSelected: this.onBrushSelected
         }
         return (
-            <div>
-                <Heatmap />
-                <SankeyGraph data={this.selecteData(this.props.general_gpa)} />
-                <ParallelCoordinate data={this.selecteData(this.props.general_gpa)} />
+            <div className="general-container">
+                <div className="row">
+                    <div className ="filter"></div>
+                    <SankeyGraph className="sankey" data={this.selecteData(this.props.general_gpa)} />
+
+
+                </div>
+                <div className="row">
+                    <Heatmap className="heatmap" data={this.props.general_records} />
+                    <ParallelCoordinate classNsme="parallel" data={this.selecteData(this.props.general_gpa)} />
+                </div>
             </div>
         )
     }

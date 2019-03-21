@@ -1,0 +1,62 @@
+.general-container {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  justify-content: center;
+
+  margin: 5px;
+
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.general-container .row {
+  display: flex;
+  align-content: stretch;
+  flex-basis: 47.5%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;;
+}
+
+.heatmap,
+.parallel,
+.sankey,
+.filter,
+.redar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+
+  margin: 10px;
+  padding: 5px;
+
+  border-radius: 5px;
+  background: rgba(117, 117, 117,.2);
+  box-shadow: 2px 2px 2px 1px rgba(0,0,0,.2);
+}
+
+.filter {
+  flex-grow: 1;
+
+  height: 50%;
+}
+
+.person {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin: 5px;
+
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.person .row {
+  display: flex;
+  flex-direction: row;
+}

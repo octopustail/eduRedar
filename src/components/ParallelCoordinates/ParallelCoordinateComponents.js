@@ -53,7 +53,6 @@ export default class ParallelGraph extends Component {
 
         const data = this.dataFormate(ori_data)
         return {
-            backgroundColor: '#333',
             tooltip: {
                 padding: 10,
                 backgroundColor: '#222',
@@ -62,7 +61,7 @@ export default class ParallelGraph extends Component {
 
             },
             parallelAxis: [
-                { dim: 0, name: schema[0].text, nameLocation: 'start' },
+                { dim: 0, name: schema[0].text},
                 { dim: 1, name: schema[1].text },
                 { dim: 2, name: schema[2].text },
                 { dim: 3, name: schema[3].text },
@@ -76,7 +75,7 @@ export default class ParallelGraph extends Component {
             ],
             visualMap: {
                 show: false,
-                min: 60,
+                min: 80,
                 max: 95,
                 dimension: 2,
                 inRange: {
@@ -132,7 +131,7 @@ export default class ParallelGraph extends Component {
 
         return (
             <div className="parallel">
-                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:400,width:400}} />
+                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:500,width:600}} />
             </div>
         )
     }

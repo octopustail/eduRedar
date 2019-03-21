@@ -506,7 +506,8 @@ console.log('weekoff',weekoff)
                     block_id: id,
                     start: index,
                     end: index + 1,
-                    value: parseInt(item)
+                    value: parseInt(item),
+                    index:idx,
                 }
 
             })
@@ -564,7 +565,10 @@ console.log('weekoff',weekoff)
                 innerRadius: 0.95,
                 outerRadius: 0.85,
                 logScale: false,
-                color: 'YlOrRd'
+                color: 'YlOrRd',
+                tooltipContent:function(d){
+                    return d
+                }
             })
             .heatmap('heat-maptest2', weekoff[1], {
                 innerRadius: 0.85,

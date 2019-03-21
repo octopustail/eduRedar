@@ -36,11 +36,11 @@ redarGraph.initGraph = function (el, data) {
     }
     const MaxMin = 60 * 24
     const MaxDay = 200
-    const width = 500
-    const height = 500
-    const margin = 100
+    const width = 240
+    const height = 240
+    const margin = 50
     // const radius = Math.min(height, height) / 2
-     const radius = Math.min(400, 400) / 2
+     const radius = Math.min(width-margin, height-margin) / 2
 
     let Mockdata = [[3, 133],
     [480, 80], [0, 0], [180, 199]]
@@ -51,7 +51,7 @@ redarGraph.initGraph = function (el, data) {
 
     const r = d3.scaleLinear()
         .domain([0, MaxDay])
-        .range([0, radius])
+        .range([20, radius])
 
     let svg = d3.select(el).append("svg")
         .attr("width", width + margin)
@@ -118,7 +118,7 @@ redarGraph.initGraph = function (el, data) {
             let coors1 = coors.slice(1).slice(0, -1);
             return `translate(${coors1})`
         })
-        .attr("r", 3)
+        .attr("r", 1.5)
         .attr("class",function(d){
             return d
         })

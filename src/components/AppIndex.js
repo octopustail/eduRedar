@@ -30,7 +30,7 @@ export class AppIndex extends Component {
                 {/* <Counter/> */}
                 {/* <SankeyGraph/> */}
                 <General className ="general"/>
-                {/* <Person info = {this.state.selectStudent}/> */}
+                <Person info = {this.state.selectStudent}/>
             </div>
         )
     }
