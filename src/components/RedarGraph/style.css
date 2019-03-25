@@ -27,3 +27,23 @@
 
   color: #f3f3f3;
 }
+
+.tooltip {
+  font-size: 12px;
+
+  position: absolute;
+  z-index: 10;
+  top: 95px;
+  left: 130px;
+
+  display: block;
+
+  padding: 10px;
+
+  text-align: center;
+
+  opacity: 0;
+  color: #333;
+  background: #eee;
+  box-shadow: 0 0 5px #999;
+}

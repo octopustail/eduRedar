@@ -1,38 +1,39 @@
 import * as d3 from 'd3'
 import style from './style.css'
 import { color } from 'd3';
-import {zumaColor as colorScale} from '../../config/config'
+import { zumaColor as colorScale, schoolCalendar } from '../../config/config'
+
 
 let redarGraph = {}
 
 
 redarGraph.initGraph = function (el, data) {
     //MaxMin时间要转化成分钟的相对时间 MaxDay:一学期的总天数，应该用相对时间计算获
-    console.log(data)
+    // console.log(data)
 
     const sems = data.sems
     let formatDatas = []
-    const startTime_ms = Date.parse(new Date('2009,09,01'))
+    const startTime_ms = Date.parse(schoolCalendar[`sems${sems}`])
 
     function convertDatatoFormat(startTime_ms, record) {
         let dayStr = record.sdate.split('-').join(',')
         let day_ms = Date.parse(new Date(dayStr))
-        let day = (day_ms-startTime_ms)/(1000*60*60*24)
+        let day = (day_ms - startTime_ms) / (1000 * 60 * 60 * 24)
 
-        let hourArr = record.stime.split(':').slice(0,2)
-        let hour = parseInt(hourArr[0])*60 + parseInt(hourArr[1])
-        return [hour,day]
+        let hourArr = record.stime.split(':').slice(0, 2)
+        let hour = parseInt(hourArr[0]) * 60 + parseInt(hourArr[1])
+        return [hour, day]
 
     }
-    if(JSON.stringify(data) !== {}){
-    ['food', 'shower', 'library', 'hotwater'].forEach(function (key) {
-        let formatData = data[key].map(function (item) {
-          let arr =  convertDatatoFormat(startTime_ms, item)
-          arr.push(item.stype)
-          return arr
+    if (JSON.stringify(data) !== {}) {
+        ['food', 'shower', 'library', 'hotwater'].forEach(function (key) {
+            let formatData = data[key].map(function (item) {
+                let arr = convertDatatoFormat(startTime_ms, item)
+                arr.push(item)
+                return arr
+            })
+            formatDatas = formatDatas.concat(formatData)
         })
-        formatDatas = formatDatas.concat(formatData)
-    })
     }
     const MaxMin = 60 * 24
     const MaxDay = 200
@@ -40,7 +41,7 @@ redarGraph.initGraph = function (el, data) {
     const height = 240
     const margin = 50
     // const radius = Math.min(height, height) / 2
-     const radius = Math.min(width-margin, height-margin) / 2
+    const radius = Math.min(width - margin, height - margin) / 2
 
     let Mockdata = [[3, 133],
     [480, 80], [0, 0], [180, 199]]
@@ -106,7 +107,7 @@ redarGraph.initGraph = function (el, data) {
             return r(d[1])
         })
 
-    const color = d3.scaleOrdinal([colorScale.food,colorScale.library,colorScale.hotwater,colorScale.shower]);
+    const color = d3.scaleOrdinal([colorScale.food, colorScale.library, colorScale.hotwater, colorScale.shower]);
 
     svg.selectAll("point")
         .data(formatDatas)
@@ -114,18 +115,61 @@ redarGraph.initGraph = function (el, data) {
         .append("circle")
         .attr("class", "point")
         .attr("transform", function (d) {
-            const coors = line([d.slice(0,2)])
+            const coors = line([d.slice(0, 2)])
             let coors1 = coors.slice(1).slice(0, -1);
             return `translate(${coors1})`
         })
         .attr("r", 1.5)
-        .attr("class",function(d){
-            return d
-        })
+        // .attr("class", function (d) {
+        //     return d
+        // })
         .attr("fill", function (d, i) {
-            return color(d[2])
+            return color(d[2].stype)
         })
-        .style("opacity",0.7)
+        .style("opacity", 0.7)
+
+
+    let tooltip = d3.select(el)
+        .append('div')
+        .attr("class", "tooltip")
+
+    tooltip.append('div')
+        .attr("class", "date")
+        .append('div')
+        .attr("class", 'value')
+
+    svg.selectAll(".point")
+        .on("mouseover", function (d) {
+            tooltip.select('.date').html(`${d[2].stype}: ${d[2].sdate} ${d[2].stime}`)
+            d3.select(this)
+                .style("stroke", "#fff")
+                .style("stroke-width", "2px")
+
+            // let nodes = document.getElementsByClassName(this.getAttribute('class'))
+
+            // d3.selectAll(nodes)
+            //     .style("stroke", '#ffffff')
+            //     .style("stroke-width", "2px")
+
+            tooltip.style('display', 'block');
+            tooltip.style('opacity', 1);
+        })
+        .on('mousemove', function (d) {
+            tooltip.style('top', (d3.event.layerY + 10) + 'px')
+                .style('left', (d3.event.layerX - 25) + 'px');
+        })
+        .on('mouseout', function (d) {
+            d3.selectAll(".point")
+                .style("fill", function (d) { return color(d[2].stype); })
+                .style("stroke", "none")
+
+                let nodes = document.getElementsByClassName(this.getAttribute('class'))
+            d3.selectAll(nodes)
+                .style("opacity", 1)
+                .style("stroke", "none")
+            tooltip.style('display', 'none');
+            tooltip.style('opacity', 0);
+        });
 }
 
 export default redarGraph
