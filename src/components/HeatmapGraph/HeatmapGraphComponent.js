@@ -485,7 +485,7 @@ class Heatmap extends Component {
             })
             weekoff.push(week)
         })
-console.log('weekoff',weekoff)
+// console.log('weekoff',weekoff)
         arr2.forEach((key) => {
             let week = countByWeekSems[key].map((item, idx) => {
                 let index, id
@@ -600,6 +600,19 @@ console.log('weekoff',weekoff)
                 logScale: false,
                 color: 'YlOrRd'
             })
+            .line('snp-in', [], {
+                innerRadius: 0.25,
+                outerRadius: 0.65,
+                maxGap: 1000000,
+                direction: 'in',
+                min: 0,
+                max: 0.015,
+                color: '#fff',
+                axes: [
+                  {spacing:2}
+                ],
+                tooltipContent: null
+              })
         myCircos.render()
     }
 

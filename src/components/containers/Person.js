@@ -21,14 +21,14 @@ class Person extends Component {
                     })
                 } */}
                 <div className="row">
-                    <RedarGraph className="redar" data={this.props.personalRecord} sems = "sems1"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord} sems = "sems2"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord} sems = "sems3"/>
+                    <RedarGraph className="redar" data={this.props.personalRecord[0]} sems = "sems1"/>
+                    <RedarGraph className="redar" data={this.props.personalRecord[1]} sems = "sems2"/>
+                    <RedarGraph className="redar" data={this.props.personalRecord[2]} sems = "sems3"/>
                 </div>
                 <div className="row">
-                    <RedarGraph className="redar" data={this.props.personalRecord} sems = "sems4"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord} sems = "sems5"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord} sems = "sems6"/>
+                    <RedarGraph className="redar" data={this.props.personalRecord[3]} sems = "sems4"/>
+                    <RedarGraph className="redar" data={this.props.personalRecord[4]} sems = "sems5"/>
+                    <RedarGraph className="redar" data={this.props.personalRecord[5]} sems = "sems6"/>
                 </div>
             </div>
         )

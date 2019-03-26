@@ -8,7 +8,9 @@ import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
+const get_student_group   = generalAction.get_student_group
 import style from './style.css'
+import { resolve } from 'path';
 
 class Genaral extends Component {
     constructor(props) {
@@ -22,6 +24,7 @@ class Genaral extends Component {
 
     onChartClick(param, instance) {
         console.log('click', param)
+
     }
 
     selecteData(data) {
@@ -67,22 +70,28 @@ class Genaral extends Component {
             </div>
         )
     }
+    
 
     componentDidMount() {
-        this.props.get_general_gpa_flow_record('type:any')
+
+
+        this.props.get_student_group('type:any')
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        get_general_gpa_flow_record: bindActionCreators(get_general_gpa_flow_record, dispatch)
+        get_general_gpa_flow_record: bindActionCreators(get_general_gpa_flow_record, dispatch),
+        get_student_group:bindActionCreators(get_student_group,dispatch)
+        
     }
 }
 function mapStateToProps(state) {
     return {
         general_gpa: state.general.general_gpa,
         general_flow: state.general.general_flow,
-        general_records: state.general.general_records
+        general_records: state.general.general_records,
+        student_group: state.general.student_group,
     }
 }
 

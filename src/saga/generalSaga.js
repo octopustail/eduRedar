@@ -27,3 +27,30 @@ export function* getGeneralGpaRecordFlow(){
     }
 }
 
+export function* getStudentGroup(type){
+    yield put({type:IndexAction.FETCH_START})
+    try{
+        return yield call(get,`/studentGroup?type=${type}`)
+    }catch(err){
+        yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
+    }finally{
+        yield put({type:IndexAction.FETCH_END})
+    }
+}
+
+export function* getStudentGroupFlow(){
+    while(true){
+        let req = yield take(GeneralAction.GET_STUDENT_GROUP)
+        let res =  yield call(getStudentGroup,req.stype)
+        console.log(res)
+        if(res){
+            if(res.code === 0){
+                //在这里发出三合一请求。
+                console.log(res)
+                yield put({type:GeneralAction.RESPONSE_STUDENT_GROUP,data:res.data})
+                yield put({type:GeneralAction.GET_GENERAL_GPA_FLOW_RECORD,stype:res.data[0].stype,list:res.data[0].list})
+            }
+        }
+    }
+}
+
