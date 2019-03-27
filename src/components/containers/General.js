@@ -65,7 +65,8 @@ class Genaral extends Component {
                 </div>
                 <div className="row">
                     <Heatmap className="heatmap" data={this.props.general_records} />
-                    <ParallelCoordinate classNsme="parallel" data={this.selecteData(this.props.general_gpa)} />
+                    {/* <ParallelCoordinate classNsme="parallel" data={this.selecteData(this.props.general_gpa)} /> */}
+                    <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} />
                 </div>
             </div>
         )

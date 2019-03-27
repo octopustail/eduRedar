@@ -27,10 +27,11 @@ export const actions = {
         }
 
     },
-    get_student_group:function(stype){
+    get_student_group:function(stype,list){
         return{
             type:actionType.GET_STUDENT_GROUP,
             stype,
+            list
         }
     }
 }

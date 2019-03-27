@@ -3,10 +3,10 @@ import {actionType as IndexAction} from '../reducers'
 import {actionType as GeneralAction} from '../reducers/general'
 import {get,post} from '../fetch/fetch'
 
-export function* getGeneralGpaRecord(type){
+export function* getGeneralGpaRecord(type,list){
     yield put({type:IndexAction.FETCH_START})
     try{
-        return yield call(get,`/studentGpa?type=${type}`)
+        return yield call(get,`/studentGpa?type=${type}&list=${list}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
     }finally{
@@ -17,7 +17,7 @@ export function* getGeneralGpaRecord(type){
 export function* getGeneralGpaRecordFlow(){
     while(true){
         let req = yield take(GeneralAction.GET_GENERAL_GPA_FLOW_RECORD)
-        let res =  yield call(getGeneralGpaRecord,req.stype)
+        let res =  yield call(getGeneralGpaRecord,req.stype,req.list)
         console.log(res)
         if(res){
             if(res.code === 0){
@@ -27,10 +27,10 @@ export function* getGeneralGpaRecordFlow(){
     }
 }
 
-export function* getStudentGroup(type){
+export function* getStudentGroup(type,list){
     yield put({type:IndexAction.FETCH_START})
     try{
-        return yield call(get,`/studentGroup?type=${type}`)
+        return yield call(get,`/studentGroup?type=${type}&list=${list}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
     }finally{

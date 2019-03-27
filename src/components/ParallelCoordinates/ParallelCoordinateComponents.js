@@ -61,12 +61,12 @@ export default class ParallelGraph extends Component {
 
             },
             parallelAxis: [
-                { dim: 0, name: schema[0].text},
-                { dim: 1, name: schema[1].text },
-                { dim: 2, name: schema[2].text },
-                { dim: 3, name: schema[3].text },
-                { dim: 4, name: schema[4].text },
-                { dim: 5, name: schema[5].text },
+                { dim: 0, name: schema[0].text,max:100,min:0},
+                { dim: 1, name: schema[1].text,max:100,min:0},
+                { dim: 2, name: schema[2].text,max:100,min:0},
+                { dim: 3, name: schema[3].text,max:100,min:0},
+                { dim: 4, name: schema[4].text,max:100,min:0},
+                { dim: 5, name: schema[5].text,max:100,min:0},
                 // { dim: 6, name: schema[6].text },
                 // {
                 //     dim: 7, name: schema[7].text,
@@ -75,8 +75,8 @@ export default class ParallelGraph extends Component {
             ],
             visualMap: {
                 show: false,
-                min: 80,
-                max: 95,
+                min: 100,
+                max: 0,
                 dimension: 2,
                 inRange: {
                     color: ['#d94e5d', '#eac736', '#50a3ba'].reverse(),
