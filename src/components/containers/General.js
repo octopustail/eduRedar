@@ -56,7 +56,7 @@ class Genaral extends Component {
             onClick: this.onChartClick,
             onBrushSelected: this.onBrushSelected
         }
-        const stuTypes = ['real_exStu','real_lowStu','real_midStu','unio_exStu','unio_exStu','unio_exStu','pre_exStu','pre_exStu','pre_exStu']
+        const stuTypes = ['real_exStu','real_lowStu','real_midStu','unio_exStu','unio_midStu','unio_lowStu','pre_exStu','pre_midStu','pre_lowStu']
         return (
             <div className="general-container">
                 <div className="row">
