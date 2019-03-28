@@ -36,7 +36,7 @@ class Person extends Component {
     componentDidMount() {
         //拿着学号去请求学生的record等信息
         // this.props.get_personal_records(this.props.info)
-        this.props.get_personal_records("2904201011")
+        this.props.get_personal_records("2904302008")
     }
     componentDidUpdate() {
     }

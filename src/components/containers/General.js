@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import ParallelCoordinate from '../ParallelCoordinates/ParallelCoordinateComponents'
 import SankeyGraph from '../sankeyGraph/SankeyGraphComponent'
 import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
+import Filter from './Filter'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
@@ -47,7 +48,7 @@ class Genaral extends Component {
                 return (ave < 60)
             }
         }
-        return { result: d.filter(filterFunc[t]), stype: t }
+        return { result: d.filter(filterFunc['good']), stype: t }
     }
 
     render() {
@@ -55,10 +56,11 @@ class Genaral extends Component {
             onClick: this.onChartClick,
             onBrushSelected: this.onBrushSelected
         }
+        const stuTypes = ['real_exStu','real_lowStu','real_midStu','unio_exStu','unio_exStu','unio_exStu','pre_exStu','pre_exStu','pre_exStu']
         return (
             <div className="general-container">
                 <div className="row">
-                    <div className ="filter"></div>
+                    <Filter className="filter" getStudentGroup={this.props.get_student_group} stuTypes = {stuTypes}/>
                     <SankeyGraph className="sankey" data={this.props.general_gpa} />
 
 
@@ -76,7 +78,7 @@ class Genaral extends Component {
     componentDidMount() {
 
 
-        this.props.get_student_group('type:any')
+        // this.props.get_student_group('unio_exStu')
     }
 }
 

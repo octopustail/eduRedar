@@ -40,7 +40,7 @@ function studentGPADataProcess(req, res, next) {
     const findstuGPA = new Promise((resolve, reject) => {
         console.log('in promise1')
         // resolve('p1')
-        stuGPA.find({ sid: { $in: list } }).then((results)=>{resolve(results)})
+        stuGPA.find({ sid: {$in:list} }).then((results)=>{resolve(results)})
         // stuGPA.find({ sid: { $in: list } }).then((results)=>{resolve(results)}).catch((err)=>{reject(err)})
         console.log('out promise1')
 

@@ -63,7 +63,7 @@ class SankeyGraph extends Component {
             // })
 
 
-
+            console.log('data',data)
             nodes = nodes.concat([{ name: `s${t}0`, value: [] }, { name: `s${t}1`, value: [] }, { name: `s${t}2`, value: [] }, { name: `s${t}3`, value: [] },{name:"test1",value:"test1"},{name:"test2",value:"test2"}])
             links = links.concat({ source: `s${t}0`, target: `s${t}1`, value: 0 }, { source: `s${t}1`, target: `s${t}2`, value: 0 }, { source: `s${t}2`, target: `s${t}3`, value: 0 })
             // console.log('slist', slist)
@@ -100,7 +100,7 @@ class SankeyGraph extends Component {
                     }
 
                 }
-                console.log(sid, level)
+                // console.log(sid, level)
                 level.reduce((prel, curl, index) => {
                     //第一个判断语句没有进去过
                     if (index === 0) {
@@ -226,7 +226,7 @@ class SankeyGraph extends Component {
                 color: [
                     '#FA8670',
                     '#319D50',
-                    '#FAA805'
+             
                 ],
                 lineStyle: {
                     color: 'source',
