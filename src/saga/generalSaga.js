@@ -27,10 +27,11 @@ export function* getGeneralGpaRecordFlow(){
     }
 }
 
-export function* getStudentGroup(type,list){
+export function* getStudentGroup(type){
     yield put({type:IndexAction.FETCH_START})
     try{
-        return yield call(get,`/studentGroup?type=${type}&list=${list}`)
+        console.log('type',type)
+        return yield call(get,`/studentGroup?stype=${type}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
     }finally{

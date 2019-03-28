@@ -259,5 +259,9 @@ class SankeyGraph extends Component {
             </div>
         )
     }
+
+    componentDidUpdate(){
+        
+    }
 }
 export default SankeyGraph

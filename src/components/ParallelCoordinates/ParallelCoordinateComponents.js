@@ -76,7 +76,7 @@ export default class ParallelGraph extends Component {
             visualMap: {
                 show: false,
                 min: 100,
-                max: 0,
+                max: 30,
                 dimension: 2,
                 inRange: {
                     color: ['#d94e5d', '#eac736', '#50a3ba'].reverse(),
