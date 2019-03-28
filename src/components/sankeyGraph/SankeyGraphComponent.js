@@ -39,7 +39,7 @@ class SankeyGraph extends Component {
             t
 
         if (result.length !== 0) {
-            data = result.result
+            data = result
             console.log(data)
             // t = result.stype
             // try{
@@ -205,7 +205,6 @@ class SankeyGraph extends Component {
         }
         console.log('nodes', nodes, 'links', links)
         return { nodes, links }
-
     }
 
     getOption = (data) => {

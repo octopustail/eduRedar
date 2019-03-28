@@ -59,7 +59,7 @@ class Genaral extends Component {
             <div className="general-container">
                 <div className="row">
                     <div className ="filter"></div>
-                    <SankeyGraph className="sankey" data={this.selecteData(this.props.general_gpa)} />
+                    <SankeyGraph className="sankey" data={this.props.general_gpa} />
 
 
                 </div>
@@ -93,6 +93,7 @@ function mapStateToProps(state) {
         general_flow: state.general.general_flow,
         general_records: state.general.general_records,
         student_group: state.general.student_group,
+        student_type:state.general.student_type,
     }
 }
 

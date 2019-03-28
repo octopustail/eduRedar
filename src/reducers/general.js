@@ -42,8 +42,9 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 general_gpa: action.data.gpa,
-                gpa_flow: action.data.flow,
-                general_records: action.data.records
+                gpa_ae: action.data.ae,
+                general_records: action.data.records,
+                student_type:action.data.stype
             }
         case actionType.RESPONSE_STUDENT_GROUP:
             return{

@@ -20,8 +20,8 @@ export default class ParallelGraph extends Component {
     }
 
     dataFormate=(data)=>{
-        if(!data.result) {return []}
-        let d = data.result,
+        if(!data) {return []}
+        let d = data,
         dataGroup = [],
         stype = data.stype;
 
