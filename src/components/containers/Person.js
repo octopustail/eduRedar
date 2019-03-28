@@ -9,26 +9,24 @@ import style from './style.css'
 class Person extends Component {
     constructor(props) {
         super(props)
+       this.sems = ['sems1', 'sems2', 'sems3', 'sem4', 'sem5', 'sem6']
+
     }
 
     render() {
         return (
             //画出六个学期的图
             <div className="person">
+            <div className="redar-container">
                 {/* {
                     this.props.personal_records.map((sems, index) => {
                         <RedarGraph key={index} data={sems} />
                     })
                 } */}
-                <div className="row">
-                    <RedarGraph className="redar" data={this.props.personalRecord[0]} sems = "sems1"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord[1]} sems = "sems2"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord[2]} sems = "sems3"/>
-                </div>
-                <div className="row">
-                    <RedarGraph className="redar" data={this.props.personalRecord[3]} sems = "sems4"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord[4]} sems = "sems5"/>
-                    <RedarGraph className="redar" data={this.props.personalRecord[5]} sems = "sems6"/>
+                {
+                    this.sems.map((sem, index) => (
+                        <RedarGraph className="redar" key={index} data={this.props.personalRecord[index]} sems ={sem} />
+                    ))}
                 </div>
             </div>
         )

@@ -10,7 +10,9 @@ let redarGraph = {}
 redarGraph.initGraph = function (el, data) {
     //MaxMin时间要转化成分钟的相对时间 MaxDay:一学期的总天数，应该用相对时间计算获
     // console.log(data)
-
+    
+    //清空画布 重新开始画
+    d3.select(el).selectAll('svg').remove()
     const sems = data.sems
     let formatDatas = []
     const startTime_ms = Date.parse(schoolCalendar[`sems${sems}`])
@@ -165,7 +167,7 @@ redarGraph.initGraph = function (el, data) {
 
                 let nodes = document.getElementsByClassName(this.getAttribute('class'))
             d3.selectAll(nodes)
-                .style("opacity", 1)
+                .style("opacity", 0.7)
                 .style("stroke", "none")
             tooltip.style('display', 'none');
             tooltip.style('opacity', 0);

@@ -19,6 +19,14 @@
   justify-content: flex-start;;
 }
 
+.redar-container {
+  display: flex;
+  align-items: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .heatmap,
 .parallel,
 .sankey,
@@ -31,17 +39,17 @@
   justify-content: center;
 
   margin: 10px;
-  padding: 5px;
 
   border-radius: 5px;
   background: rgba(117, 117, 117,.2);
   box-shadow: 2px 2px 2px 1px rgba(0,0,0,.2);
 }
 
-.filter {
+.redar {
   flex-grow: 1;
 
-  height: 50%;
+  box-sizing: border-box;
+  width: 30%;
 }
 
 .person {
@@ -59,4 +67,32 @@
 .person .row {
   display: flex;
   flex-direction: row;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cate-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 30%;
+  height: 5%;
+  margin: 10px;
+
+  cursor: pointer;
+  text-align: center;
+
+  color: #fff;
+  border-radius: 4px;
+  background: rgba(255,255,255,.2);
 }
