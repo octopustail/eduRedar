@@ -1,25 +1,30 @@
 import React, { Component } from 'react'
 // import redarGraph from './redarGraph'
 import * as d3 from 'd3'
-import { map } from 'zrender/lib/core/util';
+import style from './style.css'
 
 class Heatmap extends Component {
     constructor(props) {
         super(props)
         this.heatmap = null;
-        this.outer =  [{ len: 4, color: "#8dd3c7", label: "Begin1", id: "Beginning1" },
-                { len: 14, color: "#ffffb3", label: "MiddleS1", id: "MiddleStage1" },
-                { len: 4, color: "#d9d9d9", label: "fTest1", id: "finalTest1" },
-                { len: 2, color: "#bebada", label: "voca1", id: "vocation1" },
+        this.outer = [{ len: 4, color: "#8dd3c7", label: "Begin1", id: "Beginning1" },
+        { len: 14, color: "#ffffb3", label: "MiddleS1", id: "MiddleStage1" },
+        { len: 4, color: "#d9d9d9", label: "fTest1", id: "finalTest1" },
+        { len: 2, color: "#bebada", label: "voca1", id: "vocation1" },
 
-                { len: 2, color: "#bebada", label: "voca1", id: "vocation2" },
-                { len: 4, color: "#d9d9d9", label: "fTest2", id: "finalTest2" },
-                { len: 14, color: "#ffffb3", label: "MiddleS2", id: "MiddleStage2" },
-                { len: 4, color: "#8dd3c7", label: "Begin2", id: "Beginning2" },
-                ]
+        { len: 2, color: "#bebada", label: "voca1", id: "vocation2" },
+        { len: 4, color: "#d9d9d9", label: "fTest2", id: "finalTest2" },
+        { len: 14, color: "#ffffb3", label: "MiddleS2", id: "MiddleStage2" },
+        { len: 4, color: "#8dd3c7", label: "Begin2", id: "Beginning2" },
+        ]
+        this.layout = [
+            { "id": "chr1", "label": "chr1", "color": "#996600", "len": 249250621 },
+            { "id": "chr2", "label": "chr2", "color": "#666600", "len": 243199373 },
+            { "id": "chr3", "label": "chr3", "color": "#99991E", "len": 198022430 },
+        ]
 
+    }
 
-        }
 
 
     componentDidMount() {
@@ -38,15 +43,15 @@ class Heatmap extends Component {
     initGraph = (elem, d) => {
 
         d3.select('.heatmap svg').remove()
+
         let data = d
         if (JSON.stringify(data.mouths) === '{}') { return }
-        let myCircos = new Circos({
-            container: elem,
-            width: 500,
-            height: 500
-        })
+
+
+
+        //数据处理部分
+        //把学生们每一个学期每一周的真实熵做统计
         let weekoff = []
-        // console.log(data)
         const countByweek = []
         const countByWeekSems = {}
         const sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
@@ -62,6 +67,7 @@ class Heatmap extends Component {
 
         }
 
+        //        //热力图数据处理成对应的对象数组
         let arr1 = ['sems1', 'sems3', 'sems5']
         let arr2 = ['sems2', 'sems4', 'sems6']
 
@@ -93,7 +99,6 @@ class Heatmap extends Component {
             })
             weekoff.push(week)
         })
-// console.log('weekoff',weekoff)
         arr2.forEach((key) => {
             let week = countByWeekSems[key].map((item, idx) => {
                 let index, id
@@ -106,7 +111,7 @@ class Heatmap extends Component {
                 } else if (idx >= 18 && idx < 22) {
                     index = idx - 18
                     id = 'finalTest2'
-                } else{
+                } else {
                     index = idx - 22
                     id = 'vocation2'
                 }
@@ -115,7 +120,7 @@ class Heatmap extends Component {
                     start: index,
                     end: index + 1,
                     value: parseInt(item),
-                    index:idx,
+                    index: idx,
                 }
 
             })
@@ -123,19 +128,13 @@ class Heatmap extends Component {
         })
 
 
-        // let dayoff = d.mouths.map((d) => {
-        //     return {
-        //         block_id: d[0],
-        //         start: parseInt(d[1]),
-        //         end: parseInt(d[2]),
-        //         value: parseInt(d[3]),
+        let HeatmapCircos = new Circos({
+            container: elem,
+            width: 500,
+            height: 500
+        })
 
-        //     }
-        // })
-
-        //处理数据
-
-        const configuration = {
+        const HeatmapConfig = {
             innerRadius: 180,
             outerRadius: 200,
             cornerRadius: 5,
@@ -168,13 +167,13 @@ class Heatmap extends Component {
             events: {}
         }
 
-        myCircos.layout(data.outer, configuration)
+        HeatmapCircos.layout(data.outer, HeatmapConfig)
             .heatmap('heat-maptest1', weekoff[0], {
                 innerRadius: 0.95,
                 outerRadius: 0.85,
                 logScale: false,
                 color: 'YlOrRd',
-                tooltipContent:function(d){
+                tooltipContent: function (d) {
                     return d
                 }
             })
@@ -217,16 +216,23 @@ class Heatmap extends Component {
                 max: 0.015,
                 color: '#fff',
                 axes: [
-                  {spacing:2}
+                    { spacing: 2 }
                 ],
                 tooltipContent: null
-              })
-        myCircos.render()
+            })
+        HeatmapCircos.render()
+
+        // let ScatterCircos = new Circos({
+        //     container: elem,
+        //     width: 250,
+        //     height: 200
+        // })
     }
 
     render() {
         return (
             <div className="heatMap" ref={(e) => { this.heatmap = e }}>
+                <div className="entropy"></div>
             </div>
         )
     }
@@ -238,7 +244,7 @@ class Heatmap extends Component {
         let elem = this.heatmap
         let data = {}
         data.outer = this.outer
-
+        data.layout = this.layout
         data.mouths = this.props.data
         this.initGraph(elem, data)
     }

@@ -11,7 +11,6 @@ export const actionType = {
 
 const initialState = {
     general_gpa: [],
-    general_flow: [],
     general_records: {},
     student_group:[],
     student_type:'',

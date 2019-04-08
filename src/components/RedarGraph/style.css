@@ -47,3 +47,17 @@
   background: #eee;
   box-shadow: 0 0 5px #999;
 }
+
+.entropy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 200px;
+  height: 200px;
+  margin: auto;
+
+  background: #fff;
+}
