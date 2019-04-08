@@ -6,6 +6,8 @@ import ParallelCoordinate from '../ParallelCoordinates/ParallelCoordinateCompone
 import SankeyGraph from '../sankeyGraph/SankeyGraphComponent'
 import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
 import Filter from './Filter'
+import RiverGraph from '../graphs/RiverGraphComponent'
+import BloomGragh from '../graphs/BloomGraghComponent'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
@@ -59,7 +61,7 @@ class Genaral extends Component {
         const stuTypes = ['real_exStu','real_lowStu','real_midStu','unio_exStu','unio_midStu','unio_lowStu','pre_exStu','pre_midStu','pre_lowStu']
         return (
             <div className="general-container">
-                <div className="row">
+                {/* <div className="row">
                     <Filter className="filter" getStudentGroup={this.props.get_student_group} stuTypes = {stuTypes}/>
                     <SankeyGraph className="sankey" data={this.props.general_gpa} />
 
@@ -67,9 +69,10 @@ class Genaral extends Component {
                 </div>
                 <div className="row">
                     <Heatmap className="heatmap" data={this.props.general_records} />
-                    {/* <ParallelCoordinate classNsme="parallel" data={this.selecteData(this.props.general_gpa)} /> */}
                     <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} />
-                </div>
+                </div> */}
+                <RiverGraph records={this.props.general_records}/>
+                <BloomGragh />
             </div>
         )
     }
@@ -78,7 +81,7 @@ class Genaral extends Component {
     componentDidMount() {
 
 
-        // this.props.get_student_group('unio_exStu')
+        this.props.get_student_group('unio_exStu')
     }
 }
 
@@ -92,7 +95,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
     return {
         general_gpa: state.general.general_gpa,
-        general_flow: state.general.general_flow,
+        general_ae: state.general.general_ae,
         general_records: state.general.general_records,
         student_group: state.general.student_group,
         student_type:state.general.student_type,
