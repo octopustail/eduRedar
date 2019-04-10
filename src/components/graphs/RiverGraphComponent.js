@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
@@ -9,7 +7,7 @@ export default class RiverGraph extends Component {
         this.state = {
             height: 300,
             width: 800,
-            axis:{}
+            axis: {}
             //定义一学期有多少个礼拜
         }
         this.sems = 27
@@ -50,7 +48,7 @@ export default class RiverGraph extends Component {
      * dir： area的方向 
      * @return: null
      */
-    initAxis(slen, width, height) {
+    initAxis(slen, width, height, margin) {
 
 
         const x = d3.scaleLinear()
@@ -87,7 +85,7 @@ export default class RiverGraph extends Component {
      * @param {axis:initAxis中设置的比例尺与坐标轴对象,height:绘制的基线,direction:绘制的方向} 
      * @return: 
      */
-    drawRiver(axis,height, direction) {
+    drawRiver(axis, height, direction) {
 
 
         const data = this.generateData(this.props.records)
@@ -97,7 +95,7 @@ export default class RiverGraph extends Component {
             .curve(d3.curveMonotoneX)
             .x((d, i) => axis.xScale(i))
             .y0((d, i) => height)
-            .y1((d) => height - axis.yScale(d))
+            .y1((d) => height - direction * axis.yScale(d))
 
 
 
@@ -146,22 +144,27 @@ export default class RiverGraph extends Component {
     componentDidMount() {
         let slen = this.sems,
             height = this.state.height / 2,
-            width = this.state.width;
+            width = this.state.width,
+            margin = 30;
         // direction = this.props.direction|| 'up',
 
-        let axis = this.initAxis(slen, width, height)
+        let axis = this.initAxis(slen, width, height, margin)
         this.setState({
-            axis:axis
+            axis: axis
         })
     }
     componentDidUpdate() {
         let height = this.state.height / 2,
 
             // direction = this.props.direction|| 'up',
-            direction = 'up'
+            //控制河流图的方向
+            directionUp = 1,
+            directionDown = -1
 
         if (JSON.stringify(this.props.records) !== "{}") {
-            this.drawRiver(this.state.axis, height, direction)
+            this.drawRiver(this.state.axis, height, directionUp)
+            this.drawRiver(this.state.axis, height, directionDown)
+
         }
 
     }
