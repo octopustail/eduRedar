@@ -25,6 +25,9 @@ module.exports = {
             '/studentGroup':'http://localhost:3033',
             '/studentRecord':'http://localhost:3033',
             '/studentGpa':'http://localhost:3033',
+            '/studentCate':'http://localhost:3033',
+            '/studentCounts':'http://localhost:3033',
+            '/studentRecords':'http://localhost:3033',
             
 
         }

@@ -14,8 +14,15 @@ module.exports = function(app){
   //   res.send('hello studentGpa')
   //  })
   
+  //获得各个种类的学生的名单
+  app.get('/studentCate',require('./stuCate'))
+  //获取各个种类的学生的刷卡次数统计 river图
+  app.get('/studentCounts',require('./stuCounts'))
+  //获取各个种类的学生刷卡记录 scatter图
+  app.get('/studentRecords',require('./stuRecords'))
+
   app.get('/studentGpa',require('./stuGpa'))
-  app.get('/studentGroup',require('./stuGroup'))
+
 
 
 
