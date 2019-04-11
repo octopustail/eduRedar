@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { reducer as person } from './person'
 import {reducer as general} from './general'
+import {reducer as group} from './group'
 //设置全局使用的异步请求action
 export const actionType = {
     FETCH_START: 'FETCH_START',
@@ -53,5 +54,8 @@ export function reducer(state = initialState, action) {
 }
 
 export default combineReducers({ 
-    person, general, index:reducer 
+    person, 
+    // general,
+    group, 
+    index:reducer 
 })

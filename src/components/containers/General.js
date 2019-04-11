@@ -7,13 +7,13 @@ import SankeyGraph from '../sankeyGraph/SankeyGraphComponent'
 import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
 import Filter from './Filter'
 import RiverGraph from '../graphs/RiverGraphComponent'
-import BloomGragh from '../graphs/BloomGraghComponent'
+// import BloomGragh from '../graphs/BloomGraghComponent'
+import RecordScatterGraph from '../graphs/RecordScatterGraph'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
 const get_student_group   = generalAction.get_student_group
 import style from './style.css'
-import { resolve } from 'path';
 
 class Genaral extends Component {
     constructor(props) {
@@ -72,7 +72,8 @@ class Genaral extends Component {
                     <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} />
                 </div> */}
                 <RiverGraph records={this.props.general_records}/>
-                <BloomGragh />
+                <RecordScatterGraph records={this.props.general_records}/>
+                {/* <BloomGragh /> */}
             </div>
         )
     }

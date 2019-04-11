@@ -3,6 +3,7 @@ import {actions as personalAction} from '../reducers/person'
 const get_personal_records = personalAction.get_personal_records
 
 import Person from './containers/Person'
+import Group from './containers/Group'
 import General from  './containers/General'
 import style from './index.css'
 import Counter from './Counter/Counter'
@@ -29,7 +30,8 @@ export class AppIndex extends Component {
                 <AxisScatter/> */}
                 {/* <Counter/> */}
                 {/* <SankeyGraph/> */}
-                <General className ="general"/>
+                {/* <General className ="general"/> */}
+                <Group className="general"/>
                 <Person info = {this.state.selectStudent}/>
             </div>
         )
