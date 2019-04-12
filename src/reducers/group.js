@@ -27,20 +27,20 @@ const initialState = {
 
 export const actions = {
     //根据请求的学生的类别去请求学生数据
-    get_group_counts: function (stype, list) {
+    get_group_counts: function (list) {
         return {
             type: actionType.GET_GROUP_COUNT,
             list,
         }
 
     },
-    get_group_records: function (stype, list) {
+    get_group_records: function (list) {
         return {
             type: actionType.GET_GROUP_RECORDS,
             list
         }
     },
-    get_group_students: function (stype, list) {
+    get_group_students: function () {
         return {
             type: actionType.GET_GROUP_STUDENT
         }
@@ -57,7 +57,7 @@ export function reducer(state = initialState, action) {
         case actionType.RESPONSE_GROUP_COUNT:
             return {
                 ...state,
-                counts: action.data.counts,
+                counts: action.data
             }
         case actionType.RESPONSE_GROUP_RECORDS:
             return {

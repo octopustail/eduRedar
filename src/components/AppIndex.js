@@ -6,7 +6,7 @@ import Person from './containers/Person'
 import Group from './containers/Group'
 import General from  './containers/General'
 import style from './index.css'
-import Counter from './Counter/Counter'
+
 
 
 import {connect} from 'react-redux'
@@ -28,7 +28,6 @@ export class AppIndex extends Component {
             <div>
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
-                {/* <Counter/> */}
                 {/* <SankeyGraph/> */}
                 {/* <General className ="general"/> */}
                 <Group className="general"/>
