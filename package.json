@@ -7,6 +7,7 @@
     "dev-build": "webpack --config webpack.dev.config.js",
     "build": "webpack --config build/webpack.conf.js --color",
     "start-api": "nodemon api/apiServer.js",
+    "debug-api": "nodemon --inspect api/apiServer.js",
     "start-dev": "webpack-dev-server --config webpack.dev.config.js --color --progress"
   },
   "dependencies": {
