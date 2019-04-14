@@ -72,7 +72,7 @@ export function* getGroupStudentsFlow(){
             if(res.code === 0){
                 //在这里发出counts和river请求。
                 console.log(res)
-                yield put({type:GroupAction.RESPONSE_GROUP_STUDENTS,data:res.data})
+                yield put({type:GroupAction.RESPONSE_GROUP_STUDENT,data:res.data})
                 yield put({type:GroupAction.GET_GROUP_COUNT,list:res.data.students})
                 yield put({type:GroupAction.GET_GROUP_RECORDS,list:res.data.students})
 

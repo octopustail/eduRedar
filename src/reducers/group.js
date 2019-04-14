@@ -7,7 +7,7 @@ export const actionType = {
     GET_GROUP_RECORDS: 'GET_GROUP_RECORDS',
     RESPONSE_GROUP_RECORDS: 'RESPONSE_GROUP_RECORDS',
     GET_GROUP_STUDENT: 'GET_GROUP_STUDENT',
-    RESPONSE_GROUP_STUDENTS: 'RESPONSE_GROUP_STUDENTS'
+    RESPONSE_GROUP_STUDENT: 'RESPONSE_GROUP_STUDENT'
 }
 
 /**
@@ -22,7 +22,7 @@ export const actionType = {
 const initialState = {
     counts: {},
     records: {},
-    students: {},
+    students: [],
 }
 
 export const actions = {
