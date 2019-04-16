@@ -6,7 +6,6 @@ import {get,post} from '../fetch/fetch'
 export function* getGroupCount(list){
     yield put({type:IndexAction.FETCH_START})
     try{
-        console.log('list',list)
         return yield call(get,`/studentCounts?${list}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
@@ -19,7 +18,6 @@ export function* getGroupCountFlow(){
     while(true){
         let req = yield take(GroupAction.GET_GROUP_COUNT)
         let res =  yield call(getGroupCount,req.list)
-        console.log(res)
         if(res){
             if(res.code === 0){
                 yield put({type:GroupAction.RESPONSE_GROUP_COUNT,data:res.data})
@@ -43,10 +41,9 @@ export function* getGroupCountRecords(){
     while(true){
         let req = yield take(GroupAction.GET_GROUP_RECORDS)
         let res =  yield call(getGroupRecords,req.list)
-        console.log(res)
         if(res){
             if(res.code === 0){
-                yield put({type:GroupAction.RESPONSE_GROUP_COUNT,data:res.data})
+                yield put({type:GroupAction.RESPONSE_GROUP_RECORDS,data:res.data})
             }
         }
     }
@@ -67,11 +64,9 @@ export function* getGroupStudentsFlow(){
     while(true){
         let req = yield take(GroupAction.GET_GROUP_STUDENT)
         let res =  yield call(getGroupStudents)
-        console.log('students',res)
         if(res){
             if(res.code === 0){
                 //在这里发出counts和river请求。
-                console.log(res)
                 yield put({type:GroupAction.RESPONSE_GROUP_STUDENT,data:res.data})
                 yield put({type:GroupAction.GET_GROUP_COUNT,list:res.data.students})
                 yield put({type:GroupAction.GET_GROUP_RECORDS,list:res.data.students})

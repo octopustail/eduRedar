@@ -20,7 +20,7 @@ export const actionType = {
  * @return: 
  */
 const initialState = {
-    counts: {},
+    counts: [],
     records: {},
     students: [],
 }
@@ -62,7 +62,7 @@ export function reducer(state = initialState, action) {
         case actionType.RESPONSE_GROUP_RECORDS:
             return {
                 ...state,
-                records: action.data.records
+                records: action.data
             }
         default:
             return state

@@ -1,28 +1,31 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
+import { zumaColor } from '../../config/config'
 
 export default class RiverGraph extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            height: 300,
+            height: 100,
             width: 800,
             axis: {}
             //定义一学期有多少个礼拜
         }
         this.sems = 27
+        this.colorScale = zumaColor
+        this.direction = {
+            food: 1,
+            library: -1,
+            shower: 1,
+            hotwater: -1,
+        }
     }
-    initAxis() {
-        this.svg.append('circle')
-            .attr('cx', 30)
-            .attr('cy', 30)
-            .attr('r', 10)
-            .style('fill', '#fff')
 
-    }
     generateData(data) {
-        let arr = [].fill.call(Array.from({ length: 27 }), 0)
-        let obj = { sems1: [...arr], sems2: [...arr], sems3: [...arr] }
+        let arrs = data.countsArray.map((arr) => {
+            return [].fill.call(Array.from({ length: arr.length }), 0)
+        })
+        let obj = { sems1: [...arrs[0]], sems2: [...arr[1]], sems3: [...arr[2]] }
 
         //将每个学生的周records数组累加起来，形成所有学生的周records之和
         obj = data.reduce((obj, student) => {
@@ -48,16 +51,16 @@ export default class RiverGraph extends Component {
      * dir： area的方向 
      * @return: null
      */
-    initAxis(slen, width, height, margin) {
+    initAxis(slen, width, height, margin,counts) {
 
-
+        let arr = [...counts[0].countArray[0],...counts[0].countArray[1],...counts[0].countArray[2]]
         const x = d3.scaleLinear()
-            .domain([0, slen * 3])
+            .domain([0, arr.length])
             .range([0, width])
 
-        const y = d3.scaleLinear()
-            .domain([0, 1000])
-            .range([0, height])
+        // const y = d3.scaleLinear()
+        //     .domain([0, 1000])
+        //     .range([0, height])
 
         //tickSize:指定的是tick的长短
         const xAxisScale = d3.scaleTime().range([0, width])
@@ -77,34 +80,39 @@ export default class RiverGraph extends Component {
         return {
             xAxis: gX,
             xScale: x,
-            yScale: y
+            // yScale: y
         }
     }
     /**
      * @description: 绘制river图的area的部分
-     * @param {axis:initAxis中设置的比例尺与坐标轴对象,height:绘制的基线,direction:绘制的方向} 
+     * @param {data:Obj --{stype,cata,countArray}axis:initAxis中设置的比例尺与坐标轴对象,height:绘制的基线,direction:绘制的方向} 
      * @return: 
      */
-    drawRiver(axis, height, direction) {
+    drawRiver(data, axis, height, direction) {
 
-
-        const data = this.generateData(this.props.records)
+        const color = d3.scaleOrdinal([this.colorScale.food, this.colorScale.library, this.colorScale.shower, this.colorScale.hotwater])
+        // const data = this.generateData(this.props.counts)
+        const countsData = [].concat([...data.countArray[0], ...data.countArray[1], ...data.countArray[2]])
+        // const countsData= [].concat([...data.countArray[0],...data.countArray[1],...data.countArray[2]])
         //数据绘制有问题
-        // const data =[1,0,0,500,0,0,20,30]
+        const yScale = d3.scaleLinear()
+            .domain(d3.extent(countsData))
+            .range([0, height])
         const areaPath = d3.area()
             .curve(d3.curveMonotoneX)
             .x((d, i) => axis.xScale(i))
             .y0((d, i) => height)
-            .y1((d) => height - direction * axis.yScale(d))
+            .y1((d) => height - direction * yScale(d))
 
 
 
         const river = this.svg.append("path")
-            .datum(data)
+            .datum(countsData)
             .attr("d", areaPath)
             .attr("class", "area")
             .attr("stroke", "white")
-            .attr("fill", "yellow")
+            .attr("fill", this.colorScale[data.stype])
+            .attr("opacity", "0.8")
 
 
 
@@ -136,8 +144,10 @@ export default class RiverGraph extends Component {
     }
     render() {
         return (
-            <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
-            </svg>
+            <div className="river">
+                <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
+                </svg>
+            </div>
         )
     }
 
@@ -145,27 +155,59 @@ export default class RiverGraph extends Component {
         let slen = this.sems,
             height = this.state.height / 2,
             width = this.state.width,
-            margin = 30;
-        // direction = this.props.direction|| 'up',
+            margin = 30,
+            counts = this.props.counts
 
-        let axis = this.initAxis(slen, width, height, margin)
-        this.setState({
-            axis: axis
+
+
+
+        if (counts.length !== 0) {
+            let axis = this.initAxis(slen, width, height, margin,counts)
+            counts.forEach(element => {
+                const direction = this.direction[element.stype]
+                this.drawRiver(element, axis, height, direction)
+            });
+        }
+
+        d3.selectAll("path").on("mouseover",function(){
+            d3.select(this)
+            .raise()
+            .transition()
+            .duration(500)
+            .attr("opacity","1")
+            .ease("easeQuad")
+        })
+        d3.selectAll("path").on("mouseout",function(){
+            d3.select(this)
+            .lower()
+            .transition()
+            .duration(500)
+            .attr("opacity","0.8")
+            .ease("easeQuad")
         })
     }
+
     componentDidUpdate() {
-        let height = this.state.height / 2,
+        let height = this.state.height / 2
 
-            // direction = this.props.direction|| 'up',
-            //控制河流图的方向
-            directionUp = 1,
-            directionDown = -1
+        // direction = this.props.direction|| 'up',
+        //控制河流图的方向
 
-        if (JSON.stringify(this.props.records) !== "{}") {
-            this.drawRiver(this.state.axis, height, directionUp)
-            this.drawRiver(this.state.axis, height, directionDown)
+        //Array(4)
+        // [Object {stype: "shower", cate: "A_A", countArray: Array(6)}...]
+        // let counts = this.props.counts
+        // if(counts.length!==0){
+        //     counts.forEach(element => {
+        //         const  direction = this.direction[element.stype]
+        //         this.drawRiver(element,this.state.axis,height,direction)
+        //     });
+        // }
 
-        }
+        // if (JSON.stringify(this.props.counts) !== "{}" && this.props.counts!== undefined) {
+        //     this.drawRiver(this.props.counts,this.state.axis, height, directionUp)
+        //     // this.drawRiver(this.state.axis, height, directionDown)
+
+        // }
 
     }
 }
