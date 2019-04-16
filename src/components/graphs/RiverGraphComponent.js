@@ -51,9 +51,9 @@ export default class RiverGraph extends Component {
      * dir： area的方向 
      * @return: null
      */
-    initAxis(slen, width, height, margin,counts) {
+    initAxis(slen, width, height, margin, counts) {
 
-        let arr = [...counts[0].countArray[0],...counts[0].countArray[1],...counts[0].countArray[2]]
+        let arr = [...counts[0].countArray[0], ...counts[0].countArray[1], ...counts[0].countArray[2]]
         const x = d3.scaleLinear()
             .domain([0, arr.length])
             .range([0, width])
@@ -109,12 +109,10 @@ export default class RiverGraph extends Component {
         const river = this.svg.append("path")
             .datum(countsData)
             .attr("d", areaPath)
-            .attr("class", "area")
+            .attr("class", data.stype)
             .attr("stroke", "white")
             .attr("fill", this.colorScale[data.stype])
             .attr("opacity", "0.8")
-
-
 
 
         //缩放river
@@ -142,6 +140,28 @@ export default class RiverGraph extends Component {
 
         // river.call(zoom)
     }
+
+    riverEvents = () => {
+
+        d3.selectAll("path").on("mouseover", function () {
+            d3.select(this)
+                .raise()
+                .transition()
+                .duration(200)
+                .attr("opacity", "1")
+                .ease(d3.easeQuadIn)
+        })
+        d3.selectAll("path").on("mouseout", function () {
+            d3.select(this)
+                .lower()
+                .transition()
+                .duration(200)
+                .attr("opacity", "0.8")
+                .ease(d3.easeQuadIn)
+        })
+
+    }
+
     render() {
         return (
             <div className="river">
@@ -156,58 +176,33 @@ export default class RiverGraph extends Component {
             height = this.state.height / 2,
             width = this.state.width,
             margin = 30,
-            counts = this.props.counts
+            counts = this.props.counts;
 
 
 
-
+        //绘制坐标轴和area
         if (counts.length !== 0) {
-            let axis = this.initAxis(slen, width, height, margin,counts)
+            let axis = this.initAxis(slen, width, height, margin, counts)
             counts.forEach(element => {
                 const direction = this.direction[element.stype]
                 this.drawRiver(element, axis, height, direction)
             });
         }
 
-        d3.selectAll("path").on("mouseover",function(){
-            d3.select(this)
-            .raise()
-            .transition()
-            .duration(500)
-            .attr("opacity","1")
-            .ease("easeQuad")
-        })
-        d3.selectAll("path").on("mouseout",function(){
-            d3.select(this)
-            .lower()
-            .transition()
-            .duration(500)
-            .attr("opacity","0.8")
-            .ease("easeQuad")
-        })
+        //添加鼠标交互
+        this.riverEvents()
     }
-
     componentDidUpdate() {
-        let height = this.state.height / 2
+        let isToggles = this.props.isToggles
 
-        // direction = this.props.direction|| 'up',
-        //控制河流图的方向
-
-        //Array(4)
-        // [Object {stype: "shower", cate: "A_A", countArray: Array(6)}...]
-        // let counts = this.props.counts
-        // if(counts.length!==0){
-        //     counts.forEach(element => {
-        //         const  direction = this.direction[element.stype]
-        //         this.drawRiver(element,this.state.axis,height,direction)
-        //     });
-        // }
-
-        // if (JSON.stringify(this.props.counts) !== "{}" && this.props.counts!== undefined) {
-        //     this.drawRiver(this.props.counts,this.state.axis, height, directionUp)
-        //     // this.drawRiver(this.state.axis, height, directionDown)
-
-        // }
-
+        Object.keys(isToggles).map((key) => {
+            if (!isToggles[key]) {
+                this.svg.selectAll(`.${key}`)
+                    .attr("opacity", "0")
+            }else{
+                this.svg.selectAll(`.${key}`)
+                    .attr("opacity", "0.8")
+            }
+        })
     }
 }

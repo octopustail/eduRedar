@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import RiverGraph from '../graphs/RiverGraphComponent'
 import BloomGragh from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
+import {ToggleButton} from '../graphs/widgets/RiverToggleButton'
 
 import { actions as grouplAction } from '../../reducers/group'
 const get_group_counts = grouplAction.get_group_counts,
@@ -17,6 +18,22 @@ class Group extends Component {
     constructor(props) {
         super(props)
         this.selectedData = []
+        this.state = {
+            riverToggle:{
+                food:true,
+                shower:true,
+                hotwater:true,
+                library:true
+            }
+        }
+    }
+    handleToggleClick(item){
+        console.log('item',item,this.state.riverToggle,)
+        let toggle = this.state.riverToggle
+        toggle[item] = !toggle[item]
+        this.setState({
+            riverToggle:toggle
+        })
     }
 
     render() {
@@ -36,13 +53,14 @@ class Group extends Component {
             this.props.counts.forEach(element => {
                 countsGroupByCateObj[element.cate].push(element)
             });
-
-            console.log(countsGroupByCateObj)
             return (
                 <div className="general-container">
+                    {Object.keys(this.state.riverToggle).map((item,index)=>(
+                        <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]}  toggle={this.handleToggleClick.bind(this)}/>
+                    ))}
                     {/* <BloomGragh students = {this.props.students}/> */}
                     {Object.keys(countsGroupByCateObj).map((item, index) => (
-                        <RiverGraph key={index}  cate={item} counts={countsGroupByCateObj[item]} />
+                        <RiverGraph key={index} isToggles = {this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} />
                             // <div key={index}>{countsGroupByCateObj[item]}</div>
                     ))}
                     {/* <RiverGraph counts={this.props.counts} /> */}
