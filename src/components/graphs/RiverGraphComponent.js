@@ -72,7 +72,7 @@ export default class RiverGraph extends Component {
         const gX = this.svg.append("g")
             .attr("class", "xAxis")
             .attr("transform", `translate(0,${height})`)
-            .attr("stroke", "red")
+            .attr("stroke", "#fff")
             .call(xAxis)
         // const yAxis = d3.axisRight(y)
         //增加zoom交互
@@ -88,15 +88,27 @@ export default class RiverGraph extends Component {
      * @param {data:Obj --{stype,cata,countArray}axis:initAxis中设置的比例尺与坐标轴对象,height:绘制的基线,direction:绘制的方向} 
      * @return: 
      */
-    drawRiver(data, axis, height, direction) {
+    drawRiver(data, axis, height, direction,totalStu) {
+        //调整比例尺，因为food的次数太大，如果用相同的比例尺，其他三类会被压缩的看不见
+        const yScaleByType={
+            food:60,
+            shower:14,
+            library:14,
+            hotwater:14
+        }
 
         const color = d3.scaleOrdinal([this.colorScale.food, this.colorScale.library, this.colorScale.shower, this.colorScale.hotwater])
         // const data = this.generateData(this.props.counts)
         const countsData = [].concat([...data.countArray[0], ...data.countArray[1], ...data.countArray[2]])
         // const countsData= [].concat([...data.countArray[0],...data.countArray[1],...data.countArray[2]])
-        //数据绘制有问题
+        
+        //将次数换算成 刷卡次数次数/人
+        const aveData = countsData.map((element)=>{
+            return element/totalStu
+        })
         const yScale = d3.scaleLinear()
-            .domain(d3.extent(countsData))
+            // .domain(d3.extent(countsData))
+            .domain([0,yScaleByType[data.stype]])
             .range([0, height])
         const areaPath = d3.area()
             .curve(d3.curveMonotoneX)
@@ -107,7 +119,7 @@ export default class RiverGraph extends Component {
 
 
         const river = this.svg.append("path")
-            .datum(countsData)
+            .datum(aveData)
             .attr("d", areaPath)
             .attr("class", data.stype)
             .attr("stroke", "white")
@@ -167,6 +179,7 @@ export default class RiverGraph extends Component {
             <div className="river">
                 <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
                 </svg>
+                <div style={{color:"#fff"}}>{this.props.cate}</div>
             </div>
         )
     }
@@ -176,7 +189,8 @@ export default class RiverGraph extends Component {
             height = this.state.height / 2,
             width = this.state.width,
             margin = 30,
-            counts = this.props.counts;
+            counts = this.props.counts,
+            totalStu = this.props.totalStu;
 
 
 
@@ -185,7 +199,7 @@ export default class RiverGraph extends Component {
             let axis = this.initAxis(slen, width, height, margin, counts)
             counts.forEach(element => {
                 const direction = this.direction[element.stype]
-                this.drawRiver(element, axis, height, direction)
+                this.drawRiver(element, axis, height, direction,totalStu)
             });
         }
 
