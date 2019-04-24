@@ -15,4 +15,19 @@ export const schoolCalendar = {
     sems6:new Date('2012,03,01'),
 }
 
+export const cateColor = {
+
+    A_A:"red",
+    A_B:"blue",
+    A_C:"pink",
+    B_A:"red",
+    B_B:"blue",
+    B_C:"pink",
+    C_A:"red",
+    C_B:"blue",
+    C_C:"pink",
+    A:"green",
+    B:"grey",
+    C:"brown"
+}
 

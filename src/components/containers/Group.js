@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import RiverGraph from '../graphs/RiverGraphComponent'
-import BloomGragh from '../graphs/BloomGraghComponent'
+import BloomGraph from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
-import {ToggleButton} from '../graphs/widgets/RiverToggleButton'
+import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
 
 import { actions as grouplAction } from '../../reducers/group'
 const get_group_counts = grouplAction.get_group_counts,
@@ -13,26 +13,28 @@ const get_group_counts = grouplAction.get_group_counts,
     get_group_students = grouplAction.get_group_students
 
 import style from './style.css'
+import {zumaColor} from '../../config/config'
 
 class Group extends Component {
     constructor(props) {
         super(props)
         this.selectedData = []
         this.state = {
-            riverToggle:{
-                food:true,
-                shower:true,
-                hotwater:true,
-                library:true
+            riverToggle: {
+                food: true,
+                shower: true,
+                hotwater: true,
+                library: true
             }
         }
+        this.colormap = zumaColor
     }
-    handleToggleClick(item){
-        console.log('item',item,this.state.riverToggle,)
+    handleToggleClick(item) {
+        console.log('item', item, this.state.riverToggle)
         let toggle = this.state.riverToggle
         toggle[item] = !toggle[item]
         this.setState({
-            riverToggle:toggle
+            riverToggle: toggle
         })
     }
 
@@ -48,26 +50,34 @@ class Group extends Component {
             "C_B": [],
             "C_C": [],
         }
+        
 
         if (this.props.counts.length !== 0) {
             this.props.counts.forEach(element => {
                 countsGroupByCateObj[element.cate].push(element)
             });
+            //把每一类的学生的学生人数保存起来，要传给riverGraph
+        const studentsTotalObj = {} 
+        this.props.students.forEach((item)=>{
+            studentsTotalObj[item.cate] = item.list.length
+
+        })
             return (
                 <div className="general-container">
-                    {Object.keys(this.state.riverToggle).map((item,index)=>(
-                        <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]}  toggle={this.handleToggleClick.bind(this)}/>
+
+                    {Object.keys(this.state.riverToggle).map((item, index) => (
+                        <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]}/>
                     ))}
-                    {/* <BloomGragh students = {this.props.students}/> */}
                     {Object.keys(countsGroupByCateObj).map((item, index) => (
-                        <RiverGraph key={index} isToggles = {this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} />
-                            // <div key={index}>{countsGroupByCateObj[item]}</div>
+                        <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu = {studentsTotalObj[item]} />
                     ))}
-                    {/* <RiverGraph counts={this.props.counts} /> */}
+
+                    <BloomGraph students={this.props.students} />
                     <RecordScatterGraph records={this.props.records} />
+
                 </div>
             )
-        }else{
+        } else {
             return (<div className="general-container"></div>)
 
         }
