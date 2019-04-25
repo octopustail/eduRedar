@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 import { cateColor } from '../../config/config'
+import style from './style.css'
 
 export default class BloomGraph extends Component {
     constructor(props) {
         super(props)
-        this.width = 1000
-        this.height = 1000
+        this.width = 350
+        this.height = 350
+        this.svg = {}
     }
     drawGraph(students) {
 
@@ -14,128 +16,162 @@ export default class BloomGraph extends Component {
 
         // })
 
-        let nodes = [
-            { name: "A" },
-            { name: "B" },
-            { name: "C" },
-            { name: "A_A",cate:"A"},
-            { name: "A_B",cate:"A"},
-            { name: "A_C",cate:"A"},
-            { name: "B_A",cate:"B"},
-            { name: "B_B",cate:"B"},
-            { name: "B_C",cate:"B"},
-            { name: "C_A",cate:"C"},
-            { name: "C_B",cate:"C"},
-            { name: "C_C",cate:"C"},
+        let nodes_a = [
+            { name: "A_A", cate: "A" },
+            { name: "A_B", cate: "A" },
+            { name: "A_C", cate: "A" },
         ]
-        // nodes = students.map((item) => {
-        //     return {
-        //         name: item.cate
-        //     }
-        // })
-        let edges = [
-            { source: 'B', target: "A" },
-            { source: 'C', target: "B" },
-            { source: 'A', target: "C" },
-            { source: 'A', target: "A_A" },
-            { source: 'A', target: "A_B" },
-            { source: 'A', target: "A_C" },
-            { source: 'B', target: "B_A" },
-            { source: 'B', target: "B_B" },
-            { source: 'B', target: "B_C" },
-            { source: 'C', target: "C_A" },
-            { source: 'C', target: "C_B" },
-            { source: 'C', target: "C_C" },
+
+        let edges_a = [
+
+            { source: 'A_B', target: "A_A" },
+            { source: 'A_C', target: "A_B" },
+            { source: 'A_A', target: "A_C" },
         ]
+        let nodes_b = [
+            { name: "B_A", cate: "B" },
+            { name: "B_B", cate: "B" },
+            { name: "B_C", cate: "B" },
+        ]
+
+        let edges_b = [
+            { source: 'B_B', target: "B_A" },
+            { source: 'B_C', target: "B_B" },
+            { source: 'B_A', target: "B_C" },
+        ]
+
+        let nodes_c = [
+            { name: "C_A", cate: "C" },
+            { name: "C_B", cate: "C" },
+            { name: "C_C", cate: "C" },
+        ]
+
+        let edges_c = [
+            { source: 'C_B', target: "C_A" },
+            { source: 'C_C', target: "C_B" },
+            { source: 'C_A', target: "C_C" },
+        ]
+
 
         students.forEach((cateObj) => {
             const cate = cateObj.cate
+
+
             cateObj.list.forEach(elem => {
-                nodes.push({ name: elem, cate: cate })
-                edges.push({ source: cate, target: elem, cate:cate})
+                if (cate === "A_A" || cate === "A_B" || cate === "A_C") {
+                    nodes_a.push({ name: elem, cate: cate })
+                    edges_a.push({ source: cate, target: elem, cate: cate })
+                }
+                if (cate === "B_A" || cate === "B_B" || cate === "B_C") {
+                    nodes_b.push({ name: elem, cate: cate })
+                    edges_b.push({ source: cate, target: elem, cate: cate })
+                }
+                if (cate === "C_A" || cate === "C_B" || cate === "C_C") {
+                    nodes_c.push({ name: elem, cate: cate })
+                    edges_c.push({ source: cate, target: elem, cate: cate })
+                }
 
             })
         })
-        //先生成一个构成的力导向布局
-        const simulation = d3.forceSimulation()
-            //forceLink(links) 是对制定的links和创建弹簧力模型，没有links则默认为空
-            .force("link", d3.forceLink().id(d => d.name))
-            //将节点视为有一定radius的圆，阻止节点间的碰撞
-            .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter(this.width / 2, this.height / 2))
+
+        function svgNodeEgdeCreator(nodes, edges, svg) {
+            //绘制力导向图
+            let svg_edges = svg.append("g")
+
+                .selectAll('line')
+                .data(edges)
+                .enter()
+                .append('line')
+                // .style("stroke", "#fff")
+            .style("stroke", null)
+
+
+            let svg_nodes = svg.append("g")
+
+                .selectAll("circle")
+                .data(nodes)
+                .enter()
+                .append("circle")
+                .attr("r", function (d) {
+                    if (!d.cate) { return 0 }
+                    if (d.cate == "A" || d.cate == "B" || d.cate == "C") {
+                        return 0
+                    } else {
+                        return 2
+                    }
+
+                })
+                //这个地方写成箭头函数
+                .style("fill", function (d) {
+                    if (d.cate) {
+                        return cateColor[d.cate]
+                    } else {
+                        return "#ff0"
+                    }
+                })
+            return { svg_nodes, svg_edges }
+        }
 
 
 
+        const svg_a = svgNodeEgdeCreator(nodes_a, edges_a, this.svg.a)
+        const svg_b = svgNodeEgdeCreator(nodes_b, edges_b, this.svg.b)
+        const svg_c = svgNodeEgdeCreator(nodes_c, edges_c, this.svg.c)
 
-        //绘制力导向图
-        let svg_edges = this.svg.append("g")
+        function simulationCreator(nodes, edges, svg_nodes, svg_edges, width, height) {
+            const simulation = d3.forceSimulation()
+                .nodes(nodes)
+                .force("link", d3.forceLink(edges).id(d => d.name))
+                .force("charge", d3.forceManyBody()
+                    .strength(((d) => {
+                        if (d.cate=="A"||d.cate=="B"||d.cate=="C") { return -80 } else { return 0 }
+                    }))
+                )
+                .force("collide",d3.forceCollide(()=>3.5))
+                .force("x", d3.forceX())
+                .force("y", d3.forceY())
+                .force("center", d3.forceCenter(width/2, height/2))
 
-            .selectAll('line')
-            .data(edges)
-            .enter()
-            .append('line')
-            .style("stroke", "#fff")
-            // .style("stroke", null)
+
+            simulation
+                .on("tick", function () { //对于每一个时间间隔
+                    //更新连线坐标
+                    svg_edges.attr("x1", function (d) { return validateXY(d.source.x,'x',width,height) })
+                        .attr("y1", function (d) { return validateXY(d.source.y,'y',width,height) })
+                        .attr("x2", function (d) { return validateXY(d.target.x,'x',width,height) })
+                        .attr("y2", function (d) { return validateXY(d.target.y,'y',width,height) });
+
+                    //更新节点坐标
+                    svg_nodes.attr("cx", function (d) { return validateXY(d.x,'x',width,height)})
+                        .attr("cy", function (d) { return validateXY(d.y,'y',width,height)});
+
+                });
 
 
-        let svg_nodes = this.svg.append("g")
-
-            .selectAll("circle")
-            .data(nodes)
-            .enter()
-            .append("circle")
-            .attr("r", function(d){
-                if(!d.cate){return 0}
-                if(d.cate=="A"||d.cate=="B"||d.cate=="C"){
-                    return 20
-                }else{
-                    return 3
-                }
-                
-            })
-            //这个地方写成箭头函数
-            .style("fill",function(d){
-                if (d.cate) {
-                    return cateColor[d.cate]
+            function validateXY(val, type,width,height) {
+                var r = 20;
+                if (val < r) return r;
+                if (type == 'x') {
+                    if (val > width - r) return width - r
                 } else {
-                    return "#ff0"
+                    if (val > height - r) return height - r
                 }
-            })
+                return val
+            }
+        }
 
+        simulationCreator(nodes_a, edges_a, svg_a.svg_nodes, svg_a.svg_edges, this.width, this.height)
+        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width*2, this.height*2)
+        simulationCreator(nodes_c, edges_c, svg_c.svg_nodes, svg_c.svg_edges, this.width, this.height)
 
-
-
-        simulation.nodes(nodes)
-            .force("link", d3.forceLink(edges).id(d => d.name))
-            .force("charge", d3.forceManyBody().strength(((d) => {
-                if(d.cate){return -10}else{return 10}
-            })))
-            .force("x", d3.forceX())
-            .force("y", d3.forceY())
-            .force("center", d3.forceCenter(this.width / 2, this.height / 2))
-
-
-        simulation
-            .on("tick", function () { //对于每一个时间间隔
-                //更新连线坐标
-                svg_edges.attr("x1", function (d) { return d.source.x; })
-                    .attr("y1", function (d) { return d.source.y; })
-                    .attr("x2", function (d) { return d.target.x; })
-                    .attr("y2", function (d) { return d.target.y; });
-
-                //更新节点坐标
-                svg_nodes.attr("cx", function (d) { return d.x; })
-                    .attr("cy", function (d) { return d.y; });
-
-            });
-
-        //力导向图的节点是一个packed 图
     }
     render() {
 
         return (
             <div className="bloom">
-                <svg width={this.width} height={this.height} ref={elem => this.svg = d3.select(elem)}>
+                <svg width={this.width} height={this.height} ref={elem => this.svg.a = d3.select(elem)}></svg>
+                <svg width={this.width*2} height={this.height*2} ref={elem => this.svg.b = d3.select(elem)}></svg>
+                <svg width={this.width} height={this.height} ref={elem => this.svg.c= d3.select(elem)}>
                 </svg>
             </div>
         )
