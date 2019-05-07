@@ -1,7 +1,8 @@
 .general-container {
   display: flex;
   align-items: stretch;
-  flex-direction: row;
+  /* flex-direction: row; */
+  flex-direction: column;
   justify-content: center;
 
   margin: 5px;

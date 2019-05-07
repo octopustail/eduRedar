@@ -3,7 +3,7 @@
  * @Author: octo
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-10 21:34:45
- * @LastEditTime: 2019-04-12 20:11:47
+ * @LastEditTime: 2019-04-25 12:31:47
  */
 const util = require('./util')
 const models = require('../../model/stu_counts_09')
@@ -13,7 +13,7 @@ function studentCounts(req, res, next) {
 
     //先去数据库里取出所有的学生名单
     const findStuList = new Promise((resolve, reject) => {
-        studentsModel.adanets.find().lean().then(list => resolve(list))
+        studentsModel.randomForests.find().lean().then(list => resolve(list))
     })
 
     /**

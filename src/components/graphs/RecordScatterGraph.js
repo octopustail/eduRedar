@@ -117,13 +117,13 @@ export default class RiverGraph extends Component {
         )
     }
 
-    componentDidMount() {
-        this.initAxis()
-    }
-    componentDidUpdate() {
-        if (JSON.stringify(this.props.records) !== "{}") {
-            this.drawRiver()
-        }
+    // componentDidMount() {
+    //     this.initAxis()
+    // }
+    // componentDidUpdate() {
+    //     if (JSON.stringify(this.props.records) !== "{}") {
+    //         this.drawRiver()
+    //     }
 
-    }
+    // }
 }

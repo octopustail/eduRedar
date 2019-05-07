@@ -118,8 +118,9 @@ export default class BloomGraph extends Component {
         const svg_b = svgNodeEgdeCreator(nodes_b, edges_b, this.svg.b)
         const svg_c = svgNodeEgdeCreator(nodes_c, edges_c, this.svg.c)
 
-        function simulationCreator(nodes, edges, svg_nodes, svg_edges, width, height) {
+        function simulationCreator(nodes, edges, svg_nodes, svg_edges, width, height,decay) {
             const simulation = d3.forceSimulation()
+                .velocityDecay(decay)
                 .nodes(nodes)
                 .force("link", d3.forceLink(edges).id(d => d.name))
                 .force("charge", d3.forceManyBody()
@@ -160,9 +161,9 @@ export default class BloomGraph extends Component {
             }
         }
 
-        simulationCreator(nodes_a, edges_a, svg_a.svg_nodes, svg_a.svg_edges, this.width, this.height)
-        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width*2, this.height*2)
-        simulationCreator(nodes_c, edges_c, svg_c.svg_nodes, svg_c.svg_edges, this.width, this.height)
+        simulationCreator(nodes_a, edges_a, svg_a.svg_nodes, svg_a.svg_edges, this.width, this.height,0.4)
+        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width*2, this.height*2,0.5)
+        simulationCreator(nodes_c, edges_c, svg_c.svg_nodes, svg_c.svg_edges, this.width, this.height,0.4)
 
     }
     render() {

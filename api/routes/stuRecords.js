@@ -3,14 +3,14 @@
  * @Author: octo
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime: 2019-04-11 11:40:14
+ * @LastEditTime: 2019-04-11 15:53:23
  */
 let util = require('./util')
 let stuRecords = require('../../model/stu_record')
 
 function studentGPADataProcess(req, res, next) {
 
-    stuRecords.find()
+    stuRecords.findOne()
         .then((result) => {
             util.responseClient(res, 200, 0, 'success', result)
 
