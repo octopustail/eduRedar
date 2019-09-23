@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-03-16 16:41:07
+ * @LastEditTime: 2019-03-16 16:41:07
+ * @LastEditors: your name
+ */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -34,7 +41,7 @@ class Person extends Component {
     componentDidMount() {
         //拿着学号去请求学生的record等信息
         // this.props.get_personal_records(this.props.info)
-        this.props.get_personal_records("2904302008")
+        // this.props.get_personal_records("2904302008")
     }
     componentDidUpdate() {
     }
