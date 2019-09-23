@@ -1,9 +1,15 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-03-17 15:34:31
+ * @LastEditTime: 2019-09-23 16:17:52
+ * @LastEditors: Please set LastEditors
+ */
 import React, { Component } from 'react'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/component/parallel'
 import 'echarts/lib/component/parallelAxis'
 
-import RecatEcharts from 'echarts-for-react'
 import ReactEcharts from 'echarts-for-react';
 
 
@@ -27,7 +33,7 @@ export default class ParallelGraph extends Component {
 
         d.forEach((item)=>{
             //parseInt应该在父亲函数位置处理。
-            dataGroup.push([parseInt(item.sems1),parseInt(item.sems2),parseInt(item.sems3),parseInt(item.sems4),parseInt(item.sems5),parseInt(item.sems6)])
+            dataGroup.push([parseInt(item["2009-2010_1"]),parseInt(item["2009-2010_2"]),parseInt(item["2010-2011_1"]),parseInt(item["2010-2011_2"]),parseInt(item["2011-2012_1"]),parseInt(item["2011-2012_2"])])
         })
         return dataGroup
         

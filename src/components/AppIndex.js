@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-16 20:01:19
+ * @LastEditTime: 2019-06-16 20:01:19
+ * @LastEditors: your name
+ */
 import React, { Component } from 'react';
 import {actions as personalAction} from '../reducers/person'
 const get_personal_records = personalAction.get_personal_records
@@ -29,7 +36,7 @@ export class AppIndex extends Component {
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <SankeyGraph/> */}
-                {/* <General className ="general"/> */}
+                <General className ="general"/>
                 <Group className="general"/>
                 <Person info = {this.state.selectStudent}/>
             </div>

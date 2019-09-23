@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-04-10 20:35:13
+ * @LastEditTime: 2019-09-23 19:38:44
+ * @LastEditors: Please set LastEditors
+ */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -13,7 +20,7 @@ const get_group_counts = grouplAction.get_group_counts,
     get_group_students = grouplAction.get_group_students
 
 import style from './style.css'
-import {zumaColor} from '../../config/config'
+import { zumaColor } from '../../config/config'
 
 class Group extends Component {
     constructor(props) {
@@ -50,26 +57,26 @@ class Group extends Component {
             "C_B": [],
             "C_C": [],
         }
-        
+
 
         if (this.props.counts.length !== 0) {
             this.props.counts.forEach(element => {
                 countsGroupByCateObj[element.cate].push(element)
             });
             //把每一类的学生的学生人数保存起来，要传给riverGraph
-        const studentsTotalObj = {} 
-        this.props.students.forEach((item)=>{
-            studentsTotalObj[item.cate] = item.list.length
+            const studentsTotalObj = {}
+            this.props.students.forEach((item) => {
+                studentsTotalObj[item.cate] = item.list.length
 
-        })
+            })
             return (
                 <div className="general-container">
 
                     {Object.keys(this.state.riverToggle).map((item, index) => (
-                        <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]}/>
+                        <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
                     ))}
                     {Object.keys(countsGroupByCateObj).map((item, index) => (
-                        <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu = {studentsTotalObj[item]} />
+                        <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
                     ))}
 
                     <BloomGraph students={this.props.students} />
@@ -85,8 +92,6 @@ class Group extends Component {
 
 
     componentDidMount() {
-
-
         this.props.get_group_students()
     }
 }

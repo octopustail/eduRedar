@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-03-27 20:45:41
+ * @LastEditTime: 2019-09-23 17:29:34
+ * @LastEditors: Please set LastEditors
+ */
 import {take,call,put} from 'redux-saga/effects'
 import {actionType as IndexAction} from '../reducers'
 import {actionType as GeneralAction} from '../reducers/general'
@@ -50,6 +57,31 @@ export function* getStudentGroupFlow(){
                 console.log(res)
                 yield put({type:GeneralAction.RESPONSE_STUDENT_GROUP,data:res.data})
                 yield put({type:GeneralAction.GET_GENERAL_GPA_FLOW_RECORD,stype:res.data[0].stype,list:res.data[0].list})
+            }
+        }
+    } n 
+}
+
+export function* getStudentList(start,end,sortBy){
+    console.log(start,end,sortBy)
+    yield put({type:IndexAction.FETCH_START})
+    try{
+        return yield call(get,`/studentList?start=${start}&end=${end}&sortBy=${sortBy}`)
+    }catch(err){
+        yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
+    }finally{
+        yield put({type:IndexAction.FETCH_END})
+    }
+}
+
+export function* getStudentListFlow(){
+    while(true){
+        let req = yield take(GeneralAction.GET_STUDENT_LIST)
+        let res =  yield call(getStudentList,req.start,req.end,req.sortBy)
+        if(res){
+            if(res.code === 0){
+                //在这里发出三合一请求。
+                yield put({type:GeneralAction.GET_GENERAL_GPA_FLOW_RECORD,list:res.data})
             }
         }
     }

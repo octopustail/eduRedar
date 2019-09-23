@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-03-19 19:52:25
+ * @LastEditTime: 2019-09-23 17:12:35
+ * @LastEditors: Please set LastEditors
+ */
 export const actionType = {
     // GET_GENERAL_GPA: 'GET_GENERAL_GPA',
     // GET_GPA_FLOW: 'GET_GPA_FLOW',
@@ -5,7 +12,8 @@ export const actionType = {
     GET_GENERAL_GPA_FLOW_RECORD: 'GET_GENERAL_GPA_FLOW_RECORD',
     RESPONSE_GENERAL_GPA_FLOW_RECORD: 'RESPONSE_GENERAL_GPA_FLOW_RECORD',
     GET_STUDENT_GROUP:'GET_STUDENT_GROUP',
-    RESPONSE_STUDENT_GROUP:'RESPONSE_STUDENT_GROUP'
+    RESPONSE_STUDENT_GROUP:'RESPONSE_STUDENT_GROUP',
+    GET_STUDENT_LIST:'GET_STUDENT_LIST'
 
 }
 
@@ -31,6 +39,14 @@ export const actions = {
             type:actionType.GET_STUDENT_GROUP,
             stype,
             list
+        }
+    },
+    get_student_list:function(start,end,sortBy){
+        return{
+            type:actionType.GET_STUDENT_LIST,
+            start,
+            end,
+            sortBy
         }
     }
 }

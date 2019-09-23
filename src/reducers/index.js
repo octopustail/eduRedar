@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-16 20:01:19
+ * @LastEditTime: 2019-06-16 20:01:19
+ * @LastEditors: your name
+ */
 import { combineReducers } from 'redux'
 import { reducer as person } from './person'
 import {reducer as general} from './general'
@@ -55,7 +62,7 @@ export function reducer(state = initialState, action) {
 
 export default combineReducers({ 
     person, 
-    // general,
+    general,
     group, 
     index:reducer 
 })
