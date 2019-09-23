@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-03-27 20:45:41
+ * @LastEditTime: 2019-09-23 21:30:50
+ * @LastEditors: Please set LastEditors
+ */
 let util = require('./util')
 let stuGPA = require('../../model/stu_gpa')
 let stuLib10s = require('../../model/stu_lib_10')
@@ -12,36 +19,12 @@ function studentGPADataProcess(req, res, next) {
 
 
     let responseData = { gpa: [], ae: [], records: [] }
-    // stuGPA.find({ sid: { $in: list } })
-    //     .then(result => {
-
-    //         // responseData.gpa = {nodes,links};
-    //         responseData.gpa = { result, stype: stype };
-    //         util.responseClient(res, 200, 0, 'success', responseData)
-
-    //         // stuLib10s.find({ sid: { $in: list } })
-    //         //     .then((result) => {
-    //         //         console.log('result2', result)
-    //         //         responseData.records = result
-    //         //         stuAE.find({ sid: { $in: list} })
-    //         //             .then((result) => {
-    //         //                 responseData.ae = result
-    //         //                 util.responseClient(res, 200, 0, 'success', responseData)
-
-    //         //             // })
-    //         //     })
-
-    //     })
-    //     .catch((error) => {
-    //         console.log(error)
-    //     })
-    //这么写真的非常丑陋，希望通过promise的方式来进行两次查询异步控制，当两次都查询都返回结果的时候在response，但是没有做到。之后代码优化的点
 
     const findstuGPA = new Promise((resolve, reject) => {
         console.log('in promise1')
         // resolve('p1')
-        stuGPA.find({ sid: {$in:list} }).then((results)=>{resolve(results)})
-        // stuGPA.find({ sid: { $in: list } }).then((results)=>{resolve(results)}).catch((err)=>{reject(err)})
+        stuGPA.find({sid: {$in: list}}).then((results)=>{resolve(results)})
+        // stuGPA.find().skip(start-1).limit(end-start+1).then((results)=>{resolve(results)}).catch((err)=>{reject(err)})
         console.log('out promise1')
 
     })
@@ -73,7 +56,7 @@ Promise.all([findstuGPA,findstuLib,findstuAE])
     responseData.ae = results[2]
     responseData.stype = stype
     util.responseClient(res, 200, 0, 'success', responseData)
-    console.log(results)
+    // console.log(results)
 })
 .catch((err)=>{
     console.log('err',err)
