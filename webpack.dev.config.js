@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-01-23 16:49:19
+ * @LastEditTime: 2019-01-23 16:49:19
+ * @LastEditors: your name
+ */
 const path = require('path')
 const webpack = require('webpack')
 const proxyUrl = 'http://localhost:3033'
@@ -28,6 +35,7 @@ module.exports = {
             '/studentCate':'http://localhost:3033',
             '/studentCounts':'http://localhost:3033',
             '/studentRecords':'http://localhost:3033',
+            '/studentList':'http://localhost:3033',
             
 
         }
