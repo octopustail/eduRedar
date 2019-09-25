@@ -3,7 +3,7 @@
  * @Author: octo
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime: 2019-09-23 20:46:47
+ * @LastEditTime: 2019-09-24 20:25:48
  */
 let util = require('./util')
 let stuGPA = require('../../model/stu_gpa')
@@ -16,6 +16,7 @@ function studentListQueryProcess(req, res, next) {
     stuGPA.find({},{"sid":1}).sort(sortBy).skip(start-1).limit(end-start)
         .then((result) => {
             let r = result.map( item => item.sid)
+            console.log(r)
             util.responseClient(res, 200, 0, 'success', r)
 
         })

@@ -1,6 +1,15 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-16 20:01:19
+ * @LastEditTime: 2019-09-24 21:38:15
+ * @LastEditors: Please set LastEditors
+ */
 import React, { Component } from 'react'
 // import redarGraph from './redarGraph'
 import * as d3 from 'd3'
+import { schoolCalendar } from '../../config/config'
+import moment from 'moment'
 import style from './style.css'
 
 class Heatmap extends Component {
@@ -25,7 +34,12 @@ class Heatmap extends Component {
 
     }
 
-
+    //根据校历算每一学期的有多少天，有多少周
+    seperateDate = (arr)=>{
+        arr.map((item)=>{
+            item.end.diff(item.start,"days")
+        })
+    }
 
     componentDidMount() {
         //请求数
@@ -38,7 +52,18 @@ class Heatmap extends Component {
         this.initGraph(elem, data)
     }
 
+    componentDidUpdate() {
+        //因为RedarGraph的组件的Mount是在Person之前完成的，所以说获取数据的操作放在了DidUpdate里面
+        // let elem = this.heatmap
+        // let data = this.props.data
 
+        let elem = this.heatmap
+        let data = {}
+        data.outer = this.outer
+        data.layout = this.layout
+        data.mouths = this.props.data
+        this.initGraph(elem, data)
+    }
 
     initGraph = (elem, d) => {
 
@@ -46,7 +71,6 @@ class Heatmap extends Component {
 
         let data = d
         if (JSON.stringify(data.mouths) === '{}') { return }
-
 
 
         //数据处理部分
@@ -232,21 +256,10 @@ class Heatmap extends Component {
     render() {
         return (
             <div className="heatMap" ref={(e) => { this.heatmap = e }}>
-                <div className="entropy"></div>
+                {/* <div className="entropy"></div> */}
             </div>
         )
     }
-    componentDidUpdate() {
-        //因为RedarGraph的组件的Mount是在Person之前完成的，所以说获取数据的操作放在了DidUpdate里面
-        // let elem = this.heatmap
-        // let data = this.props.data
 
-        let elem = this.heatmap
-        let data = {}
-        data.outer = this.outer
-        data.layout = this.layout
-        data.mouths = this.props.data
-        this.initGraph(elem, data)
-    }
 }
 export default Heatmap

@@ -1,3 +1,11 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-02-27 10:13:58
+ * @LastEditTime: 2019-09-24 21:52:41
+ * @LastEditors: Please set LastEditors
+ */
+import moment from 'moment'
 export const defaultColor = {}
 export const zumaColor = {
     food: '#70C8E8',
@@ -5,15 +13,31 @@ export const zumaColor = {
     shower: '#E6FF9C',
     hotwater: '#FFB0D3'
 }
+//09年的校历
+export const schoolCalendar = [
+    {
+        start:moment('2009-08-31'),
+        end:moment('2010-02-28'),
+    },{
+        start:moment('2010-03,01'),
+        end:moment('2010-02-28'),
+    },{
+        start:moment('2010-08-31'),
+        end:moment('2011-02-20'),
+    },{
+        start:moment('2011-02-21'),
+        end:moment('2011-08-28'),
+    },{
+        start:moment('2011-08-29'),
+        end:moment('2012-02-19'),
+    },{
+        start:moment('2012-02-20'),
+        end:moment('2012-08-26'),
+    }
+]
 
-export const schoolCalendar = {
-    sems1: new Date('2009,09,01'),
-    sems2: new Date('2010,03,01'),
-    sems3: new Date('2010,09,01'),
-    sems4: new Date('2011,03,01'),
-    sems5: new Date('2011,09,01'),
-    sems6: new Date('2012,03,01'),
-}
+
+
 
 export const cateColor = {
 

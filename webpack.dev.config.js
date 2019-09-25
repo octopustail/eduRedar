@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-01-23 16:49:19
- * @LastEditTime: 2019-01-23 16:49:19
- * @LastEditors: your name
+ * @LastEditTime: 2019-09-25 16:37:59
+ * @LastEditors: Please set LastEditors
  */
 const path = require('path')
 const webpack = require('webpack')
@@ -32,8 +32,9 @@ module.exports = {
             '/studentGroup':'http://localhost:3033',
             '/studentRecord':'http://localhost:3033',
             '/studentGpa':'http://localhost:3033',
-            '/studentCate':'http://localhost:3033',
+            '/studentCate':'http://localhost:3033',        
             '/studentCounts':'http://localhost:3033',
+            '/studentRecordsAnalyze':'http://localhost:3033',            
             '/studentRecords':'http://localhost:3033',
             '/studentList':'http://localhost:3033',
             

@@ -2,13 +2,13 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-09-23 20:37:26
+ * @LastEditTime: 2019-09-25 21:20:25
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { InputNumber, Button} from 'antd'
+import { InputNumber, Button, Input} from 'antd'
 
 import ParallelCoordinate from '../ParallelCoordinates/ParallelCoordinateComponents'
 import SankeyGraph from '../sankeyGraph/SankeyGraphComponent'
@@ -17,11 +17,13 @@ import Filter from './Filter'
 import RiverGraph from '../graphs/RiverGraphComponent'
 // import BloomGragh from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
+import BarChart from '../graphs/BarCharts'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
 const get_student_group   = generalAction.get_student_group
 const get_student_list = generalAction.get_student_list
+const get_student_record_analyze = generalAction.get_student_record_analyze
 import style from './style.css'
 
 class Genaral extends Component {
@@ -30,7 +32,7 @@ class Genaral extends Component {
         this.selectedData = []
         this.state = {
             start: 1,
-            end: 20,
+            end: 10,
         }
         this.sems = [
             "2009-2010_1",
@@ -45,6 +47,7 @@ class Genaral extends Component {
         // this.props.get_student_group('unio_exStu')
         this.handleQuery()
         // this.props.get_general_gpa_flow_record('',"2900101002")
+        this.props.get_student_record_analyze()
     }
     
     onBrushSelected = (param, instance) => {
@@ -56,15 +59,15 @@ class Genaral extends Component {
 
     }
 
-    handleStartChange = (value) => {
+    handleStartChange = (e) => {
         this.setState({
-            start: value
+            start: e.target.value
         })
     }
 
-    handleEndChange = (value) => {
+    handleEndChange = (e) => {
         this.setState({
-            end:value
+            end:e.target.value
         })
     }
 
@@ -74,7 +77,6 @@ class Genaral extends Component {
             end: this.state.end,
             sortBy: this.sems[0]
         }
-        console.log(params.sortBy)
         this.props.get_student_list(params.start,params.end,params.sortBy)
     }
 
@@ -108,6 +110,7 @@ class Genaral extends Component {
             onBrushSelected: this.onBrushSelected
         }
         const stuTypes = ['real_exStu','real_lowStu','real_midStu','unio_exStu','unio_midStu','unio_lowStu','pre_exStu','pre_midStu','pre_lowStu']
+        console.log(this.props.student_record_analyze)
         return (
             <div className="general-container">
                 {/* <div className="row">
@@ -115,16 +118,18 @@ class Genaral extends Component {
                     <SankeyGraph className="sankey" data={this.props.general_gpa} />
 
 
-                </div>
-                <div className="row">
-                    <Heatmap className="heatmap" data={this.props.general_records} />
-                    <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} />
                 </div> */}
+                {/* <div className="row"> */}
+                    <BarChart className="heatmap" data={this.props.student_record_analyze} />
+                    {/* <Heatmap className="heatmap" data={this.props.general_records} /> */}
+                    {/* <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} /> */}
+                {/* </div> */}
                 <div>
-                    <span>No.<InputNumber onChange={this.handleStartChange} defaultValue={1}/>To No.</span><InputNumber onChange={ this.handleEndChange }defaultValue={3}/>
+                    <Input onChange={this.handleStartChange} defaultValue={1} />
+                    <Input onChange={ this.handleEndChange } defaultValue={3}/>
                     <Button onClick={this.handleQuery}>查询</Button>
                 </div>
-                <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} />
+                <ParallelCoordinate className="parallel" data={this.props.general_gpa} />
                 
                 {/* <RiverGraph records={this.props.general_records}/>
                 <RecordScatterGraph records={this.props.general_records}/> */}
@@ -141,7 +146,8 @@ function mapDispatchToProps(dispatch) {
     return {
         get_general_gpa_flow_record: bindActionCreators(get_general_gpa_flow_record, dispatch),
         get_student_group:bindActionCreators(get_student_group,dispatch),
-        get_student_list: bindActionCreators(get_student_list,dispatch)
+        get_student_list: bindActionCreators(get_student_list,dispatch),
+        get_student_record_analyze: bindActionCreators(get_student_record_analyze,dispatch)
     }
 }
 function mapStateToProps(state) {
@@ -151,6 +157,7 @@ function mapStateToProps(state) {
         general_records: state.general.general_records,
         student_group: state.general.student_group,
         student_type:state.general.student_type,
+        student_record_analyze:state.general.student_record_analyze
     }
 }
 
