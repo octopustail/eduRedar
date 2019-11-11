@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-09-25 16:35:58
+ * @LastEditTime: 2019-10-17 09:59:36
  * @LastEditors: Please set LastEditors
  */
 
@@ -35,6 +35,7 @@ module.exports = function(app){
   app.get('/studentGpa',require('./stuGpa'))
 
   app.get('/studentList',require('./stuList'))
+  app.get('/studentMath',require('./studentMath'))
 
 
 

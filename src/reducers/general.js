@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-19 19:52:25
- * @LastEditTime: 2019-09-25 21:07:00
+ * @LastEditTime: 2019-10-17 10:22:13
  * @LastEditors: Please set LastEditors
  */
 export const actionType = {
@@ -17,6 +17,8 @@ export const actionType = {
     RESPONSE_STUDENT_LIST:'RESPONSE_STUDENT_LIST',
     GET_STUDENT_RECORD_ANALYZE:'GET_STUDENT_RECORD_ANALYZE',
     RESPONSE_STUDENT_RECORD_ANALYZE:'RESPONSE_STUDENT_RECORD_ANALYZE',
+    GET_STUDENT_MATH:'GET_STUDENT_MATH',
+    RESPONSE_STUDENT_MATH:'RESPONSE_STUDENT_MATH',
 }
 
 const initialState = {
@@ -25,6 +27,7 @@ const initialState = {
     student_group:[],
     student_type:'',
     student_record_analyze: [],
+    student_math:[]
     
 }
 
@@ -57,6 +60,11 @@ export const actions = {
         return{
             type:actionType.GET_STUDENT_RECORD_ANALYZE,
         }
+    },
+    get_student_math:function(){
+        return{
+            type:actionType.GET_STUDENT_MATH,
+        }
     }
 }
 
@@ -88,6 +96,12 @@ export function reducer(state = initialState, action) {
             student_group:action.data[0].list,
             student_type:action.data[0].stype,
         }
+
+        case actionType.RESPONSE_STUDENT_MATH:
+            return{
+                ...state,
+                student_math:action.data,
+            }
         default:
             return state
     }

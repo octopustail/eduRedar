@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-09-25 21:20:25
+ * @LastEditTime: 2019-10-22 11:06:44
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -18,12 +18,14 @@ import RiverGraph from '../graphs/RiverGraphComponent'
 // import BloomGragh from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import BarChart from '../graphs/BarCharts'
+import MathHeatmap from '../graphs/HeatMap'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
 const get_student_group   = generalAction.get_student_group
 const get_student_list = generalAction.get_student_list
 const get_student_record_analyze = generalAction.get_student_record_analyze
+const get_student_math = generalAction.get_student_math
 import style from './style.css'
 
 class Genaral extends Component {
@@ -45,9 +47,10 @@ class Genaral extends Component {
     }
     componentDidMount() {
         // this.props.get_student_group('unio_exStu')
-        this.handleQuery()
-        // this.props.get_general_gpa_flow_record('',"2900101002")
+        // this.handleQuery()
+        this.props.get_general_gpa_flow_record('',"2900101002")
         this.props.get_student_record_analyze()
+        this.props.get_student_math()
     }
     
     onBrushSelected = (param, instance) => {
@@ -110,7 +113,6 @@ class Genaral extends Component {
             onBrushSelected: this.onBrushSelected
         }
         const stuTypes = ['real_exStu','real_lowStu','real_midStu','unio_exStu','unio_midStu','unio_lowStu','pre_exStu','pre_midStu','pre_lowStu']
-        console.log(this.props.student_record_analyze)
         return (
             <div className="general-container">
                 {/* <div className="row">
@@ -120,6 +122,7 @@ class Genaral extends Component {
 
                 </div> */}
                 {/* <div className="row"> */}
+                    <MathHeatmap className="heatmap" data={this.props.student_math} sorted_id ={this.props.general_gpa} />
                     <BarChart className="heatmap" data={this.props.student_record_analyze} />
                     {/* <Heatmap className="heatmap" data={this.props.general_records} /> */}
                     {/* <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} /> */}
@@ -147,7 +150,8 @@ function mapDispatchToProps(dispatch) {
         get_general_gpa_flow_record: bindActionCreators(get_general_gpa_flow_record, dispatch),
         get_student_group:bindActionCreators(get_student_group,dispatch),
         get_student_list: bindActionCreators(get_student_list,dispatch),
-        get_student_record_analyze: bindActionCreators(get_student_record_analyze,dispatch)
+        get_student_record_analyze: bindActionCreators(get_student_record_analyze,dispatch),
+        get_student_math: bindActionCreators(get_student_math,dispatch)
     }
 }
 function mapStateToProps(state) {
@@ -157,7 +161,8 @@ function mapStateToProps(state) {
         general_records: state.general.general_records,
         student_group: state.general.student_group,
         student_type:state.general.student_type,
-        student_record_analyze:state.general.student_record_analyze
+        student_record_analyze:state.general.student_record_analyze,
+        student_math:state.general.student_math
     }
 }
 

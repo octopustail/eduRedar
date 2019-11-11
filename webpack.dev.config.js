@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-01-23 16:49:19
- * @LastEditTime: 2019-09-25 16:37:59
+ * @LastEditTime: 2019-10-17 09:59:19
  * @LastEditors: Please set LastEditors
  */
 const path = require('path')
@@ -37,6 +37,7 @@ module.exports = {
             '/studentRecordsAnalyze':'http://localhost:3033',            
             '/studentRecords':'http://localhost:3033',
             '/studentList':'http://localhost:3033',
+            '/studentMath':'http://localhost:3033',
             
 
         }
