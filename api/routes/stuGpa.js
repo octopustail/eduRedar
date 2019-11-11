@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-27 20:45:41
- * @LastEditTime: 2019-09-24 20:30:56
+ * @LastEditTime: 2019-10-18 11:04:27
  * @LastEditors: Please set LastEditors
  */
 let util = require('./util')
@@ -21,7 +21,8 @@ function studentGPADataProcess(req, res, next) {
     let responseData = { gpa: [], ae: [], records: [] }
 
     const findstuGPA = new Promise((resolve, reject) => {
-        stuGPA.find({sid: {$in: list}}).then((results)=>{resolve(results)})
+        // stuGPA.find({sid: {$in: list}}).then((results)=>{resolve(results)})
+        stuGPA.find({},{sid:1,_id:0}).sort({"2011-2012_1":-1}).then((results)=>{resolve(results)})
     })
 
     const findstuLib = new Promise((resolve, reject) => {

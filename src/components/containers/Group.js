@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2019-09-23 19:38:44
+ * @LastEditTime: 2019-10-17 10:44:31
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -92,7 +92,7 @@ class Group extends Component {
 
 
     componentDidMount() {
-        this.props.get_group_students()
+        // this.props.get_group_students()
     }
 }
 
