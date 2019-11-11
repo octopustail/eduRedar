@@ -2,7 +2,7 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2019-09-25 22:12:38
+ * @LastEditTime: 2019-10-17 10:27:04
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -53,7 +53,6 @@ export default class BarChart extends Component {
 
     }
     getOption = (ori_data) => {
-        console.log(ori_data)
         // const schema = [
         //     { name: 'sems1', index: 0, text: 'sems1' },
         //     { name: 'sems2', index: 1, text: 'sems2' },
@@ -73,7 +72,7 @@ export default class BarChart extends Component {
 
         const data = this.dataFormate(ori_data)
         return {
-            color: ["#ffda8e","#80d4f6","#5c196b","#fffff5"],
+            color: ["#ffda8e","#80d4f6","#CE6D39","#fffff5"],
             tooltip : {
                 trigger: 'axis',
                 axisPointer: {
@@ -83,20 +82,23 @@ export default class BarChart extends Component {
                     }
                 }
             },
-            toolbox: {
-                show : true,
-                feature : {
-                    mark : {show: true},
-                    dataView : {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar']},
-                    restore : {show: true},
-                    saveAsImage : {show: true}
-                }
-            },
+            // toolbox: {
+            //     show : true,
+            //     feature : {
+            //         mark : {show: true},
+            //         dataView : {show: true, readOnly: false},
+            //         magicType: {show: true, type: ['line', 'bar']},
+            //         restore : {show: true},
+            //         saveAsImage : {show: true}
+            //     }
+            // },
             calculable : true,
             legend: {
-                data:['Growth', 'Budget 2011', 'Budget 2012'],
-                itemGap: 5
+                data:['shower', 'food', 'library','hotwater'],
+                itemGap: 5,
+                textStyle: {
+                    color: '#fff'
+                }
             },
             grid: {
                 top: '12%',
@@ -107,32 +109,41 @@ export default class BarChart extends Component {
             xAxis: [
                 {
                     type : 'category',
-                    data : data.xData
+                    data : data.xData,
+                    color: "#aaa",
+                    axisLabel:{
+                        color: '#fff'
+                    }
                 }
             ],
             yAxis: [
                 {
                     type : 'value',
-                    name : 'Budget (million USD)',
+                    name : '一学期总次数',
+                    nameTextStyle:{
+                        color: "#fff",
+                        align: 'left'
+                    },
                     axisLabel: {
-                        formatter: function (a) {
-                            a = +a;
-                            return isFinite(a)
-                                ? echarts.format.addCommas(+a / 1000)
-                                : '';
-                        }
+                        color:'#fff',
+                        // formatter: function (a) {
+                        //     a = +a;
+                        //     return isFinite(a)
+                        //         ? echarts.format.addCommas(+a / 1000)
+                        //         : '';
+                        // }
                     }
                 }
             ],
             dataZoom: [
                 {
                     show: true,
-                    start: 94,
+                    start: 0,
                     end: 100
                 },
                 {
                     type: 'inside',
-                    start: 94,
+                    start: 0,
                     end: 100
                 },
                 {
@@ -146,16 +157,17 @@ export default class BarChart extends Component {
                 }
             ],
             series : [
-                {
-                    name: 'shower',
-                    type: 'bar',
-                    data: data.shower,
-                    stack: "stack1"
-                },
+
                 {
                     name: 'food',
                     type: 'bar',
                     data: data.food,
+                    stack: "stack1"
+                },                
+                {
+                    name: 'shower',
+                    type: 'bar',
+                    data: data.shower,
                     stack: "stack1"
                 },
                 {
@@ -175,10 +187,9 @@ export default class BarChart extends Component {
     }
 
     render() {
-        console.log('bar',this.props)
         return (
             <div className="parallel">
-                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:500,width:600}} />
+                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:500,width:1300}} />
             </div>
         )
     }
