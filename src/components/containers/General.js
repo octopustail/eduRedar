@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-11-19 15:37:58
+ * @LastEditTime: 2019-11-19 16:29:22
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -29,6 +29,7 @@ const get_student_list = generalAction.get_student_list
 const get_student_record_analyze = generalAction.get_student_record_analyze
 const get_student_math = generalAction.get_student_math
 const get_student_week_record = generalAction.get_student_week_record
+const get_student_gpa = generalAction.get_student_gpa
 import style from './style.css'
 
 class Genaral extends Component {
@@ -38,7 +39,7 @@ class Genaral extends Component {
         this.state = {
             start: 1,
             end: 10,
-            student_type:"C_C",
+            student_type: "B_C",
         }
         this.sems = [
             "2009-2010_1",
@@ -52,15 +53,21 @@ class Genaral extends Component {
     componentDidMount() {
         // this.props.get_student_group('unio_exStu')
         // this.handleQuery()
-        this.props.get_general_gpa_flow_record('', "2900101002")
+        // this.props.get_general_gpa_flow_record('', "2900101002")
         this.props.get_student_record_analyze()
         this.props.get_student_math()
         this.getHotmapWeeklyRecord(this.state.student_type)
+        this.getParallelGpa(this.state.student_type)
     }
 
-    getHotmapWeeklyRecord = (type)=>{
-        const el = rfResult.find(elem=> elem.cate === type )
+    getHotmapWeeklyRecord = (type) => {
+        const el = rfResult.find(elem => elem.cate === type)
         el && this.props.get_student_week_record(el.list)
+    }
+
+    getParallelGpa = (type) => {
+        const el = rfResult.find(elem => elem.cate === type)
+        el && this.props.get_student_gpa(el.list)
     }
 
     onBrushSelected = (param, instance) => {
@@ -133,7 +140,7 @@ class Genaral extends Component {
                 {/* <div className="row"> */}
                 {/* <MathHeatmap className="heatmap" data={this.props.student_math} sorted_id ={this.props.general_gpa} /> */}
                 {/* <BarChart className="heatmap" data={this.props.student_record_analyze} /> */}
-                <Heatmap className="heatmap" data={this.props.student_week_record}/>
+                <Heatmap className="heatmap" data={this.props.student_week_record} />
                 {/* <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} /> */}
                 {/* </div> */}
                 {/* <div>
@@ -141,7 +148,7 @@ class Genaral extends Component {
                     <Input onChange={ this.handleEndChange } defaultValue={3}/>
                     <Button onClick={this.handleQuery}>查询</Button>
                 </div> */}
-                <ParallelCoordinate className="parallel" data={this.props.general_gpa} />
+                <ParallelCoordinate className="parallel" data={this.props.student_gpa} />
 
                 {/* <RiverGraph records={this.props.general_records}/>
                 <RecordScatterGraph records={this.props.general_records}/> */}
@@ -161,13 +168,15 @@ function mapDispatchToProps(dispatch) {
         get_student_list: bindActionCreators(get_student_list, dispatch),
         get_student_record_analyze: bindActionCreators(get_student_record_analyze, dispatch),
         get_student_math: bindActionCreators(get_student_math, dispatch),
-        //每周的学生记录
-        get_student_week_record: bindActionCreators(get_student_week_record, dispatch)
+        //每周的学生记录,学生包括student_type的学生
+        get_student_week_record: bindActionCreators(get_student_week_record, dispatch),
+        //每周的学生总加权平均分,学生包括student_type的学生
+        get_student_gpa: bindActionCreators(get_student_gpa, dispatch)
     }
 }
 function mapStateToProps(state) {
     return {
-        general_gpa: state.general.general_gpa,
+        student_gpa: state.general.student_gpa,
         general_ae: state.general.general_ae,
         general_records: state.general.general_records,
         student_group: state.general.student_group,

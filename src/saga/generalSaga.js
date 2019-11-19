@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-27 20:45:41
- * @LastEditTime: 2019-11-19 15:37:06
+ * @LastEditTime: 2019-11-19 16:19:26
  * @LastEditors: Please set LastEditors
  */
 import {take,call,put} from 'redux-saga/effects'
@@ -154,8 +154,32 @@ export function* getGeneralWeekRecordFlow(){
         let res =  yield call(getGeneralWeekRecord,req.list)
         if(res){
             if(res.code === 0){
-                console.log('res',res)
                 yield put({type:GeneralAction.RESPONSE_STUDENT_WEEK_RECORD,data:res.data})
+            }
+        }
+    }
+}
+
+//平行坐标轴图：学生成绩
+export function* getGeneralGpa(list){
+    const _list = JSON.stringify(list)
+    yield put({type:IndexAction.FETCH_START})
+    try{
+        return yield call(get,`/studentGpa?list=${_list}`)
+    }catch(err){
+        yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
+    }finally{
+        yield put({type:IndexAction.FETCH_END})
+    }
+}
+
+export function* getGeneralGpaFlow(){
+    while(true){
+        let req = yield take(GeneralAction.GET_STUDENT_GPA)
+        let res =  yield call(getGeneralGpa,req.list)
+        if(res){
+            if(res.code === 0){
+                yield put({type:GeneralAction.RESPONSE_STUDENT_GPA,data:res.data})
             }
         }
     }

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-19 19:52:25
- * @LastEditTime: 2019-11-19 15:27:46
+ * @LastEditTime: 2019-11-19 16:14:21
  * @LastEditors: Please set LastEditors
  */
 export const actionType = {
@@ -15,12 +15,16 @@ export const actionType = {
     RESPONSE_STUDENT_GROUP: 'RESPONSE_STUDENT_GROUP',
     GET_STUDENT_LIST: 'GET_STUDENT_LIST',
     RESPONSE_STUDENT_LIST: 'RESPONSE_STUDENT_LIST',
+
+
     GET_STUDENT_RECORD_ANALYZE: 'GET_STUDENT_RECORD_ANALYZE',
     RESPONSE_STUDENT_RECORD_ANALYZE: 'RESPONSE_STUDENT_RECORD_ANALYZE',
     GET_STUDENT_MATH: 'GET_STUDENT_MATH',
     RESPONSE_STUDENT_MATH: 'RESPONSE_STUDENT_MATH',
     GET_STUDENT_WEEK_RECORD: 'GET_STUDENT_WEEK_RECORD',
     RESPONSE_STUDENT_WEEK_RECORD: 'RESPONSE_STUDENT_WEEK_RECORD',
+    GET_STUDENT_GPA: 'GET_STUDENT_GPA',
+    RESPONSE_STUDENT_GPA: 'RESPONSE_STUDENT_GPA',
 }
 
 const initialState = {
@@ -31,7 +35,8 @@ const initialState = {
     student_type: '',
     student_record_analyze: [],
     student_math: [],
-    student_week_record: []
+    student_week_record: [],
+    student_gpa: []
 
 }
 
@@ -73,6 +78,12 @@ export const actions = {
     get_student_week_record: function (list) {
         return {
             type: actionType.GET_STUDENT_WEEK_RECORD,
+            list
+        }
+    },
+    get_student_gpa: function (list) {
+        return {
+            type: actionType.GET_STUDENT_GPA,
             list
         }
     }
@@ -117,6 +128,11 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 student_week_record: action.data,
+            }
+        case actionType.RESPONSE_STUDENT_GPA:
+            return {
+                ...state,
+                student_gpa: action.data,
             }
         default:
             return state
