@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-06-16 20:01:19
- * @LastEditors: your name
+ * @LastEditTime: 2019-11-13 11:14:52
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react';
 import {actions as personalAction} from '../reducers/person'
@@ -32,12 +32,12 @@ export class AppIndex extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="index">
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <SankeyGraph/> */}
-                <General className ="general"/>
                 <Group className="general"/>
+                {/* <General className ="general"/> */}
                 <Person info = {this.state.selectStudent}/>
             </div>
         )

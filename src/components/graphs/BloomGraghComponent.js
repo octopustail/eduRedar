@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-04-08 19:29:31
+ * @LastEditTime: 2019-11-13 15:51:33
+ * @LastEditors: Please set LastEditors
+ */
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 import { cateColor } from '../../config/config'
@@ -6,8 +13,8 @@ import style from './style.css'
 export default class BloomGraph extends Component {
     constructor(props) {
         super(props)
-        this.width = 350
-        this.height = 350
+        this.width = 400
+        this.height = 400
         this.svg = {}
     }
     drawGraph(students) {
@@ -162,7 +169,7 @@ export default class BloomGraph extends Component {
         }
 
         simulationCreator(nodes_a, edges_a, svg_a.svg_nodes, svg_a.svg_edges, this.width, this.height,0.4)
-        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width*2, this.height*2,0.5)
+        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width, this.height,0.5)
         simulationCreator(nodes_c, edges_c, svg_c.svg_nodes, svg_c.svg_edges, this.width, this.height,0.4)
 
     }
@@ -171,7 +178,7 @@ export default class BloomGraph extends Component {
         return (
             <div className="bloom">
                 <svg width={this.width} height={this.height} ref={elem => this.svg.a = d3.select(elem)}></svg>
-                <svg width={this.width*2} height={this.height*2} ref={elem => this.svg.b = d3.select(elem)}></svg>
+                <svg width={this.width} height={this.height} ref={elem => this.svg.b = d3.select(elem)}></svg>
                 <svg width={this.width} height={this.height} ref={elem => this.svg.c= d3.select(elem)}>
                 </svg>
             </div>
@@ -179,7 +186,6 @@ export default class BloomGraph extends Component {
     }
 
     componentDidMount() {
-        console.log('students', this.props.students)
         this.drawGraph(this.props.students)
     }
     // componentDidUpdate() {

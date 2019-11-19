@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-09-24 21:38:15
+ * @LastEditTime: 2019-11-18 16:12:14
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -49,6 +49,7 @@ class Heatmap extends Component {
         data.outer = this.outer
 
         data.mouths = this.props.data
+        // console.log('data',data.mouths)
         this.initGraph(elem, data)
     }
 
@@ -62,6 +63,7 @@ class Heatmap extends Component {
         data.outer = this.outer
         data.layout = this.layout
         data.mouths = this.props.data
+        console.log(data.mouths)
         this.initGraph(elem, data)
     }
 
@@ -78,7 +80,7 @@ class Heatmap extends Component {
         let weekoff = []
         const countByweek = []
         const countByWeekSems = {}
-        const sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
+        const sems = ['semes1', 'semes2', 'semes3', 'semes4', 'semes5', 'semes6']
         for (let s = 0; s < sems.length; s++) {
             let sem = sems[s]
             for (let i = 0; i < 24; i++) {
@@ -92,8 +94,10 @@ class Heatmap extends Component {
         }
 
         //        //热力图数据处理成对应的对象数组
-        let arr1 = ['sems1', 'sems3', 'sems5']
-        let arr2 = ['sems2', 'sems4', 'sems6']
+        // let arr1 = ['sems1', 'sems3', 'sems5']
+        // let arr2 = ['sems2', 'sems4', 'sems6']
+        let arr1 = ['semes1', 'semes3', 'semes5']
+        let arr2 = ['semes2', 'semes4', 'semes6']
 
         arr1.forEach((key) => {
             let week = countByWeekSems[key].map((item, idx) => {

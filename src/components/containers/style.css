@@ -20,6 +20,28 @@
   justify-content: flex-start;;
 }
 
+.group-container {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  /* flex-direction: column; */
+  justify-content: center;
+
+  margin: 5px;
+
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.group-container .row {
+  display: flex;
+  align-content: stretch;
+  flex-basis: 47.5%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;;
+}
+
 .redar-container {
   display: flex;
   align-items: space-around;

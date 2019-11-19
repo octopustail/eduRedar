@@ -36,6 +36,7 @@ module.exports = function(app){
 
   app.get('/studentList',require('./stuList'))
   app.get('/studentMath',require('./studentMath'))
+  app.get('/studentWeekRecord',require('./stuWeekRecord'))
 
 
 

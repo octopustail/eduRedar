@@ -6,3 +6,11 @@ body {
 
   background-color: #34314c;
 }
+
+.index {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  /* flex-direction: column; */
+  justify-content: center;
+}
