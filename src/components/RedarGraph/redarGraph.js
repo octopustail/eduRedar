@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-03-04 14:51:35
+ * @LastEditTime: 2019-11-20 11:13:33
+ * @LastEditors: Please set LastEditors
+ */
 import * as d3 from 'd3'
 import style from './style.css'
 import { color } from 'd3';
@@ -9,13 +16,18 @@ let redarGraph = {}
 
 redarGraph.initGraph = function (el, data) {
     //MaxMin时间要转化成分钟的相对时间 MaxDay:一学期的总天数，应该用相对时间计算获
-    // console.log(data)
     
     //清空画布 重新开始画
-    d3.select(el).selectAll('svg').remove()
+    if(data==undefined || !data.hasOwnProperty('sems')){
+        return 
+    }
     const sems = data.sems
+
+    d3.select(el).selectAll('svg').remove()
     let formatDatas = []
-    const startTime_ms = Date.parse(schoolCalendar[`sems${sems}`])
+    // const startTime_ms = Date.parse(schoolCalendar[`sems${sems}`])
+    //当前学期开始时间
+    const startTime_ms = Date.parse(schoolCalendar[sems-1].start)
 
     function convertDatatoFormat(startTime_ms, record) {
         let dayStr = record.sdate.split('-').join(',')

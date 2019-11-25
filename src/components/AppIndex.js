@@ -27,8 +27,14 @@ export class AppIndex extends Component {
         //state应该传一个回调给General组件，由General组件来更新。子组件与父组件的交流
 
         this.state = {
-            selectStudent:""
+            selectStudent:"2904302008"
         }
+    }
+
+    handleParallelSelectedId = (id)=>{
+        this.setState({
+            selectStudent:id
+        })
     }
     render() {
         return (
@@ -36,7 +42,7 @@ export class AppIndex extends Component {
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <SankeyGraph/> */}
-                <Group className="general"/>
+                <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/>
                 {/* <General className ="general"/> */}
                 <Person info = {this.state.selectStudent}/>
             </div>

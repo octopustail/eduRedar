@@ -184,3 +184,28 @@ export function* getGeneralGpaFlow(){
         }
     }
 }
+
+//平行坐标轴图：学生成绩
+export function* getGeneralAE(list){
+    const _list = JSON.stringify(list)
+    yield put({type:IndexAction.FETCH_START})
+    try{
+        return yield call(get,`/studentAE?list=${_list}`)
+    }catch(err){
+        yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
+    }finally{
+        yield put({type:IndexAction.FETCH_END})
+    }
+}
+
+export function* getGeneralAEFlow(){
+    while(true){
+        let req = yield take(GeneralAction.GET_GENERAL_AE)
+        let res =  yield call(getGeneralAE,req.list)
+        if(res){
+            if(res.code === 0){
+                yield put({type:GeneralAction.RESPONSE_GENERAL_AE,data:res.data})
+            }
+        }
+    }
+}

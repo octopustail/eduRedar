@@ -25,6 +25,8 @@ export const actionType = {
     RESPONSE_STUDENT_WEEK_RECORD: 'RESPONSE_STUDENT_WEEK_RECORD',
     GET_STUDENT_GPA: 'GET_STUDENT_GPA',
     RESPONSE_STUDENT_GPA: 'RESPONSE_STUDENT_GPA',
+    GET_GENERAL_AE: 'GET_GENERAL_AE',
+    RESPONSE_GENERAL_AE: 'RESPONSE_GENERAL_AE',
 }
 
 const initialState = {
@@ -36,7 +38,8 @@ const initialState = {
     student_record_analyze: [],
     student_math: [],
     student_week_record: [],
-    student_gpa: []
+    student_gpa: [],
+    general_ae:[]
 
 }
 
@@ -86,6 +89,12 @@ export const actions = {
             type: actionType.GET_STUDENT_GPA,
             list
         }
+    },
+    get_general_ae: function (list) {
+        return {
+            type: actionType.GET_GENERAL_AE,
+            list
+        }
     }
 }
 
@@ -133,6 +142,11 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 student_gpa: action.data,
+            }
+        case actionType.RESPONSE_GENERAL_AE:
+            return {
+                ...state,
+                general_ae: action.data,
             }
         default:
             return state

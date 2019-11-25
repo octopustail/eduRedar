@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { InputNumber, Button, Input } from 'antd'
 
 import ParallelCoordinate from '../ParallelCoordinates/ParallelCoordinateComponents'
+import AEParallelCoordinate from '../ParallelCoordinates/AEParallelCoordinateComponents'
 import SankeyGraph from '../sankeyGraph/SankeyGraphComponent'
 import Heatmap from '../HeatmapGraph/HeatmapGraphComponent'
 import Filter from './Filter'
@@ -20,7 +21,7 @@ import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import BarChart from '../graphs/BarCharts'
 import MathHeatmap from '../graphs/HeatMap'
 
-import rfResult from '../../../public/randomForestsResults'
+import {randomForestsResults2 as rfResult} from '../../../public/randomForestsResults'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
@@ -30,6 +31,7 @@ const get_student_record_analyze = generalAction.get_student_record_analyze
 const get_student_math = generalAction.get_student_math
 const get_student_week_record = generalAction.get_student_week_record
 const get_student_gpa = generalAction.get_student_gpa
+const get_general_ae = generalAction.get_general_ae
 import style from './style.css'
 
 class Genaral extends Component {
@@ -58,6 +60,7 @@ class Genaral extends Component {
         this.props.get_student_math()
         this.getHotmapWeeklyRecord(this.state.student_type)
         this.getParallelGpa(this.state.student_type)
+        this.getParallelAE(this.state.student_type)
     }
 
     getHotmapWeeklyRecord = (type) => {
@@ -68,6 +71,11 @@ class Genaral extends Component {
     getParallelGpa = (type) => {
         const el = rfResult.find(elem => elem.cate === type)
         el && this.props.get_student_gpa(el.list)
+    }
+
+    getParallelAE = (type) => {
+        const el = rfResult.find(elem => elem.cate === type)
+        el && this.props.get_general_ae(el.list)
     }
 
     onBrushSelected = (param, instance) => {
@@ -89,6 +97,10 @@ class Genaral extends Component {
         this.setState({
             end: e.target.value
         })
+    }
+
+    handleParallelSelectedId = (id)=>{
+        this.props.handleParallelSelectedId(id)
     }
 
     handleQuery = () => {
@@ -149,6 +161,7 @@ class Genaral extends Component {
                     <Button onClick={this.handleQuery}>查询</Button>
                 </div> */}
                 <ParallelCoordinate className="parallel" data={this.props.student_gpa} />
+                <AEParallelCoordinate className="parallel" data={this.props.general_ae} handleParallelSelectedId = {this.handleParallelSelectedId}/>
 
                 {/* <RiverGraph records={this.props.general_records}/>
                 <RecordScatterGraph records={this.props.general_records}/> */}
@@ -171,7 +184,8 @@ function mapDispatchToProps(dispatch) {
         //每周的学生记录,学生包括student_type的学生
         get_student_week_record: bindActionCreators(get_student_week_record, dispatch),
         //每周的学生总加权平均分,学生包括student_type的学生
-        get_student_gpa: bindActionCreators(get_student_gpa, dispatch)
+        get_student_gpa: bindActionCreators(get_student_gpa, dispatch),
+        get_general_ae: bindActionCreators(get_general_ae, dispatch)
     }
 }
 function mapStateToProps(state) {

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-02-27 10:13:58
- * @LastEditTime: 2019-09-24 21:52:41
+ * @LastEditTime: 2019-11-20 11:09:43
  * @LastEditors: Please set LastEditors
  */
 import moment from 'moment'
@@ -16,23 +16,23 @@ export const zumaColor = {
 //09年的校历
 export const schoolCalendar = [
     {
-        start:moment('2009-08-31'),
-        end:moment('2010-02-28'),
-    },{
-        start:moment('2010-03,01'),
-        end:moment('2010-02-28'),
-    },{
-        start:moment('2010-08-31'),
-        end:moment('2011-02-20'),
-    },{
-        start:moment('2011-02-21'),
-        end:moment('2011-08-28'),
-    },{
-        start:moment('2011-08-29'),
-        end:moment('2012-02-19'),
-    },{
-        start:moment('2012-02-20'),
-        end:moment('2012-08-26'),
+        start: moment('2009-08-31'),
+        end: moment('2010-02-28'),
+    }, {
+        start: moment('2010-03,01'),
+        end: moment('2010-02-28'),
+    }, {
+        start: moment('2010-08-31'),
+        end: moment('2011-02-20'),
+    }, {
+        start: moment('2011-02-21'),
+        end: moment('2011-08-28'),
+    }, {
+        start: moment('2011-08-29'),
+        end: moment('2012-02-19'),
+    }, {
+        start: moment('2012-02-20'),
+        end: moment('2012-08-26'),
     }
 ]
 
@@ -48,7 +48,7 @@ export const cateColor = {
     B_B: "rgba(237,201,140,0.7)",
     B_C: "rgba(93,140,109,0.7)",
     C_A: "rgba(217,130,130,0.7)",
-    C_B: "rgba(237,201,140,0.7)", 
+    C_B: "rgba(237,201,140,0.7)",
     C_C: "rgba(93,140,109,0.7)",
     A: "#D94141",
     B: "#F2B05E",

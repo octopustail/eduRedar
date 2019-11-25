@@ -63,7 +63,6 @@ class Heatmap extends Component {
         data.outer = this.outer
         data.layout = this.layout
         data.mouths = this.props.data
-        console.log(data.mouths)
         this.initGraph(elem, data)
     }
 

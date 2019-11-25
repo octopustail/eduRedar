@@ -81,7 +81,7 @@ class Group extends Component {
                         {Object.keys(countsGroupByCateObj).map((item, index) => (
                             <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
                         ))}
-                    <General className ="general"/>
+                    <General className ="general"  handleParallelSelectedId = {this.props.handleParallelSelectedId}/>
 
                     </div>
 

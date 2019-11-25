@@ -39,6 +39,7 @@ module.exports = {
             '/studentList':'http://localhost:3033',
             '/studentMath':'http://localhost:3033',
             '/studentWeekRecord':'http://localhost:3033',
+            '/studentAE':'http://localhost:3033',
             
 
         }

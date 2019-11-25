@@ -22,6 +22,7 @@ import {getStudentMathFlow} from './generalSaga'
 import {getGroupCountFlow} from './groupSaga'
 import {getGroupCountRecords} from './groupSaga'
 import {getGroupStudentsFlow} from './groupSaga'
+import {getGeneralAEFlow} from './generalSaga'
 
 export default function* rootSaga(){
     yield fork(getPersonalRecordFlow)
@@ -35,4 +36,5 @@ export default function* rootSaga(){
     yield fork(getStudentMathFlow)
     yield fork(getGeneralWeekRecordFlow)
     yield fork(getGeneralGpaFlow)
+    yield fork(getGeneralAEFlow)
 }
