@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2019-09-23 16:17:52
+ * @LastEditTime: 2019-11-25 16:44:51
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -137,7 +137,7 @@ export default class ParallelGraph extends Component {
 
         return (
             <div className="parallel">
-                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:500,width:600}} />
+                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:400,width:500}} />
             </div>
         )
     }

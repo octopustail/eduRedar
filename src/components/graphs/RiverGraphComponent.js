@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 import { zumaColor } from '../../config/config'
+import style from './style.css'
 
 export default class RiverGraph extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            height: 100,
+            height: 120,
             width: 800,
             axis: {}
             //定义一学期有多少个礼拜
@@ -74,6 +75,12 @@ export default class RiverGraph extends Component {
             .attr("transform", `translate(0,${height})`)
             .attr("stroke", "#fff")
             .call(xAxis)
+            .selectAll("text")
+            .style("font-size", "12px")
+            .style("text-anchor", "start")
+            .attr("transform", "rotate(45 -10 10)")
+
+
         // const yAxis = d3.axisRight(y)
         //增加zoom交互
 
@@ -177,9 +184,9 @@ export default class RiverGraph extends Component {
     render() {
         return (
             <div className="river">
+                <span style={{color:"#fff"}}>{this.props.cate}</span>
                 <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
                 </svg>
-                <div style={{color:"#fff"}}>{this.props.cate}</div>
             </div>
         )
     }

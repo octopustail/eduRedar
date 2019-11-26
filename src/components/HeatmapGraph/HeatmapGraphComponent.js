@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-11-18 16:12:14
+ * @LastEditTime: 2019-11-25 16:45:06
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -157,8 +157,8 @@ class Heatmap extends Component {
 
         let HeatmapCircos = new Circos({
             container: elem,
-            width: 500,
-            height: 500
+            width: 450,
+            height: 450
         })
 
         const HeatmapConfig = {

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2019-11-13 11:19:45
+ * @LastEditTime: 2019-11-26 16:19:44
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -75,15 +75,18 @@ class Group extends Component {
                 <div className="group-container">
                     <BloomGraph students={this.props.students} />
                     <div>
+                        <div className="riverToggle">
                         {Object.keys(this.state.riverToggle).map((item, index) => (
                             <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
                         ))}
+                        </div>
                         {Object.keys(countsGroupByCateObj).map((item, index) => (
                             <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
                         ))}
+                    </div>
                     <General className ="general"  handleParallelSelectedId = {this.props.handleParallelSelectedId}/>
 
-                    </div>
+                    
 
                     {/* <RecordScatterGraph records={this.props.records} /> */}
 
