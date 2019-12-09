@@ -20,3 +20,16 @@
 
   stroke: #34314c;
 }
+
+.bloom-label {
+  font-size: 30px;
+  font-weight: bold;
+
+  position: relative;
+  top: -80px;
+
+  text-align: center;
+
+  opacity: .5;
+  color: #ccc;
+}

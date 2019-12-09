@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-08 19:29:31
- * @LastEditTime: 2019-11-13 15:51:33
+ * @LastEditTime: 2019-11-26 22:05:45
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -90,7 +90,7 @@ export default class BloomGraph extends Component {
                 .enter()
                 .append('line')
                 // .style("stroke", "#fff")
-            .style("stroke", null)
+                .style("stroke", null)
 
 
             let svg_nodes = svg.append("g")
@@ -125,38 +125,38 @@ export default class BloomGraph extends Component {
         const svg_b = svgNodeEgdeCreator(nodes_b, edges_b, this.svg.b)
         const svg_c = svgNodeEgdeCreator(nodes_c, edges_c, this.svg.c)
 
-        function simulationCreator(nodes, edges, svg_nodes, svg_edges, width, height,decay) {
+        function simulationCreator(nodes, edges, svg_nodes, svg_edges, width, height, decay) {
             const simulation = d3.forceSimulation()
                 .velocityDecay(decay)
                 .nodes(nodes)
                 .force("link", d3.forceLink(edges).id(d => d.name))
                 .force("charge", d3.forceManyBody()
                     .strength(((d) => {
-                        if (d.cate=="A"||d.cate=="B"||d.cate=="C") { return -80 } else { return 0 }
+                        if (d.cate == "A" || d.cate == "B" || d.cate == "C") { return -80 } else { return 0 }
                     }))
                 )
-                .force("collide",d3.forceCollide(()=>3.5))
+                .force("collide", d3.forceCollide(() => 3.5))
                 .force("x", d3.forceX())
                 .force("y", d3.forceY())
-                .force("center", d3.forceCenter(width/2, height/2))
+                .force("center", d3.forceCenter(width / 2, height / 2))
 
 
             simulation
                 .on("tick", function () { //对于每一个时间间隔
                     //更新连线坐标
-                    svg_edges.attr("x1", function (d) { return validateXY(d.source.x,'x',width,height) })
-                        .attr("y1", function (d) { return validateXY(d.source.y,'y',width,height) })
-                        .attr("x2", function (d) { return validateXY(d.target.x,'x',width,height) })
-                        .attr("y2", function (d) { return validateXY(d.target.y,'y',width,height) });
+                    svg_edges.attr("x1", function (d) { return validateXY(d.source.x, 'x', width, height) })
+                        .attr("y1", function (d) { return validateXY(d.source.y, 'y', width, height) })
+                        .attr("x2", function (d) { return validateXY(d.target.x, 'x', width, height) })
+                        .attr("y2", function (d) { return validateXY(d.target.y, 'y', width, height) });
 
                     //更新节点坐标
-                    svg_nodes.attr("cx", function (d) { return validateXY(d.x,'x',width,height)})
-                        .attr("cy", function (d) { return validateXY(d.y,'y',width,height)});
+                    svg_nodes.attr("cx", function (d) { return validateXY(d.x, 'x', width, height) })
+                        .attr("cy", function (d) { return validateXY(d.y, 'y', width, height) });
 
                 });
 
 
-            function validateXY(val, type,width,height) {
+            function validateXY(val, type, width, height) {
                 var r = 20;
                 if (val < r) return r;
                 if (type == 'x') {
@@ -168,19 +168,40 @@ export default class BloomGraph extends Component {
             }
         }
 
-        simulationCreator(nodes_a, edges_a, svg_a.svg_nodes, svg_a.svg_edges, this.width, this.height,0.4)
-        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width, this.height,0.5)
-        simulationCreator(nodes_c, edges_c, svg_c.svg_nodes, svg_c.svg_edges, this.width, this.height,0.4)
+        simulationCreator(nodes_a, edges_a, svg_a.svg_nodes, svg_a.svg_edges, this.width, this.height, 0.7)
+        simulationCreator(nodes_b, edges_b, svg_b.svg_nodes, svg_b.svg_edges, this.width, this.height, 0.8)
+        simulationCreator(nodes_c, edges_c, svg_c.svg_nodes, svg_c.svg_edges, this.width, this.height, 0.8)
 
     }
     render() {
 
         return (
             <div className="bloom">
-                <svg width={this.width} height={this.height} ref={elem => this.svg.a = d3.select(elem)}></svg>
-                <svg width={this.width} height={this.height} ref={elem => this.svg.b = d3.select(elem)}></svg>
-                <svg width={this.width} height={this.height} ref={elem => this.svg.c= d3.select(elem)}>
-                </svg>
+                <div>
+                    <svg width={this.width} height={this.height} ref={elem => this.svg.a = d3.select(elem)}></svg>
+                    <div class="bloom-label">
+                        <div>Accurancy: 70%</div>
+                        <div>Precision: 45%</div>
+                        <div>Recall: 34%</div>
+                    </div>
+                </div>
+                <div>
+                    <svg width={this.width} height={this.height} ref={elem => this.svg.b = d3.select(elem)}></svg>
+                    <div class="bloom-label">
+                        <div>Accurancy: 70%</div>
+                        <div>Precision: 45%</div>
+                        <div>Recall: 34%</div>
+                    </div>
+                </div>
+                <div>
+                    <svg width={this.width} height={this.height} ref={elem => this.svg.c = d3.select(elem)}></svg>
+                    <div class="bloom-label">
+                        <div>Accurancy: 70%</div>
+                        <div>Precision: 45%</div>
+                        <div>Recall: 34%</div>
+                    </div>
+                </div>
+                
             </div>
         )
     }
