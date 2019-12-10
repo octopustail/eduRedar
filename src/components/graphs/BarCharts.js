@@ -2,7 +2,7 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2019-10-17 10:27:04
+ * @LastEditTime: 2019-12-10 15:31:27
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -112,7 +112,9 @@ export default class BarChart extends Component {
                     data : data.xData,
                     color: "#aaa",
                     axisLabel:{
-                        color: '#fff'
+                        color: '#fff',
+                        interval:0,
+                        rotate:70,
                     }
                 }
             ],
@@ -189,7 +191,7 @@ export default class BarChart extends Component {
     render() {
         return (
             <div className="parallel">
-                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:500,width:1300}} />
+                <ReactEcharts option = {this.getOption(this.props.data)} style = {{height:500,width:2000}} />
             </div>
         )
     }
