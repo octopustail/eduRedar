@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-01-25 16:58:55
- * @LastEditTime: 2019-11-19 16:13:09
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-17 15:10:52
+ * @LastEditors  : Please set LastEditors
  */
 import {fork} from 'redux-saga/effects'
 
@@ -23,6 +23,8 @@ import {getGroupCountFlow} from './groupSaga'
 import {getGroupCountRecords} from './groupSaga'
 import {getGroupStudentsFlow} from './groupSaga'
 import {getGeneralAEFlow} from './generalSaga'
+import {getFeaturesFlow} from './groupSaga'
+
 
 export default function* rootSaga(){
     yield fork(getPersonalRecordFlow)
@@ -37,4 +39,5 @@ export default function* rootSaga(){
     yield fork(getGeneralWeekRecordFlow)
     yield fork(getGeneralGpaFlow)
     yield fork(getGeneralAEFlow)
+    yield fork(getFeaturesFlow)
 }

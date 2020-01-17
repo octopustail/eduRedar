@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-08 19:29:31
- * @LastEditTime: 2019-11-26 22:05:45
+ * @LastEditTime: 2019-12-25 17:19:53
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -180,25 +180,22 @@ export default class BloomGraph extends Component {
                 <div>
                     <svg width={this.width} height={this.height} ref={elem => this.svg.a = d3.select(elem)}></svg>
                     <div class="bloom-label">
-                        <div>Accurancy: 70%</div>
-                        <div>Precision: 45%</div>
-                        <div>Recall: 34%</div>
+                        <div>Precision: 23.07%</div>
+                        <div>Recall: 6.66%</div>
                     </div>
                 </div>
                 <div>
                     <svg width={this.width} height={this.height} ref={elem => this.svg.b = d3.select(elem)}></svg>
                     <div class="bloom-label">
-                        <div>Accurancy: 70%</div>
-                        <div>Precision: 45%</div>
-                        <div>Recall: 34%</div>
+                        <div>Precision: 76.88%</div>
+                        <div>Recall: 95.16%</div>
                     </div>
                 </div>
                 <div>
                     <svg width={this.width} height={this.height} ref={elem => this.svg.c = d3.select(elem)}></svg>
                     <div class="bloom-label">
-                        <div>Accurancy: 70%</div>
-                        <div>Precision: 45%</div>
-                        <div>Recall: 34%</div>
+                        <div>Precision: 33.33%</div>
+                        <div>Recall: 5.63%</div>
                     </div>
                 </div>
                 

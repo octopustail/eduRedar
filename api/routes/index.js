@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-10-17 09:59:36
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-17 14:58:54
+ * @LastEditors  : Please set LastEditors
  */
 
 module.exports = function(app){
@@ -38,6 +38,7 @@ module.exports = function(app){
   app.get('/studentMath',require('./studentMath'))
   app.get('/studentWeekRecord',require('./stuWeekRecord'))
   app.get('/studentAE',require('./stuAE'))
+  app.get('/features',require('./features'))
 
 
 

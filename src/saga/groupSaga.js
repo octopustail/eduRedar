@@ -76,3 +76,27 @@ export function* getGroupStudentsFlow(){
     }
 }
 
+export function* getFeatures(flag){
+    yield put({type:IndexAction.FETCH_START})
+    try{
+        return yield call(get,`/features?flag=${flag}`)
+    }catch(err){
+        yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
+    }finally{
+        yield put({type:IndexAction.FETCH_END})
+    }
+}
+
+export function* getFeaturesFlow(){
+    while(true){
+        let req = yield take(GroupAction.GET_FEATURES)
+        let res =  yield call(getFeatures,req.flag)
+        if(res){
+            if(res.code === 0){
+                //在这里发出counts和river请求。
+                yield put({type:GroupAction.RESPONSE_FEATURES,data:res.data.features})
+            }
+        }
+    }
+}
+

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-04-10 20:44:16
+ * @LastEditTime : 2020-01-17 15:09:46
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /eduRedar/src/reducers/group.js
+ */
 export const actionType = {
     // GET_GENERAL_GPA: 'GET_GENERAL_GPA',
     // GET_GPA_FLOW: 'GET_GPA_FLOW',
@@ -7,7 +15,9 @@ export const actionType = {
     GET_GROUP_RECORDS: 'GET_GROUP_RECORDS',
     RESPONSE_GROUP_RECORDS: 'RESPONSE_GROUP_RECORDS',
     GET_GROUP_STUDENT: 'GET_GROUP_STUDENT',
-    RESPONSE_GROUP_STUDENT: 'RESPONSE_GROUP_STUDENT'
+    RESPONSE_GROUP_STUDENT: 'RESPONSE_GROUP_STUDENT',
+    GET_FEATURES: 'GET_FEATURES',
+    RESPONSE_FEATURES: 'RESPONSE_FEATURES'
 }
 
 /**
@@ -23,6 +33,7 @@ const initialState = {
     counts: [],
     records: {},
     students: [],
+    features: [],
 }
 
 export const actions = {
@@ -44,6 +55,12 @@ export const actions = {
         return {
             type: actionType.GET_GROUP_STUDENT
         }
+    },
+    get_features: function (flag) {
+        return {
+            type: actionType.GET_FEATURES,
+            flag
+        }
     }
 }
 
@@ -63,6 +80,11 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 records: action.data
+            }
+        case actionType.RESPONSE_FEATURES:
+            return {
+                ...state,
+                features: action.data
             }
         default:
             return state

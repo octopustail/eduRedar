@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2019-11-26 16:19:44
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-17 15:08:47
+ * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -12,14 +12,17 @@ import { connect } from 'react-redux'
 import RiverGraph from '../graphs/RiverGraphComponent'
 import BloomGraph from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
-import General from  '../containers/General'
+import General from '../containers/General'
+import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
 
 import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
 
 import { actions as grouplAction } from '../../reducers/group'
 const get_group_counts = grouplAction.get_group_counts,
     get_group_records = grouplAction.get_group_records,
-    get_group_students = grouplAction.get_group_students
+    get_group_students = grouplAction.get_group_students,
+    get_features = grouplAction.get_features
+    
 
 import style from './style.css'
 import { zumaColor } from '../../config/config'
@@ -61,46 +64,52 @@ class Group extends Component {
         }
 
 
-        if (this.props.counts.length !== 0) {
-            this.props.counts.forEach(element => {
-                countsGroupByCateObj[element.cate].push(element)
-            });
-            //把每一类的学生的学生人数保存起来，要传给riverGraph
-            const studentsTotalObj = {}
-            this.props.students.forEach((item) => {
-                studentsTotalObj[item.cate] = item.list.length
+        // if (this.props.counts.length !== 0) {
+        //     this.props.counts.forEach(element => {
+        //         countsGroupByCateObj[element.cate].push(element)
+        //     });
+        //     //把每一类的学生的学生人数保存起来，要传给riverGraph
+        //     const studentsTotalObj = {}
+        //     this.props.students.forEach((item) => {
+        //         studentsTotalObj[item.cate] = item.list.length
 
-            })
-            return (
-                <div className="group-container">
-                    <BloomGraph students={this.props.students} />
-                    <div>
-                        <div className="riverToggle">
-                        {Object.keys(this.state.riverToggle).map((item, index) => (
-                            <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
-                        ))}
-                        </div>
-                        {Object.keys(countsGroupByCateObj).map((item, index) => (
-                            <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
-                        ))}
-                    </div>
-                    <General className ="general"  handleParallelSelectedId = {this.props.handleParallelSelectedId}/>
+        //     })
+        //     return (
+        //         <div className="group-container">
+        //             {/* <BloomGraph students={this.props.students} />
+        //             <div>
+        //                 <div className="riverToggle">
+        //                 {Object.keys(this.state.riverToggle).map((item, index) => (
+        //                     <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
+        //                 ))}
+        //                 </div>
+        //                 {Object.keys(countsGroupByCateObj).map((item, index) => (
+        //                     <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
+        //                 ))}
+        //             </div>
+        //             <General className ="general"  handleParallelSelectedId = {this.props.handleParallelSelectedId}/> */}
 
-                    
 
-                    {/* <RecordScatterGraph records={this.props.records} /> */}
+        //             {/* <RecordScatterGraph records={this.props.records} /> */}
 
-                </div>
-            )
-        } else {
-            return (<div className="general-container"></div>)
+        //         </div>
+        //     )
+        // } else {
+        //     return (<div className="general-container"></div>)
 
-        }
+        // }
+        return (
+            <div className="general-container">
+                <HeatModelGraph data={this.props.features} />
+            </div>
+
+        )
     }
 
 
     componentDidMount() {
-        this.props.get_group_students()
+        // this.props.get_group_students()
+        this.props.get_features(1)
     }
 }
 
@@ -108,14 +117,16 @@ function mapDispatchToProps(dispatch) {
     return {
         get_group_counts: bindActionCreators(get_group_counts, dispatch),
         get_group_records: bindActionCreators(get_group_records, dispatch),
-        get_group_students: bindActionCreators(get_group_students, dispatch)
+        get_group_students: bindActionCreators(get_group_students,dispatch),
+        get_features: bindActionCreators(get_features,dispatch)
     }
 }
 function mapStateToProps(state) {
     return {
         counts: state.group.counts,
         records: state.group.records,
-        students: state.group.students
+        students: state.group.students,
+        features: state.group.features
     }
 }
 
