@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime : 2020-01-17 14:15:40
+ * @LastEditTime : 2020-02-11 18:54:42
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react';
@@ -44,7 +44,7 @@ export class AppIndex extends Component {
                 {/* <SankeyGraph/> */}
                 <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/>
                 {/* <General className ="general"/> */}
-                {/* <Person info = {this.state.selectStudent}/> */}
+                <Person info = {this.state.selectStudent}/>
             </div>
         )
     }

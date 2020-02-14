@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime: 2019-11-20 10:35:44
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-19 22:00:22
+ * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -16,8 +16,8 @@ import style from './style.css'
 class Person extends Component {
     constructor(props) {
         super(props)
-       this.sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
-
+    //    this.sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
+       this.sems = ['sems1', 'sems2']
     }
 
     render() {
@@ -32,7 +32,7 @@ class Person extends Component {
                 } */}
                 {  
                     this.sems.map((sem, index) => (
-                        <RedarGraph className="redar" key={index} data={this.props.personalRecord[index]} sems ={sem} />
+                        <RedarGraph className="redar" key={index} data={this.props.personalRecord[index]} sems ={sem} feature = {this.props.personalFeatures}/>
                     ))}
                 </div>
             </div>
@@ -41,25 +41,26 @@ class Person extends Component {
     componentDidMount() {
         //拿着学号去请求学生的record等信息
         // this.props.get_personal_records(this.props.info)
-        this.props.get_personal_records("2904302008")
+        this.props.get_personal_records("2911102035")
     }
 
-    shouldComponentUpdate(nextProps){
-        if(nextProps.info == this.props.info){
-          return false
-        }
-        return true
-    }
+    // shouldComponentUpdate(nextProps){
+        // if(nextProps.info == this.props.info){
+        //   return false
+        // }
+        // return true
+    // }
 
 
-    componentDidUpdate() {
-        this.props.info && this.props.get_personal_records(this.props.info)
-    }
+    // componentDidUpdate() {
+        // this.props.info && this.props.get_personal_records(this.props.info)
+    // }
 }
 
 function mapStateToProps(state) {
     return {
-        personalRecord: state.person.personal_records
+        personalRecord: state.person.personal_records,
+        personalFeatures: state.person.personal_features
     }
 }
 

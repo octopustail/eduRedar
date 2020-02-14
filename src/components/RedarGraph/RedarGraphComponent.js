@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-03-04 14:51:11
- * @LastEditTime : 2020-01-19 16:03:57
+ * @LastEditTime : 2020-01-19 22:05:38
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/RedarGraph/RedarGraphComponent.js
@@ -44,7 +44,6 @@ class RedarGraph extends Component {
             "sems1count2_hw": 0.23994,
             "sems1ae_shower": 0.23123,
         }
-        console.log(redarData)
         // redarGraph.initGraph(elem, redarData)
 
     }
@@ -61,7 +60,13 @@ class RedarGraph extends Component {
 
 
         }
-
+        console.log(this.props.feature)
+        
+        redarData.prediction = this.props.feature[0][`${this.props.sems}pred_food`]
+        redarData.sems1count_lib = this.props.feature[0][`${this.props.sems}count_library`]
+        redarData.sems1ae1_food = this.props.feature[0][`${this.props.sems}ae_food`]
+        redarData.sems1count2_hw = this.props.feature[0][`${this.props.sems}count_hotwater`]
+        redarData.sems1ae_shower = this.props.feature[0][`${this.props.sems}ae_shower`]
         redarScatterGraph.initGraph(elem, data)
         console.log("cdu")
         redarGraph.initGraph(elem, redarData)
