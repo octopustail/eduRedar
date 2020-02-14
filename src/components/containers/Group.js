@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime : 2020-01-17 15:08:47
+ * @LastEditTime : 2020-02-11 19:14:25
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -14,7 +14,7 @@ import BloomGraph from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import General from '../containers/General'
 import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
-
+import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
 import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
 
 import { actions as grouplAction } from '../../reducers/group'
@@ -100,7 +100,8 @@ class Group extends Component {
         // }
         return (
             <div className="general-container">
-                <HeatModelGraph data={this.props.features} />
+                {/* <HeatModelGraph data={this.props.features} /> */}
+                <CalenderScatterComponent records={this.props.records} stuList = {this.props.stuList}/>
             </div>
 
         )
@@ -109,7 +110,8 @@ class Group extends Component {
 
     componentDidMount() {
         // this.props.get_group_students()
-        this.props.get_features(1)
+        // this.props.get_features(1)
+        this.props.get_group_records([])
     }
 }
 
@@ -126,7 +128,8 @@ function mapStateToProps(state) {
         counts: state.group.counts,
         records: state.group.records,
         students: state.group.students,
-        features: state.group.features
+        features: state.group.features,
+        stuList: state.group.stuList
     }
 }
 

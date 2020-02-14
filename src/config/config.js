@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-02-27 10:13:58
- * @LastEditTime: 2019-11-20 11:09:43
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-02-11 21:45:53
+ * @LastEditors  : Please set LastEditors
  */
 import moment from 'moment'
 export const defaultColor = {}
@@ -19,7 +19,7 @@ export const schoolCalendar = [
         start: moment('2009-08-31'),
         end: moment('2010-02-28'),
     }, {
-        start: moment('2010-03,01'),
+        start: moment('2010-03-01'),
         end: moment('2010-02-28'),
     }, {
         start: moment('2010-08-31'),
