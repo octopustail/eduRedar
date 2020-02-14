@@ -1,73 +1,123 @@
 /*
- * @Description: 第二版视图中的学生scatter视图的数据获取
+ * @Description: 日历散点图视图的数据获取
  * @Author: octo
- * @LastEditors: Please set LastEditors
+ * @LastEditors  : Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime: 2019-04-11 15:53:23
+ * @LastEditTime : 2020-02-13 13:40:49
  */
 let util = require('./util')
-let stuRecords = require('../../model/stu_record')
+let stuConsumption = require('../../model/stu_consumption')
+let ModelResult = require('../../model/model_result')
+let moment = require('moment')
 
-function studentGPADataProcess(req, res, next) {
-
-    stuRecords.findOne()
-        .then((result) => {
-            util.responseClient(res, 200, 0, 'success', result)
-
+const schoolCalendar_09 = {
+    sems1: {
+        start: new Date('2009-08-31'),
+        end: new Date('2010-02-28'),
+    },
+    sems2: {
+        start: new Date('2010-03-01'),
+        end: new Date('2010-02-28'),
+    }
+}
+const schoolCalendar_10 = {
+    sems1: {
+        start: new Date('2010-08-31'),
+        end: new Date('2011-02-20'),
+    },
+    sems2: {
+        start: new Date('2011-02-21'),
+        end: new Date('2011-08-28'),
+    }
+}
+const dealRecordData = (data, calendar) => {
+    const createAtomObj = (date) => {
+        let obj = new Object({
+            date: date,
+            mix: 0,
+            food: 0,
+            shower: 0,
+            hotwater: 0,
+            library: 0
         })
+        return obj
+    }
+    let date_start = moment(calendar.start)
+    let date_end = moment(calendar.end)
+    let total = []
+    for (let i = 0; i < 24; i++) {
+        let hour = 0;
+        let arr = []
+        let days = date_end.diff(date_start, 'day')
+        for (let j = 0; j <= days; j++) {
+            let new_date = moment(date_start).add(j, "day").format('YYYY-MM-DD')
+            let atom = createAtomObj(new_date)
+            arr.push(atom)
+        }
+        total.push(arr)
+    }
+    data.forEach(e => {
+        let formated_date = moment(e.date, "YYYY-MM-DD")
+        let type = e.type
+        let hour = parseInt(e.time.split(":")[0])
+        let day_index = formated_date.diff(date_start, "days")
+        total[hour][day_index][type]++
+    })
+    return total
+}
+function studentGPADataProcess(req, res, next) {
+    // let dtype = "food"
+    let sems = 1
+    let grade = "10"
+    let calendar = grade === "10" ? schoolCalendar_10[`sems${sems}`] : schoolCalendar_09[`sems${sems}`]
+    let regex = grade === "10" ? /^2010/ : /^29/
+    let flag = 3
 
-    // let stype = req.query.stype || 'good'
-    // let liststr = req.query.list
-    // //后台保存一个学生分类的students对象，里面包含各个种类的学生的学号列表
-    // // let queryID = req.query.stype || null
-    // let list = liststr.split(',')
+    new Promise((resolve, reject) => {
+        ModelResult
+            .find({ sid: { $regex: regex }, flag: flag }, { sid: 1, _id: 0 })
+            .then(res => {
+                let stu_list = res.map(e => e.sid)
+                resolve(stu_list)
 
+            })
+    }).then(stu_list => {
+        const projectOption = {
+            sid: 1,
+            time: 1,
+            date: 1,
+            type: 1,
+            _id: 0
 
-    // let responseData = { gpa: [], ae: [], records: [] }
+        }
+        const matchOption = {
+            "sid": { $in: stu_list, $regex: regex },
+            "date": { $gt: calendar.start, $lt: calendar.end }
+        }
+        const groupOption = {
+            _id: "$sid",
+            count: { $sum: 1 }
+        }
+        stuConsumption
+            .aggregate([
+                { $project: projectOption },
+                { $match: matchOption },
+                // { $group: groupOption },
+            ])
+            .then((result) => {
+                console.log(result.length)
+                const r = {
+                    count: dealRecordData(result, calendar),
+                    stu_list: stu_list
+                }
 
-    // const findstuGPA = new Promise((resolve, reject) => {
-    //     console.log('in promise1')
-    //     // resolve('p1')
-    //     stuGPA.find({ sid: { $in: list } }).then((results) => { resolve(results) })
-    //     // stuGPA.find({ sid: { $in: list } }).then((results)=>{resolve(results)}).catch((err)=>{reject(err)})
-    //     console.log('out promise1')
+                util.responseClient(res, 200, 0, 'success', r)
 
-    // })
-
-    // const findstuLib = new Promise((resolve, reject) => {
-    //     console.log('in promise2')
-
-    //     // stuLib10s.find({ sid: { $in: list } }).then((results)=>{resolve(results)}).catch((err)=>{reject(err)})
-    //     stuLib10s.find({ sid: { $in: list } }).then((results) => { resolve(results) })
-    //     console.log('out promise1')
-
-
-    // })
-    // const findstuAE = new Promise((resolve, reject) => {
-    //     console.log('in promise3')
-    //     // resolve('p1')
-
-    //     // stuAE.find({ sid: { $in: list} }).then((results)=>{resolve(results)}).catch((err)=>{reject(err)})
-    //     stuAE.find({ sid: { $in: list } }).then((results) => { resolve(results) })
-    //     console.log('out promise1')
-
-    // })
-
-    // //results、error都没有打印出来。
-    // Promise.all([findstuGPA, findstuLib, findstuAE])
-    //     .then((results) => {
-    //         responseData.gpa = results[0]
-    //         responseData.records = results[1]
-    //         responseData.ae = results[2]
-    //         responseData.stype = stype
-    //         util.responseClient(res, 200, 0, 'success', responseData)
-    //         console.log(results)
-    //     })
-    //     .catch((err) => {
-    //         console.log('err', err)
-    //     })
-
-
+            })
+    })
+        .catch((error) => {
+            console.log(error)
+        })
 
 }
 
