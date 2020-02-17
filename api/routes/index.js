@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime : 2020-01-17 14:58:54
+ * @LastEditTime : 2020-02-15 14:21:21
  * @LastEditors  : Please set LastEditors
  */
 
@@ -18,7 +18,7 @@ module.exports = function(app){
   //  app.get('/api2',function(req,res,){
   //   res.send('hello sapi')
   //  })
-
+  //获取雷达散点图使用
   app.get('/studentRecord',require('./studentRecord'))
 
   //获得各个种类的学生的名单

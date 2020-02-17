@@ -3,7 +3,7 @@
  * @Author: octo
  * @LastEditors  : Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime : 2020-02-13 13:40:49
+ * @LastEditTime : 2020-02-17 13:50:57
  */
 let util = require('./util')
 let stuConsumption = require('../../model/stu_consumption')
@@ -67,19 +67,18 @@ const dealRecordData = (data, calendar) => {
 }
 function studentGPADataProcess(req, res, next) {
     // let dtype = "food"
-    let sems = 1
-    let grade = "10"
-    let calendar = grade === "10" ? schoolCalendar_10[`sems${sems}`] : schoolCalendar_09[`sems${sems}`]
-    let regex = grade === "10" ? /^2010/ : /^29/
-    let flag = 3
-
+    let sems = req.query.sems || "sems1"
+    let grade = req.query.grade || "2010"
+    let calendar = grade === "2010" ? schoolCalendar_10[sems] : schoolCalendar_09[sems]
+    let regex = grade === "2010" ? /^2010/ : /^29/
+    let flag = parseInt(req.query.flaga) || 3
+    
     new Promise((resolve, reject) => {
         ModelResult
             .find({ sid: { $regex: regex }, flag: flag }, { sid: 1, _id: 0 })
             .then(res => {
                 let stu_list = res.map(e => e.sid)
                 resolve(stu_list)
-
             })
     }).then(stu_list => {
         const projectOption = {
@@ -94,18 +93,13 @@ function studentGPADataProcess(req, res, next) {
             "sid": { $in: stu_list, $regex: regex },
             "date": { $gt: calendar.start, $lt: calendar.end }
         }
-        const groupOption = {
-            _id: "$sid",
-            count: { $sum: 1 }
-        }
+
         stuConsumption
             .aggregate([
                 { $project: projectOption },
                 { $match: matchOption },
-                // { $group: groupOption },
             ])
             .then((result) => {
-                console.log(result.length)
                 const r = {
                     count: dealRecordData(result, calendar),
                     stu_list: stu_list
