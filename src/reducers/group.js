@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-04-10 20:44:16
- * @LastEditTime : 2020-02-13 13:51:13
+ * @LastEditTime : 2020-02-17 13:41:35
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/reducers/group.js
@@ -34,7 +34,7 @@ const initialState = {
     records: [],
     students: [],
     features: [],
-    stuList:[]
+    stuList: []
 }
 
 export const actions = {
@@ -46,10 +46,10 @@ export const actions = {
         }
 
     },
-    get_group_records: function (list) {
+    get_group_records: function (grade, sems, flag) {
         return {
             type: actionType.GET_GROUP_RECORDS,
-            list
+            grade, sems, flag
         }
     },
     get_group_students: function () {
@@ -78,10 +78,11 @@ export function reducer(state = initialState, action) {
                 counts: action.data
             }
         case actionType.RESPONSE_GROUP_RECORDS:
+            console.log("group",action.data.stu_list)
             return {
                 ...state,
                 records: action.data.count,
-                stuList:action.data.stu_list
+                stuList: action.data.stu_list
             }
         case actionType.RESPONSE_FEATURES:
             return {

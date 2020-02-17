@@ -2,7 +2,7 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime : 2020-02-14 19:12:37
+ * @LastEditTime : 2020-02-17 13:15:26
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -81,12 +81,19 @@ export default class CalenderScatterGraph extends Component {
     componentDidUpdate() {
         let start = '2009-08-31',
             end = '2010-2-28',
-            data = []
+            data = [],
+            max = 1.5,
+            min = 0,
+            stuListLen=0
         if ((JSON.stringify(this.props.data)!=='{}')) {
-            const { startTime, endTime, timeline, stuListLength } = this.props.data
+            const { startTime, endTime, timeline, stuListLength,max_value,min_value} = this.props.data
             start = startTime
             end = endTime
             data = timeline
+            max = max_value,
+            min = min_value,
+            stuListLen = stuListLength
+            
         }
 
         const option = {
@@ -140,8 +147,8 @@ export default class CalenderScatterGraph extends Component {
                     }
                 },
                 visualMap: {
-                    min: 1,
-                    max: 100,
+                    min: min,
+                    max: max,
                     show:false,
                     calculable: true,
                     orient: 'vertical',
@@ -149,7 +156,7 @@ export default class CalenderScatterGraph extends Component {
                         symbolSize: [5, 20],
                         colorAlpha: [0.4, 1]
                     },
-                    range:[2,100],
+                    range:[0.0000001,1.5],
                     outRange:{
                         opacity:0
                     },
@@ -189,10 +196,10 @@ export default class CalenderScatterGraph extends Component {
             options: []
         }
         for (let i = 0; i < data.length; i++) {
-            option.baseOption.timeline.data.push(`${i}时    `)
+            option.baseOption.timeline.data.push(i)
             option.options.push({
                 series: [{
-                    name: '刷卡日历图',
+                    name: `学生人数${stuListLen}`,
                     type: 'scatter',
                     coordinateSystem: 'calendar',
                     data: data[i],

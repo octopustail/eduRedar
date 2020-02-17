@@ -26,10 +26,11 @@ export function* getGroupCountFlow(){
     }
 }
 
-export function* getGroupRecords(list){
+export function* getGroupRecords(grade,sems,flag){
     yield put({type:IndexAction.FETCH_START})
     try{
-        return yield call(get,`/studentRecords?${list}`)
+        console.log("saga",grade,sems,flag)
+        return yield call(get,`/studentRecords?grade=${grade}&sems=${sems}&flag=${flag}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
     }finally{
@@ -40,7 +41,7 @@ export function* getGroupRecords(list){
 export function* getGroupCountRecords(){
     while(true){
         let req = yield take(GroupAction.GET_GROUP_RECORDS)
-        let res =  yield call(getGroupRecords,req.list)
+        let res =  yield call(getGroupRecords,req.grade,req.sems,req.flag)
         if(res){
             if(res.code === 0){
                 yield put({type:GroupAction.RESPONSE_GROUP_RECORDS,data:res.data})

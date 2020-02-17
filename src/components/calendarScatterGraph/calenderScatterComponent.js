@@ -3,14 +3,14 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime : 2020-02-14 16:15:34
+ * @LastEditTime : 2020-02-17 13:22:45
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
 import CalenderScatterGraph from './calenderScatter'
-import { zumaColor } from '../../config/config'
 // import style from './style.css'
 import { connect } from 'react-redux'
+import { Radio } from 'antd'
 
 class CalenderScatterComponent extends Component {
     constructor(props) {
@@ -18,13 +18,13 @@ class CalenderScatterComponent extends Component {
         //    this.sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
         this.sems = ['sems1', 'sems2']
         this.state = {
-            type: "mix"
+            type: "general"
         }
     }
 
-    handleTypeChange = () => {
+    handleTypeChange = (e) => {
         this.setState({
-            type: "food"
+            type: e.target.value
         })
     }
 
@@ -34,11 +34,13 @@ class CalenderScatterComponent extends Component {
         }
         const { type } = this.state
 
-        console.log("type",type)
-        const { records,stuList } = this.props
+        const { records, stuList } = this.props
         const result = {}
+        const stuListLength = stuList.length
         result.timeline = []
-        if (type === "mix") {
+        let max_value = 0
+        let min_value = 9999
+        if (type === "general") {
             result.timeline = records.map(hour => {
                 return hour.map(elem => {
                     //返回几类数据中最大的一项
@@ -46,8 +48,11 @@ class CalenderScatterComponent extends Component {
                     let arr = [elem["food"], elem["shower"], elem["library"], elem["hotwater"]]
                     let max = Math.max.apply(null, arr)
                     let idx = arr.indexOf(max)
-
-                    return [elem["date"], max, types[idx]]
+                    //按人次算
+                    let value = max / stuListLength
+                    max_value = value > max_value ? value : max_value
+                    min_value = value < min_value ? value : min_value
+                    return [elem["date"], value, types[idx]]
                 })
             })
 
@@ -55,13 +60,20 @@ class CalenderScatterComponent extends Component {
             result.timeline = records.map(hour => {
                 return hour.map(elem => {
                     //返回选中的类型的数据
-                    return [elem["date"], elem[type], type]
+                    let value = elem[type] / stuListLength
+                    max_value = value > max_value ? value : max_value
+                    min_value = value < min_value ? value : min_value
+                    return [elem["date"], value, type]
                 })
             })
         }
+
+
         result.startTime = records[0][0]["date"]
         result.endTime = records[0][records[0].length - 1]["date"]
         result.stuListLength = stuList.length
+        result.max_value=max_value
+        result.min_value= min_value
         return result
     }
     render() {
@@ -69,7 +81,13 @@ class CalenderScatterComponent extends Component {
         return (
             //画出六个学期的图
             <div className="person">
-                <div style={{ width: 100, background: "#fff", color: "#000" }} onClick={this.handleTypeChange}>改变数据类型</div>
+                <Radio.Group onChange={this.handleTypeChange} value={this.state.type}>
+                    <Radio value="general">general</Radio>
+                    <Radio value="food">food</Radio>
+                    <Radio value="shower">shower</Radio>
+                    <Radio value="library">library</Radio>
+                    <Radio value="hotwater">hotwater</Radio>
+                </Radio.Group>
                 <CalenderScatterGraph data={data} />
             </div>
         )
