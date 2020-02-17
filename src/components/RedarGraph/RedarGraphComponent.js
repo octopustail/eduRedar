@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-03-04 14:51:11
- * @LastEditTime : 2020-02-14 17:59:12
+ * @LastEditTime : 2020-02-17 17:38:25
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/RedarGraph/RedarGraphComponent.js
@@ -26,15 +26,6 @@ class RedarGraph extends Component {
     //     redarScatterGraph.initGraph(elem,data)
     // }
 
-    render() {
-        return (
-            <div className="redar">
-                <div ref="redarGraph">
-                </div>
-                <div style={{ color: "#fff", width: 100, textAlign: "center", fontSize: 9, fontWeight: 200 }}>{this.props.sems}</div>
-            </div>
-        )
-    }
     componentDidMount() {
         let elem = this.refs.redarGraph
         let redarData = {
@@ -70,5 +61,16 @@ class RedarGraph extends Component {
         redarGraph.initGraph(elem, redarData)
 
     }
+
+    render() {
+        return (
+            <div className="redar">
+                <div ref="redarGraph">
+                </div>
+                <div style={{ color: "#fff", width: 100, textAlign: "center", fontSize: 9, fontWeight: 200 }}>{this.props.sems}</div>
+            </div>
+        )
+    }
+    
 }
 export default RedarGraph

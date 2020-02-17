@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime : 2020-02-17 11:36:35
+ * @LastEditTime : 2020-02-17 17:32:27
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -45,6 +45,14 @@ class Group extends Component {
         }
         this.colormap = zumaColor
     }
+
+    componentDidMount() {
+        const { grade, sems, flag } = this.state
+        // this.props.get_group_students()
+        this.props.get_features(grade,flag)
+        this.props.get_group_records(grade, sems, flag)
+    }
+
     handleToggleClick(item) {
         let toggle = this.state.riverToggle
         toggle[item] = !toggle[item]
@@ -52,16 +60,19 @@ class Group extends Component {
             riverToggle: toggle
         })
     }
+
     handleRadioGroupChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     handleSubmit = () => {
         const { grade, sems, flag } = this.state
-        console.log("container", grade, sems, flag)
         this.props.get_group_records(grade, sems, flag)
+        this.props.get_features(grade, flag)
     }
+
 
     render() {
         const countsGroupByCateObj = {
@@ -113,7 +124,6 @@ class Group extends Component {
         // }
         return (
             <div className="general-container">
-                {/* <HeatModelGraph data={this.props.features} /> */}
                 <div>
                     <div>
                         <Radio.Group name="grade" defaultValue="29" onChange={this.handleRadioGroupChange}>
@@ -133,18 +143,11 @@ class Group extends Component {
                         <button onClick={this.handleSubmit}>submit</button>
                     </div>
                 </div>
+                <HeatModelGraph data={this.props.features} />
                 <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
             </div>
 
         )
-    }
-
-
-    componentDidMount() {
-        // this.props.get_group_students()
-        // this.props.get_features(1)
-        const { grade, sems, flag } = this.state
-        this.props.get_group_records(grade, sems, flag)
     }
 }
 

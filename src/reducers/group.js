@@ -57,10 +57,10 @@ export const actions = {
             type: actionType.GET_GROUP_STUDENT
         }
     },
-    get_features: function (flag) {
+    get_features: function (grade, flag) {
         return {
             type: actionType.GET_FEATURES,
-            flag
+            grade, flag
         }
     }
 }
@@ -78,7 +78,7 @@ export function reducer(state = initialState, action) {
                 counts: action.data
             }
         case actionType.RESPONSE_GROUP_RECORDS:
-            console.log("group",action.data.stu_list)
+            console.log("group", action.data.stu_list)
             return {
                 ...state,
                 records: action.data.count,

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime : 2020-01-17 17:43:42
+ * @LastEditTime : 2020-02-17 17:52:48
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -26,7 +26,7 @@ export default class HeatModelGraph extends Component {
         this.margin = { top: 0, right: 0, bottom: 0, left: 0 },
             this.width = this.state.width - this.margin.left - this.margin.right,
             this.height = this.state.height - this.margin.top - this.margin.bottom,
-            this.gridSize = Math.floor((this.height-50) / 100),
+            this.gridSize = Math.floor((this.height - 50) / 100),
             this.legendElementWidth = this.gridSize * 2,
             this.buckets = 9,
             this.colorScale = d3.scaleQuantize()
@@ -36,18 +36,6 @@ export default class HeatModelGraph extends Component {
             this.times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
     }
 
-    // dataformat = (data)=>{
-    //     formatedData = data.map(elem=>{
-    //         arr = []
-    //         Object.keys(elem).forEach((el)=>{
-    //             arr.push(el)
-    //         })
-    //     })
-    //     return formatedData
-    // }
-    initAxis(slen, width, height, margin, counts) {
-
-    }
     /**
      * @description: 绘制river图的area的部分
      * @param 
@@ -55,8 +43,7 @@ export default class HeatModelGraph extends Component {
      */
     drawHeat = (data) => {
 
-
-        const drawColumns = (key, index) => {
+        const svg1_ = d3.select("svg").selectAll("g").remove()        const drawColumns = (key, index) => {
             if (key == "sid") {
                 return
             }

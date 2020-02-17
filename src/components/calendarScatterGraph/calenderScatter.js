@@ -2,7 +2,7 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime : 2020-02-17 14:12:24
+ * @LastEditTime : 2020-02-17 17:15:23
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -25,7 +25,7 @@ export default class CalenderScatterGraph extends Component {
     }
     getOption = (ori_data) => {
         let start = '2009-08-31',
-            end = '2010-2-28',
+            end = '2010-2-28'
  
         const option = {
 
