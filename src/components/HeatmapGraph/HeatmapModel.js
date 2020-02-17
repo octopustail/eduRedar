@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime : 2020-02-17 17:52:48
+ * @LastEditTime : 2020-02-17 18:40:19
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -12,13 +12,15 @@ import * as d3 from 'd3'
 import { zumaColor } from '../../config/config'
 import style from './style.css'
 
+const ITEM_PER_PAGE = 30
 export default class HeatModelGraph extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            height: 1000,
+            height: 400,
             width: 800,
-            axis: {}
+            axis: {},
+            page: 1
             //定义一学期有多少个礼拜
         }
         this.colors = ['#005824', '#1A693B', '#347B53', '#4F8D6B', '#699F83', '#83B09B', '#9EC2B3', '#B8D4CB', '#D2E6E3', '#EDF8FB', '#FFFFFF', '#F1EEF6', '#E6D3E1', '#DBB9CD', '#D19EB9', '#C684A4', '#BB6990', '#B14F7C', '#A63467', '#9B1A53', '#91003F'];
@@ -26,7 +28,7 @@ export default class HeatModelGraph extends Component {
         this.margin = { top: 0, right: 0, bottom: 0, left: 0 },
             this.width = this.state.width - this.margin.left - this.margin.right,
             this.height = this.state.height - this.margin.top - this.margin.bottom,
-            this.gridSize = Math.floor((this.height - 50) / 100),
+            this.gridSize = Math.floor((this.height - 10) / ITEM_PER_PAGE),
             this.legendElementWidth = this.gridSize * 2,
             this.buckets = 9,
             this.colorScale = d3.scaleQuantize()
@@ -34,6 +36,7 @@ export default class HeatModelGraph extends Component {
                 .range(this.colors),
             this.days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
             this.times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
+
     }
 
     /**
@@ -41,9 +44,14 @@ export default class HeatModelGraph extends Component {
      * @param 
      * @return: 
      */
-    drawHeat = (data) => {
+    drawHeat = (ori_data) => {
+        const { page } = this.state
+        const start = (page - 1) * ITEM_PER_PAGE
+        const end = page * ITEM_PER_PAGE
 
-        const svg1_ = d3.select("svg").selectAll("g").remove()        const drawColumns = (key, index) => {
+        const data = ori_data.slice(start, end)
+        d3.select("svg").selectAll("g").remove()
+        const drawColumns = (key, index) => {
             if (key == "sid") {
                 return
             }
@@ -53,8 +61,8 @@ export default class HeatModelGraph extends Component {
                 .enter()
                 .append("rect")
                 .attr("class", "bordered")
-                .attr("x", d => index * this.gridSize)
-                .attr("y", d => data.indexOf(d) * this.gridSize)
+                .attr("y", d => index * this.gridSize)
+                .attr("x", d => data.indexOf(d) * this.gridSize)
                 .attr("width", this.gridSize)
                 .attr("height", this.gridSize)
                 .style("fill", d => this.colorScale(d[key]))
@@ -131,11 +139,31 @@ export default class HeatModelGraph extends Component {
     riverEvents = () => {
     }
 
+    nextPage = () => {
+        const dataLength = this.props.data.length
+        if (this.state.page !== Math.ceil(dataLength / ITEM_PER_PAGE)) {
+            this.setState({
+                page: this.state.page + 1
+            })
+        }
+    }
+    prePage = () => {
+        if (this.state.page === 1) {
+            return
+        }
+
+        this.setState({
+            page: this.state.page - 1
+        })
+
+    }
+
     render() {
-        console.log(this.props.data)
         return (
             <div className="model-heat">
-                <span style={{ color: "#fff" }}></span>
+                <div style={{ background: "#fff", color: "#000" }} onClick={this.prePage}>上一页</div>
+                <div style={{ background: "#fff", color: "#000" }} onClick={this.nextPage}>下一页</div>
+                <div style={{ background: "#fff", color: "#000" }} >{this.state.page}/</div>
                 <div id="tooltip" class="hidden">
                     <p><span id="value"></span></p>
                 </div>
