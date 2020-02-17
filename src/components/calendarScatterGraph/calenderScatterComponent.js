@@ -3,7 +3,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime : 2020-02-17 13:22:45
+ * @LastEditTime : 2020-02-17 14:03:47
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -30,7 +30,7 @@ class CalenderScatterComponent extends Component {
 
     formatData = () => {
         if (this.props.records.length === 0) {
-            return
+            return {}
         }
         const { type } = this.state
 
