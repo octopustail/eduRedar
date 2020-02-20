@@ -7,7 +7,7 @@ export default class RiverGraph extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            height: 120,
+            height: 240,
             width: 800,
             axis: {}
             //定义一学期有多少个礼拜
@@ -52,9 +52,10 @@ export default class RiverGraph extends Component {
      * dir： area的方向 
      * @return: null
      */
-    initAxis(slen, width, height, margin, counts) {
+    initAxis(slen, width, height, margin, counts, startDate, endDate) {
 
-        let arr = [...counts[0].countArray[0], ...counts[0].countArray[1], ...counts[0].countArray[2]]
+        // let arr = [...counts[0].countArray[0], ...counts[0].countArray[1], ...counts[0].countArray[2]]
+        let arr = counts["food"]
         const x = d3.scaleLinear()
             .domain([0, arr.length])
             .range([0, width])
@@ -64,13 +65,61 @@ export default class RiverGraph extends Component {
         //     .range([0, height])
 
         //tickSize:指定的是tick的长短
-        const xAxisScale = d3.scaleTime().range([0, width])
-            .domain([new Date(2009, 8), new Date(2011, 2)])
-        const xAxis = d3.axisBottom(xAxisScale)
-            .ticks(12)
-            .tickSize(-height)
+        // const xAxisScale = d3.scaleTime().range([0, width])
+        //     .domain([new Date(startDate), new endDate])
+        // const xAxis = d3.axisBottom(xAxisScale)
+        //     .ticks(width/40)
+        //     .tickSize(-height)
+        // const gX = this.svg.append("g")
+        //     .attr("class", "xAxis")
+        //     .attr("transform", `translate(0,${height})`)
+        //     .attr("stroke", "#fff")
+        //     .call(xAxis)
+        //     .selectAll("text")
+        //     .style("font-size", "12px")
+        //     .style("text-anchor", "start")
+        //     .attr("transform", "rotate(45 -10 10)")
 
-        const gX = this.svg.append("g")
+
+        // const yAxis = d3.axisRight(y)
+        //增加zoom交互
+
+        return {
+            // xAxis: gX,
+            xScale: x,
+            // yScale: y
+        }
+    }
+    /**
+     * @description: 绘制river图的area的部分
+     * @param {data:Obj --{stype,cata,countArray}axis:initAxis中设置的比例尺与坐标轴对象,height:绘制的基线,direction:绘制的方向} 
+     * @return: 
+     */
+    drawRiver(data, stype, axis, width, height, direction, totalStu,startDate,endDate) {
+        //调整比例尺，因为food的次数太大，如果用相同的比例尺，其他三类会被压缩的看不见
+        const yScaleByType = {
+            food: 5,
+            shower: 1,
+            library: 3,
+            hotwater: 1
+        }
+
+        const color = d3.scaleOrdinal([this.colorScale.food, this.colorScale.library, this.colorScale.shower, this.colorScale.hotwater])
+        // const data = this.generateData(this.props.counts)
+        const countsData = data
+        // const countsData= [].concat([...data.countArray[0],...data.countArray[1],...data.countArray[2]])
+
+        //将次数换算成 刷卡次数次数/人
+        const aveData = countsData.map((element) => {
+            // return element
+            return element / totalStu
+        })
+        const xAxisScale = d3.scaleTime().range([0, width])
+            .domain([new Date(startDate), new Date(endDate)])
+        const xAxis = d3.axisBottom(xAxisScale)
+            .ticks(width / 40)
+            .tickSize(-height)
+        this.svg.append("g")
             .attr("class", "xAxis")
             .attr("transform", `translate(0,${height})`)
             .attr("stroke", "#fff")
@@ -81,56 +130,27 @@ export default class RiverGraph extends Component {
             .attr("transform", "rotate(45 -10 10)")
 
 
-        // const yAxis = d3.axisRight(y)
-        //增加zoom交互
-
-        return {
-            xAxis: gX,
-            xScale: x,
-            // yScale: y
-        }
-    }
-    /**
-     * @description: 绘制river图的area的部分
-     * @param {data:Obj --{stype,cata,countArray}axis:initAxis中设置的比例尺与坐标轴对象,height:绘制的基线,direction:绘制的方向} 
-     * @return: 
-     */
-    drawRiver(data, axis, height, direction,totalStu) {
-        //调整比例尺，因为food的次数太大，如果用相同的比例尺，其他三类会被压缩的看不见
-        const yScaleByType={
-            food:60,
-            shower:14,
-            library:14,
-            hotwater:14
-        }
-
-        const color = d3.scaleOrdinal([this.colorScale.food, this.colorScale.library, this.colorScale.shower, this.colorScale.hotwater])
-        // const data = this.generateData(this.props.counts)
-        const countsData = [].concat([...data.countArray[0], ...data.countArray[1], ...data.countArray[2]])
-        // const countsData= [].concat([...data.countArray[0],...data.countArray[1],...data.countArray[2]])
-        
-        //将次数换算成 刷卡次数次数/人
-        const aveData = countsData.map((element)=>{
-            return element/totalStu
-        })
         const yScale = d3.scaleLinear()
             // .domain(d3.extent(countsData))
-            .domain([0,yScaleByType[data.stype]])
+            .domain([0, yScaleByType[stype]])
             .range([0, height])
         const areaPath = d3.area()
             .curve(d3.curveMonotoneX)
             .x((d, i) => axis.xScale(i))
             .y0((d, i) => height)
-            .y1((d) => height - direction * yScale(d))
+            .y1((d) => {
+                console.log("y1", d, height - direction * yScale(d));
+                return height - direction * yScale(d)
+            })
 
 
 
         const river = this.svg.append("path")
             .datum(aveData)
             .attr("d", areaPath)
-            .attr("class", data.stype)
+            .attr("class", stype)
             .attr("stroke", "white")
-            .attr("fill", this.colorScale[data.stype])
+            .attr("fill", this.colorScale[stype])
             .attr("opacity", "0.8")
 
 
@@ -184,7 +204,7 @@ export default class RiverGraph extends Component {
     render() {
         return (
             <div className="river">
-                <span style={{color:"#fff"}}>{this.props.cate}</span>
+                {/* <span style={{color:"#fff"}}>{this.props.cate}</span> */}
                 <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
                 </svg>
             </div>
@@ -195,18 +215,21 @@ export default class RiverGraph extends Component {
         let slen = this.sems,
             height = this.state.height / 2,
             width = this.state.width,
-            margin = 30,
-            counts = this.props.counts,
-            totalStu = this.props.totalStu;
+            margin = 30
+        const { counts, stuList, startDate, endDate } = this.props
 
+        // totalStu = this.props.totalStu;
 
 
         //绘制坐标轴和area
-        if (counts.length !== 0) {
-            let axis = this.initAxis(slen, width, height, margin, counts)
-            counts.forEach(element => {
-                const direction = this.direction[element.stype]
-                this.drawRiver(element, axis, height, direction,totalStu)
+        if (JSON.stringify(counts) !== '{}') {
+
+            // if (counts.length !== 0) {
+            let axis = this.initAxis(slen, width, height, margin, counts, startDate, endDate)
+            Object.keys(counts).forEach(element => {
+                const direction = this.direction[element]
+                this.drawRiver(counts[element], element, axis, width, height, direction, stuList.length,startDate,endDate)
+                // this.drawRiver(element, axis, height, direction,totalStu)
             });
         }
 
@@ -214,13 +237,32 @@ export default class RiverGraph extends Component {
         this.riverEvents()
     }
     componentDidUpdate() {
+
+        let slen = this.sems,
+            height = this.state.height / 2,
+            width = this.state.width,
+            margin = 30
+        const { counts, stuList, startDate, endDate } = this.props
+
+        //绘制坐标轴和area
+        if (JSON.stringify(counts) !== '{}') {
+
+            d3.select("svg").selectAll("path").remove()
+            let axis = this.initAxis(slen, width, height, margin, counts, startDate, endDate)
+            Object.keys(counts).forEach(element => {
+                const direction = this.direction[element]
+                this.drawRiver(counts[element], element, axis, width, height, direction, stuList.length,startDate,endDate)
+                // this.drawRiver(element, axis, height, direction,totalStu)
+            });
+            this.riverEvents()
+        }
         let isToggles = this.props.isToggles
 
         Object.keys(isToggles).map((key) => {
             if (!isToggles[key]) {
                 this.svg.selectAll(`.${key}`)
                     .attr("opacity", "0")
-            }else{
+            } else {
                 this.svg.selectAll(`.${key}`)
                     .attr("opacity", "0.8")
             }

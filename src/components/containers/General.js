@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime: 2019-11-19 16:29:22
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-02-20 19:27:08
+ * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -21,7 +21,7 @@ import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import BarChart from '../graphs/BarCharts'
 import MathHeatmap from '../graphs/HeatMap'
 
-import {randomForestsResults2 as rfResult} from '../../../public/randomForestsResults'
+import { randomForestsResults2 as rfResult } from '../../../public/randomForestsResults'
 
 import { actions as generalAction } from '../../reducers/general'
 const get_general_gpa_flow_record = generalAction.get_general_gpa_flow_record
@@ -34,7 +34,7 @@ const get_student_gpa = generalAction.get_student_gpa
 const get_general_ae = generalAction.get_general_ae
 import style from './style.css'
 
-class Genaral extends Component {
+export default class Genaral extends Component {
     constructor(props) {
         super(props)
         this.selectedData = []
@@ -53,14 +53,13 @@ class Genaral extends Component {
         ]
     }
     componentDidMount() {
-        // this.props.get_student_group('unio_exStu')
         // this.handleQuery()
         // this.props.get_general_gpa_flow_record('', "2900101002")
-        this.props.get_student_record_analyze()
-        this.props.get_student_math()
-        this.getHotmapWeeklyRecord(this.state.student_type)
-        this.getParallelGpa(this.state.student_type)
-        this.getParallelAE(this.state.student_type)
+        // this.props.get_student_record_analyze()
+        // this.props.get_student_math()
+        // this.getHotmapWeeklyRecord(this.state.student_type)
+        // this.getParallelGpa(this.state.student_type)
+        // this.getParallelAE(this.state.student_type)
     }
 
     getHotmapWeeklyRecord = (type) => {
@@ -99,7 +98,7 @@ class Genaral extends Component {
         })
     }
 
-    handleParallelSelectedId = (id)=>{
+    handleParallelSelectedId = (id) => {
         this.props.handleParallelSelectedId(id)
     }
 
@@ -110,30 +109,6 @@ class Genaral extends Component {
             sortBy: this.sems[0]
         }
         this.props.get_student_list(params.start, params.end, params.sortBy)
-    }
-
-
-    selecteData(data) {
-
-        let t = data.stype,
-            d = data.result;
-        if (!d) { return [] }
-
-        const filterFunc = {
-            'good': (item) => {
-                let ave = (parseFloat(item['sems1']) + parseFloat(item['sems2']) + parseFloat(item['sems3'])).toFixed(2) / 3
-                return (ave >= 85)
-            },
-            'normal': (item) => {
-                let ave = (parseFloat(item['sems1']) + parseFloat(item['sems2']) + parseFloat(item['sems3'])).toFixed(2) / 3
-                return (ave < 85 && ave >= 60)
-            },
-            'protential': (item) => {
-                let ave = (parseFloat(item['sems1']) + parseFloat(item['sems2']) + parseFloat(item['sems3'])).toFixed(2) / 3
-                return (ave < 60)
-            }
-        }
-        return { result: d.filter(filterFunc['good']), stype: t }
     }
 
     render() {
@@ -152,16 +127,18 @@ class Genaral extends Component {
                 {/* <div className="row"> */}
                 {/* <MathHeatmap className="heatmap" data={this.props.student_math} sorted_id ={this.props.general_gpa} /> */}
                 {/* <BarChart className="heatmap" data={this.props.student_record_analyze} /> */}
-                <Heatmap className="heatmap" data={this.props.student_week_record} />
-                {/* <ParallelCoordinate classNsme="parallel" data={this.props.general_gpa} /> */}
+
+
                 {/* </div> */}
                 {/* <div>
                     <Input onChange={this.handleStartChange} defaultValue={1} />
                     <Input onChange={ this.handleEndChange } defaultValue={3}/>
                     <Button onClick={this.handleQuery}>查询</Button>
                 </div> */}
+                {/* <Heatmap className="heatmap" data={this.props.student_week_record} /> */}
+
                 <ParallelCoordinate className="parallel" data={this.props.student_gpa} />
-                <AEParallelCoordinate className="parallel" data={this.props.general_ae} handleParallelSelectedId = {this.handleParallelSelectedId}/>
+                <AEParallelCoordinate className="parallel" data={this.props.general_ae} handleParallelSelectedId={this.handleParallelSelectedId} />
 
                 {/* <RiverGraph records={this.props.general_records}/>
                 <RecordScatterGraph records={this.props.general_records}/> */}
@@ -190,7 +167,7 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state) {
     return {
-        student_gpa: state.general.student_gpa,
+        // student_gpa: state.general.student_gpa,
         general_ae: state.general.general_ae,
         general_records: state.general.general_records,
         student_group: state.general.student_group,
@@ -201,4 +178,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Genaral)
+// export default connect(mapStateToProps, mapDispatchToProps)(Genaral)

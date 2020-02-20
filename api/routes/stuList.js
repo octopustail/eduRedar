@@ -1,9 +1,9 @@
 /*
  * @Description: 第二版视图中的学生scatter视图的数据获取
  * @Author: octo
- * @LastEditors: Please set LastEditors
+ * @LastEditors  : Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime: 2019-09-24 20:25:48
+ * @LastEditTime : 2020-02-19 17:48:44
  */
 let util = require('./util')
 let stuGPA = require('../../model/stu_gpa')
@@ -12,7 +12,6 @@ function studentListQueryProcess(req, res, next) {
     let start = req.query.start || 1
     let end = req.query.end || 3
     let sortBy = req.query.sortBy
-    console.log(start,end)
     stuGPA.find({},{"sid":1}).sort(sortBy).skip(start-1).limit(end-start)
         .then((result) => {
             let r = result.map( item => item.sid)

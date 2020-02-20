@@ -3,10 +3,10 @@ import { actionType as IndexAction } from '../reducers'
 import { actionType as GroupAction } from '../reducers/group'
 import { get, post } from '../fetch/fetch'
 
-export function* getGroupCount(list) {
+export function* getGroupCount(grade, flag) {
     yield put({ type: IndexAction.FETCH_START })
     try {
-        return yield call(get, `/studentCounts?${list}`)
+        return yield call(get, `/studentCounts?grade=${grade}&flag=${flag}`)
     } catch (err) {
         yield put({ type: IndexAction.SET_MESSAGE, msgContent: `请求错误,${err}`, msgType: 0 })
     } finally {
@@ -17,7 +17,7 @@ export function* getGroupCount(list) {
 export function* getGroupCountFlow() {
     while (true) {
         let req = yield take(GroupAction.GET_GROUP_COUNT)
-        let res = yield call(getGroupCount, req.list)
+        let res = yield call(getGroupCount, req.grade,req.flag)
         if (res) {
             if (res.code === 0) {
                 yield put({ type: GroupAction.RESPONSE_GROUP_COUNT, data: res.data })
@@ -29,7 +29,6 @@ export function* getGroupCountFlow() {
 export function* getGroupRecords(grade, sems, flag) {
     yield put({ type: IndexAction.FETCH_START })
     try {
-        console.log("saga", grade, sems, flag)
         return yield call(get, `/studentRecords?grade=${grade}&sems=${sems}&flag=${flag}`)
     } catch (err) {
         yield put({ type: IndexAction.SET_MESSAGE, msgContent: `请求错误,${err}`, msgType: 0 })

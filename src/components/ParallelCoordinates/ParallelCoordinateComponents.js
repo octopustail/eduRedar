@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2019-11-25 16:44:51
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-02-19 17:02:01
+ * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
 import echarts from 'echarts/lib/echarts'
@@ -27,15 +27,18 @@ export default class ParallelGraph extends Component {
 
     dataFormate=(data)=>{
         if(!data) {return []}
-        let d = data,
-        dataGroup = [],
-        stype = data.stype;
-
-        d.forEach((item)=>{
-            //parseInt应该在父亲函数位置处理。
-            dataGroup.push([parseInt(item["2009-2010_1"]),parseInt(item["2009-2010_2"]),parseInt(item["2010-2011_1"]),parseInt(item["2010-2011_2"]),parseInt(item["2011-2012_1"]),parseInt(item["2011-2012_2"])])
+        const groupData = data.map(elem=>{
+            return [
+                elem['sems1'],
+                elem['sems2'],
+                elem['sems3'],
+                elem['sems4'],
+                elem['sems5'],
+                elem['sems6'],
+                elem['sid']
+            ]
         })
-        return dataGroup
+        return groupData
         
 
     }

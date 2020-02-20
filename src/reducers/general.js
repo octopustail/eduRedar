@@ -84,16 +84,16 @@ export const actions = {
             list
         }
     },
-    get_student_gpa: function (list) {
+    get_student_gpa: function (grade,flag) {
         return {
             type: actionType.GET_STUDENT_GPA,
-            list
+            grade,flag
         }
     },
-    get_general_ae: function (list) {
+    get_general_ae: function (grade, flag) {
         return {
             type: actionType.GET_GENERAL_AE,
-            list
+            grade, flag
         }
     }
 }

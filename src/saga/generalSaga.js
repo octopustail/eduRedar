@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-27 20:45:41
- * @LastEditTime: 2019-11-19 16:19:26
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-02-20 19:52:03
+ * @LastEditors  : Please set LastEditors
  */
 import {take,call,put} from 'redux-saga/effects'
 import {actionType as IndexAction} from '../reducers'
@@ -161,11 +161,10 @@ export function* getGeneralWeekRecordFlow(){
 }
 
 //平行坐标轴图：学生成绩
-export function* getGeneralGpa(list){
-    const _list = JSON.stringify(list)
+export function* getGeneralGpa(grade,flag){
     yield put({type:IndexAction.FETCH_START})
     try{
-        return yield call(get,`/studentGpa?list=${_list}`)
+        return yield call(get,`/studentGpa?grade=${grade}&flag=${flag}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
     }finally{
@@ -176,7 +175,7 @@ export function* getGeneralGpa(list){
 export function* getGeneralGpaFlow(){
     while(true){
         let req = yield take(GeneralAction.GET_STUDENT_GPA)
-        let res =  yield call(getGeneralGpa,req.list)
+        let res =  yield call(getGeneralGpa,req.grade,req.flag)
         if(res){
             if(res.code === 0){
                 yield put({type:GeneralAction.RESPONSE_STUDENT_GPA,data:res.data})
@@ -186,11 +185,10 @@ export function* getGeneralGpaFlow(){
 }
 
 //平行坐标轴图：学生成绩
-export function* getGeneralAE(list){
-    const _list = JSON.stringify(list)
+export function* getGeneralAE(grade, flag){
     yield put({type:IndexAction.FETCH_START})
     try{
-        return yield call(get,`/studentAE?list=${_list}`)
+        return yield call(get,`/studentAE?grade=${grade}&flag=${flag}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})
     }finally{
@@ -201,7 +199,7 @@ export function* getGeneralAE(list){
 export function* getGeneralAEFlow(){
     while(true){
         let req = yield take(GeneralAction.GET_GENERAL_AE)
-        let res =  yield call(getGeneralAE,req.list)
+        let res =  yield call(getGeneralAE,req.grade,req.flag)
         if(res){
             if(res.code === 0){
                 yield put({type:GeneralAction.RESPONSE_GENERAL_AE,data:res.data})

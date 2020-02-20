@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 14:44:56
- * @LastEditTime : 2020-02-17 17:30:30
+ * @LastEditTime : 2020-02-19 12:17:16
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/api/routes/features.js
@@ -33,7 +33,6 @@ function queryFeatures(req, res, next) {
                 resolve(stu_list)
             })
     }).then(stu_list => {
-        console.log("+++++++++++++++++++++/n",stu_list)
         featuresModel
             .find({ sid: { $in: stu_list } }, filter)
             .then((result) => {

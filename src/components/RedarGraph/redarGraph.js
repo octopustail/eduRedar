@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime : 2020-01-19 17:22:54
+ * @LastEditTime : 2020-02-19 17:01:43
  * @LastEditors  : Please set LastEditors
  */
 import * as d3 from 'd3'
@@ -114,7 +114,6 @@ redarGraph.initGraph = function (el, data) {
         polygon: area,
         points: points
     };
-    console.log(areasData)
 
     let areas = svg.append('g')
         .classed('area', true)

@@ -234,7 +234,6 @@ export default class CalenderScatterGraph extends Component {
             ]
             })
         }
-        console.log(option)
         this.echartsElement.setOption(option)
     }
 

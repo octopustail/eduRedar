@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime : 2020-02-17 18:40:19
+ * @LastEditTime : 2020-02-19 12:42:22
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -45,6 +45,9 @@ export default class HeatModelGraph extends Component {
      * @return: 
      */
     drawHeat = (ori_data) => {
+        if(ori_data.length ===0){
+            return
+        }
         const { page } = this.state
         const start = (page - 1) * ITEM_PER_PAGE
         const end = page * ITEM_PER_PAGE
