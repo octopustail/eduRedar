@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime : 2020-02-20 19:56:59
+ * @LastEditTime : 2020-02-24 10:17:24
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -84,29 +84,6 @@ class Group extends Component {
 
 
     render() {
-        // const countsGroupByCateObj = {
-        //     "A_A": [],
-        //     "A_B": [],
-        //     "A_C": [],
-        //     "B_A": [],
-        //     "B_B": [],
-        //     "B_C": [],
-        //     "C_A": [],
-        //     "C_B": [],
-        //     "C_C": [],
-        // }
-
-
-        // if (this.props.counts.length !== 0) {
-        //     this.props.counts.forEach(element => {
-        //         countsGroupByCateObj[element.cate].push(element)
-        //     });
-        //     //把每一类的学生的学生人数保存起来，要传给riverGraph
-        //     const studentsTotalObj = {}
-        //     this.props.students.forEach((item) => {
-        //         studentsTotalObj[item.cate] = item.list.length
-
-        //     })
         return (
             <div className="general-container">
                 <div>
@@ -128,20 +105,16 @@ class Group extends Component {
                         <button onClick={this.handleSubmit}>submit</button>
                     </div>
                 </div>
-                {/* <div>
-                        <div className="riverToggle">
-                            {Object.keys(this.state.riverToggle).map((item, index) => (
-                                <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
-                            ))}
-                        </div>
-                        {Object.keys(countsGroupByCateObj).map((item, index) => (
-                            <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
-                        ))}
-                    </div> */}
                 <div>
                     <div className="riverToggle">
                         {Object.keys(this.state.riverToggle).map((item, index) => (
-                            <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
+                            <ToggleButton
+                                key={index}
+                                item={item}
+                                isToggle={this.state.riverToggle[item]}
+                                toggle={this.handleToggleClick.bind(this)}
+                                color={this.colormap[item]}
+                            />
                         ))}
                     </div>
                     {(JSON.stringify(this.props.dayCount) !== '{}') ?
@@ -162,77 +135,9 @@ class Group extends Component {
                     handleParallelSelectedId={this.props.handleParallelSelectedId}
                     student_gpa={this.props.student_gpa}
                     general_ae={this.props.general_ae}
-                />}
+                />
             </div>
-
         )
-        //     return (
-        //         <div className="group-container">
-        //             {/* <BloomGraph students={this.props.students} />
-        //             <div>
-        //                 <div className="riverToggle">
-        //                 {Object.keys(this.state.riverToggle).map((item, index) => (
-        //                     <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
-        //                 ))}
-        //                 </div>
-        //                 {Object.keys(countsGroupByCateObj).map((item, index) => (
-        //                     <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
-        //                 ))}
-        //             </div>
-        //             <General className ="general"  handleParallelSelectedId = {this.props.handleParallelSelectedId}/> */}
-
-
-        //             {/* <RecordScatterGraph records={this.props.records} /> */}
-
-        //         </div>
-        //     )
-        // } 
-        // else {
-        // return (<div className="general-container"></div>)
-
-        // }
-
-        // return (
-        //     <div className="general-container">
-        //         <div>
-        //             <div>
-        //                 <Radio.Group name="grade" defaultValue="29" onChange={this.handleRadioGroupChange}>
-        //                     <Radio value="29">Grade 2009</Radio>
-        //                     <Radio value="2010">Grade 2010</Radio>
-        //                 </Radio.Group>
-        //                 <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
-        //                     <Radio value="sems1">sems1</Radio>
-        //                     <Radio value="sems2">sems2</Radio>
-        //                 </Radio.Group>
-        //                 <Radio.Group name="flag" defaultValue={0} onChange={this.handleRadioGroupChange}>
-        //                     <Radio value={0}>00</Radio>
-        //                     <Radio value={1}>01</Radio>
-        //                     <Radio value={2}>10</Radio>
-        //                     <Radio value={3}>11</Radio>
-        //                 </Radio.Group>
-        //                 <button onClick={this.handleSubmit}>submit</button>
-        //             </div>
-        //         </div>
-        //         {/* <div>
-        //             <div className="riverToggle">
-        //                 {Object.keys(this.state.riverToggle).map((item, index) => (
-        //                     <ToggleButton key={index} item={item} isToggle={this.state.riverToggle[item]} toggle={this.handleToggleClick.bind(this)} color={this.colormap[item]} />
-        //                 ))}
-        //             </div>
-        //             {Object.keys(countsGroupByCateObj).map((item, index) => (
-        //                 <RiverGraph key={index} isToggles={this.state.riverToggle} cate={item} counts={countsGroupByCateObj[item]} totalStu={studentsTotalObj[item]} />
-        //             ))}
-        //         </div> */}
-        //         <HeatModelGraph data={this.props.features} />
-        //         <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
-        //         <General
-        //             className="general"
-        //             handleParallelSelectedId={this.props.handleParallelSelectedId}
-        //             student_gpa={this.props.student_gpa}
-        //         />}
-        //     </div>
-
-        // )
     }
 }
 
