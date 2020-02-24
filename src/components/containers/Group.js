@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime : 2020-02-24 10:17:24
+ * @LastEditTime : 2020-02-24 16:30:57
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -56,8 +56,8 @@ class Group extends Component {
         this.props.get_group_counts(grade, flag)
         this.props.get_features(grade, flag)
         this.props.get_group_records(grade, sems, flag)
-        this.props.get_student_gpa(grade, flag)
-        this.props.get_general_ae(grade, flag)
+        // this.props.get_student_gpa(grade, flag)
+        // this.props.get_general_ae(grade, flag)
         // this.props.get_group_students(grade, flag)
     }
 
@@ -132,12 +132,12 @@ class Group extends Component {
                 <FeatureParallelCoordinate data={this.props.features}/>
                 <HeatModelGraph data={this.props.features} />
                 <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
-                <General
+                {/* <General
                     className="general"
                     handleParallelSelectedId={this.props.handleParallelSelectedId}
                     student_gpa={this.props.student_gpa}
                     general_ae={this.props.general_ae}
-                />
+                /> */}
             </div>
         )
     }

@@ -19,7 +19,7 @@ const initialState = {
     gpa: {},
     math: {},
     actual_entropy: {},
-    info: {},
+    work_info: {},
     personal_features: {}
 }
 
@@ -73,7 +73,9 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 personal_records: action.data.stuRecord,
-                personal_features: action.data.personalFeature
+                personal_features: action.data.personalFeature,
+                math:action.data.mathGrade,
+                work_info: action.data.work_info
             }
         case actionType.RESPONSE_BOOK_BORROW: {
             return {

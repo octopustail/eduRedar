@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime : 2020-02-11 18:54:42
+ * @LastEditTime : 2020-02-24 17:06:48
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react';
@@ -27,7 +27,7 @@ export class AppIndex extends Component {
         //state应该传一个回调给General组件，由General组件来更新。子组件与父组件的交流
 
         this.state = {
-            selectStudent:"2904302008"
+            selectStudent:"2911102035"
         }
     }
 
@@ -42,9 +42,9 @@ export class AppIndex extends Component {
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <SankeyGraph/> */}
-                <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/>
+                {/* <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/> */}
                 {/* <General className ="general"/> */}
-                <Person info = {this.state.selectStudent}/>
+                <Person sid = {this.state.selectStudent}/>
             </div>
         )
     }
