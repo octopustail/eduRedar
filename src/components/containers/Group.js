@@ -15,6 +15,7 @@ import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import General from '../containers/General'
 import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
 import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
+import FeatureParallelCoordinate from '../ParallelCoordinates/FeatureParallelCoordinateComponents'
 import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
 import { Radio } from 'antd'
 import { actions as grouplAction } from '../../reducers/group'
@@ -128,6 +129,7 @@ class Group extends Component {
                         : null}
 
                 </div>
+                <FeatureParallelCoordinate data={this.props.features}/>
                 <HeatModelGraph data={this.props.features} />
                 <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
                 <General
