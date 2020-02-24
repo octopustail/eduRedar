@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 14:44:56
- * @LastEditTime : 2020-02-19 12:17:16
+ * @LastEditTime : 2020-02-24 15:24:42
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/api/routes/features.js
@@ -16,14 +16,8 @@ function queryFeatures(req, res, next) {
 
     const filter = {
         '_id': 0,
-        'sid': 1,
-        '1_shwr': 1,
-        '12_lib': 1,
-        '10_lib': 1,
-        '1_lib': 1,
-        '11_lib': 1,
-        '5_lib': 1,
-        '6_lib': 1
+        '1_score': 0,
+        '2_score': 0,
     }
     new Promise((resolve, reject) => {
         ModelResult

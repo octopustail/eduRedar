@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime : 2020-02-19 12:42:22
+ * @LastEditTime : 2020-02-24 11:40:15
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -45,14 +45,26 @@ export default class HeatModelGraph extends Component {
      * @return: 
      */
     drawHeat = (ori_data) => {
-        if(ori_data.length ===0){
+        if (ori_data.length === 0) {
             return
         }
+        const filteredData = ori_data.map(el => {
+            return {
+                'sid': el['sid'],
+                '1_shwr': el['1_shwr'],
+                '12_lib': el['12_lib'],
+                '10_lib': el['10_lib'],
+                '1_lib': el['1_lib'],
+                '11_lib': el['11_lib'],
+                '5_lib': el['5_lib'],
+                '6_lib': el['6_lib'],
+            }
+        })
         const { page } = this.state
         const start = (page - 1) * ITEM_PER_PAGE
         const end = page * ITEM_PER_PAGE
 
-        const data = ori_data.slice(start, end)
+        const data = filteredData.slice(start, end)
         d3.select("svg").selectAll("g").remove()
         const drawColumns = (key, index) => {
             if (key == "sid") {
