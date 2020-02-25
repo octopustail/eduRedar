@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime : 2020-02-24 17:06:48
+ * @LastEditTime : 2020-02-24 20:29:07
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react';
@@ -42,7 +42,7 @@ export class AppIndex extends Component {
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <SankeyGraph/> */}
-                {/* <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/> */}
+                <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/>
                 {/* <General className ="general"/> */}
                 <Person sid = {this.state.selectStudent}/>
             </div>

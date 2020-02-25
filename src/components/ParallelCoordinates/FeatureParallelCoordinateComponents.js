@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime : 2020-02-24 16:14:16
+ * @LastEditTime : 2020-02-24 20:47:28
  * @LastEditors  : Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -87,16 +87,7 @@ export default class ParallelGraph extends Component {
 
             },
             parallelAxis: axis,
-            // visualMap: {
-            //     show: false,
-            //     min: 100,
-            //     max: 30,
-            //     dimension: 2,
-            //     inRange: {
-            //         color: ['#d94e5d', '#eac736', '#50a3ba'].reverse(),
-            //         // colorAlpha: [0, 1]
-            //     }
-            // },
+
             parallel: {
                 left: '3%',
                 right: '3%',
@@ -110,6 +101,7 @@ export default class ParallelGraph extends Component {
                         color: '#fff',
                         fontSize: 12
                     },
+                    nameRotate: 45,
                     axisLine: {
                         lineStyle: {
                             color: '#aaa'
@@ -123,11 +115,6 @@ export default class ParallelGraph extends Component {
                     splitLine: {
                         show: false
                     },
-                    axisLabel: {
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    }
                 }
             },
             series: [
