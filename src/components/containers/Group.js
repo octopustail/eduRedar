@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-02-26 10:04:52
+ * @LastEditTime: 2020-02-26 16:08:37
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -13,6 +13,7 @@ import RiverGraph from '../graphs/RiverGraphComponent'
 import BloomGraph from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import General from '../containers/General'
+import CateSunburstGraph from '../graphs/CateSunburstComponent'
 import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
 import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
 import FeatureParallelCoordinate from '../ParallelCoordinates/FeatureParallelCoordinateComponents'
@@ -55,11 +56,11 @@ class Group extends Component {
     componentDidMount() {
         const { grade, sems, flag } = this.state
         // this.props.get_group_counts(grade, flag)
+        // this.props.get_group_students()
         this.props.get_features(grade, flag)
         this.props.get_group_records(grade, sems, flag)
         // this.props.get_student_gpa(grade, flag)
         // this.props.get_general_ae(grade, flag)
-        // this.props.get_group_students(grade, flag)
     }
 
     handleToggleClick(item) {
@@ -76,8 +77,17 @@ class Group extends Component {
         })
     }
 
+    handleSunburstChange = (grade,flag) => {
+        this.setState({
+            grade:grade,
+            flag:flag
+        })
+    }
+
+
     handleSubmit = () => {
         const { grade, sems, flag } = this.state
+        console.log(this.state)
         this.props.get_group_records(grade, sems, flag)
         this.props.get_features(grade, flag)
         this.props.get_student_gpa(grade, flag)
@@ -88,22 +98,24 @@ class Group extends Component {
     render() {
         return (
             <div className="general-container">
+                <CateSunburstGraph 
+                handleEvent={this.handleSunburstChange}/>
                 <div>
                     <div>
-                        <Radio.Group name="grade" defaultValue="29" onChange={this.handleRadioGroupChange}>
+                        {/* <Radio.Group name="grade" defaultValue="29" value={this.state.sems} onChange={this.handleRadioGroupChange}>
                             <Radio value="29">Grade 2009</Radio>
                             <Radio value="2010">Grade 2010</Radio>
-                        </Radio.Group>
+                        </Radio.Group> */}
                         <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
                             <Radio value="sems1">sems1</Radio>
                             <Radio value="sems2">sems2</Radio>
                         </Radio.Group>
-                        <Radio.Group name="flag" defaultValue={0} onChange={this.handleRadioGroupChange}>
+                        {/* <Radio.Group name="flag" defaultValue={0} onChange={this.handleRadioGroupChange}>
                             <Radio value={0}>00</Radio>
                             <Radio value={1}>01</Radio>
                             <Radio value={2}>10</Radio>
                             <Radio value={3}>11</Radio>
-                        </Radio.Group>
+                        </Radio.Group> */}
                         <button onClick={this.handleSubmit}>submit</button>
                     </div>
                 </div>
@@ -130,9 +142,10 @@ class Group extends Component {
                         : null}
 
                 </div>
-                <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features}/>
-                <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
-                <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
+                
+                {/* <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features}/> */}
+                {/* <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} /> */}
+                {/* <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} /> */}
                 {/* <General
                     className="general"
                     handleParallelSelectedId={this.props.handleParallelSelectedId}
@@ -150,7 +163,7 @@ function mapDispatchToProps(dispatch) {
         //获取学生刷卡次数统计
         // get_group_counts: bindActionCreators(get_group_counts, dispatch),
         get_group_records: bindActionCreators(get_group_records, dispatch),
-        get_group_students: bindActionCreators(get_group_students, dispatch),
+        // get_group_students: bindActionCreators(get_group_students, dispatch),
         get_features: bindActionCreators(get_features, dispatch),
         get_student_gpa: bindActionCreators(get_student_gpa, dispatch),
         get_general_ae: bindActionCreators(get_general_ae, dispatch),
@@ -162,12 +175,13 @@ function mapStateToProps(state) {
         student_gpa: state.general.student_gpa,
         counts: state.group.counts,
         records: state.group.records,
-        students: state.group.students,
         features: state.group.features,
         stuList: state.group.stuList,
         dayCount: state.group.dayCount,
         startDate: state.group.startDate,
-        endDate: state.group.endDate
+        endDate: state.group.endDate,
+        // math_grades: state.group.math_grades,
+        // all_students: state.group.all_students,
     }
 }
 

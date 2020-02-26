@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2019-04-10 20:44:16
- * @LastEditTime : 2020-02-20 12:49:39
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 12:54:48
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/reducers/group.js
  */
@@ -32,20 +32,20 @@ export const actionType = {
 const initialState = {
     counts: [],
     records: [],
-    students: [],
+    all_students: [],
     features: [],
     stuList: [],
     dayCount: {},
     startDate: new Date(2009, 8),
-    endDate: new Date(2011, 2)
+    endDate: new Date(2011, 2),
+    // math_grades:[]
 }
 
 export const actions = {
-    //根据请求的学生的类别去请求学生数据
-    get_group_counts: function (grade, flag) {
+    //根据请求所有学生的类别去请求学生数据
+    get_group_counts: function () {
         return {
             type: actionType.GET_GROUP_COUNT,
-            grade, flag,
         }
 
     },
@@ -74,7 +74,8 @@ export function reducer(state = initialState, action) {
         case actionType.RESPONSE_GROUP_STUDENT:
             return {
                 ...state,
-                students: action.data.students
+                all_students: action.data,
+                // math_grades:action.data.math_grades
             }
         case actionType.RESPONSE_GROUP_COUNT:
             return {

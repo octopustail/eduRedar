@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-03-27 20:45:41
+ * @LastEditTime: 2020-02-26 12:58:49
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /eduRedar/src/fetch/fetch.js
+ */
 import axios from 'axios'
 
 
@@ -20,7 +28,7 @@ let config ={
     headers:{
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
     },
-    timeout:10000,
+    timeout:50000,
     responseType:'json'
 }
 
