@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-02-26 16:12:00
+ * @LastEditTime: 2020-02-26 16:12:31
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -102,20 +102,12 @@ class Group extends Component {
                 handleEvent={this.handleSunburstChange}/>
                 <div>
                     <div>
-                        {/* <Radio.Group name="grade" defaultValue="29" value={this.state.sems} onChange={this.handleRadioGroupChange}>
-                            <Radio value="29">Grade 2009</Radio>
-                            <Radio value="2010">Grade 2010</Radio>
-                        </Radio.Group> */}
+                       
                         <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
                             <Radio value="sems1">sems1</Radio>
                             <Radio value="sems2">sems2</Radio>
                         </Radio.Group>
-                        {/* <Radio.Group name="flag" defaultValue={0} onChange={this.handleRadioGroupChange}>
-                            <Radio value={0}>00</Radio>
-                            <Radio value={1}>01</Radio>
-                            <Radio value={2}>10</Radio>
-                            <Radio value={3}>11</Radio>
-                        </Radio.Group> */}
+                        
                         <button onClick={this.handleSubmit}>submit</button>
                     </div>
                 </div>
