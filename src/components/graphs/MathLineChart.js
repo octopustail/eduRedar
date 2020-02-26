@@ -4,8 +4,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime : 2020-02-24 19:39:58
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 10:18:36
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import ReactEcharts from 'echarts-for-react';
@@ -28,7 +28,7 @@ export default class MathLineChart extends Component {
 
     dataFormate = (data) => {
         let dataGroup = []
-        if (JSON.stringify(data) === '{}') { return dataGroup }
+        if (JSON.stringify(data) === '{}'||!data) { return dataGroup }
 
         Object.keys(data).forEach(key => {
             dataGroup.push(parseFloat(data[key].midium))

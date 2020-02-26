@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime : 2020-02-24 20:25:49
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 10:31:45
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -19,20 +19,25 @@ class Person extends Component {
         super(props)
         //    this.sems = ['sems1', 'sems2', 'sems3', 'sems4', 'sems5', 'sems6']
         this.sems = ['sems1', 'sems2']
+        this.state = {
+            sid: props.sid
+        }
     }
 
     render() {
-        const {stu_school,wtype} = this.props.work_info
+        let stu_school = this.props.work_info ? this.props.work_info.stu_school : "No Result"
+        let wtype = this.props.work_info ? this.props.work_info.wtype : "No Result"
+
         return (
             //画出六个学期的图
             <div className="person">
                 <div>
-                    <MathLineChart data={this.props.math}/>
+                    <MathLineChart data={this.props.math} />
                 </div>
                 <div className="info">>
-                    <span>studentID:{this.props.sid?this.props.sid:'unknown' }</span>
-                    <span>School:{stu_school?stu_school:'unknown'}</span>
-                    <span>Type:{wtype?wtype:'unknown'}</span>
+                    <span>studentID:{this.props.sid ? this.props.sid : 'unknown'}</span>
+                    <span>School:{stu_school ? stu_school : 'unknown'}</span>
+                    <span>Type:{wtype ? wtype : 'unknown'}</span>
                 </div>
                 <div className="redar-container">
                     {/* {
@@ -51,20 +56,19 @@ class Person extends Component {
     componentDidMount() {
         //拿着学号去请求学生的record等信息
         // this.props.get_personal_records(this.props.info)
-        this.props.get_personal_records(this.props.sid)
+        console.log('cdm')
+        this.props.get_personal_records(this.state.sid)
     }
 
-    // shouldComponentUpdate(nextProps){
-    // if(nextProps.info == this.props.info){
-    //   return false
-    // }
-    // return true
-    // }
 
-
-    // componentDidUpdate() {
-    // this.props.info && this.props.get_personal_records(this.props.info)
-    // }
+    componentDidUpdate() {
+        if (this.props.sid !== this.state.sid) {
+            this.setState({
+                sid: this.props.sid
+            }, () => { this.props.get_personal_records(this.state.sid) }
+            )
+        }
+    }
 }
 
 function mapStateToProps(state) {

@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime : 2020-02-24 11:40:15
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 10:14:17
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
  */
@@ -98,9 +98,11 @@ export default class HeatModelGraph extends Component {
                 })
                 .on("mouseout", function () {
                     d3.select(this).classed("cell-hover", false);
-                    // d3.selectAll(".rowLabel").classed("text-highlight", false);
-                    // d3.selectAll(".colLabel").classed("text-highlight", false);
+                    
                     d3.select("#tooltip").classed("hidden", true);
+                })
+                .on("click",d=>{
+                    this.props.handleSelectedId(d.sid)
                 })
         }
 

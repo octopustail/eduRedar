@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime : 2020-02-24 16:30:57
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 10:04:52
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -21,7 +21,8 @@ import { Radio } from 'antd'
 import { actions as grouplAction } from '../../reducers/group'
 import { actions as generalAction } from '../../reducers/general'
 
-const get_group_counts = grouplAction.get_group_counts,
+const 
+// get_group_counts = grouplAction.get_group_counts,
     get_group_records = grouplAction.get_group_records,
     get_group_students = grouplAction.get_group_students,
     get_features = grouplAction.get_features,
@@ -53,7 +54,7 @@ class Group extends Component {
 
     componentDidMount() {
         const { grade, sems, flag } = this.state
-        this.props.get_group_counts(grade, flag)
+        // this.props.get_group_counts(grade, flag)
         this.props.get_features(grade, flag)
         this.props.get_group_records(grade, sems, flag)
         // this.props.get_student_gpa(grade, flag)
@@ -129,8 +130,8 @@ class Group extends Component {
                         : null}
 
                 </div>
-                <FeatureParallelCoordinate data={this.props.features}/>
-                <HeatModelGraph data={this.props.features} />
+                <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features}/>
+                <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
                 <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
                 {/* <General
                     className="general"
@@ -147,7 +148,7 @@ class Group extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         //获取学生刷卡次数统计
-        get_group_counts: bindActionCreators(get_group_counts, dispatch),
+        // get_group_counts: bindActionCreators(get_group_counts, dispatch),
         get_group_records: bindActionCreators(get_group_records, dispatch),
         get_group_students: bindActionCreators(get_group_students, dispatch),
         get_features: bindActionCreators(get_features, dispatch),

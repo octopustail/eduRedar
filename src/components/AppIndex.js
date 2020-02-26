@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime : 2020-02-24 20:29:07
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 09:58:24
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react';
 import {actions as personalAction} from '../reducers/person'
@@ -31,7 +31,7 @@ export class AppIndex extends Component {
         }
     }
 
-    handleParallelSelectedId = (id)=>{
+    handleSelectedId = (id)=>{
         this.setState({
             selectStudent:id
         })
@@ -42,7 +42,9 @@ export class AppIndex extends Component {
                 {/* <ZumaGraph/>
                 <AxisScatter/> */}
                 {/* <SankeyGraph/> */}
-                <Group className="general"  handleParallelSelectedId = {this.handleParallelSelectedId}/>
+                <Group className="general"  
+                handleSelectedId = {this.handleSelectedId}
+                />
                 {/* <General className ="general"/> */}
                 <Person sid = {this.state.selectStudent}/>
             </div>
