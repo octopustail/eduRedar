@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime : 2020-02-24 20:47:28
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-26 11:20:05
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import echarts from 'echarts/lib/echarts'
@@ -26,15 +26,14 @@ export default class ParallelGraph extends Component {
     }
 
     componentDidMount() {
-        // const echarts_instance = this.echarts_react.getEchartsInstance()
-        // let that = this
+        this.echarts_instance = this.echarts_react.getEchartsInstance()
         // echarts_instance.on('axisareaselected', function () {
         //     let series0 = echarts_instance.getModel().getSeries()[0];
         //     let indices0 = series0.getRawIndicesByActiveState('active');
         //     //取刷选出来的第一个数据
         //     let selectedDataIndex = indices0.shift()
-        //     let { sid } = that.props.data.find((el, index) => index === selectedDataIndex)
-        //     sid && that.props.handleParallelSelectedId(sid)
+        //     let item = that.props.data.find((el, index) => index === selectedDataIndex)
+        //     item.sid !== undefined && that.props.handleSelectedId(item.sid)
         // });
     }
 
@@ -131,16 +130,29 @@ export default class ParallelGraph extends Component {
     }
 
     onAxisAreaSelected = () => {
+        let series0 = this.echarts_instance.getModel().getSeries()[0];
+        let indices0 = series0.getRawIndicesByActiveState('active');
+        //取刷选出来的第一个数据
+        if (indices0.length!==0) {
+            let selectedDataIndex = indices0.shift()
+            let item = this.props.data.find((el, index) => index === selectedDataIndex)
+            item.sid !== undefined && this.props.handleSelectedId(item.sid)
+        }
 
     }
 
     render() {
-        // const onEvents = {
-        //     "axisareaselected": this.onAxisAreaSelected
-        // }
+        const onEvents = {
+            "axisareaselected": this.onAxisAreaSelected
+        }
         return (
             <div className="parallel">
-                <ReactEcharts option={this.getOption(this.props.data)} style={{ height: 300, width: 900 }} ref={e => { this.echarts_react = e }} />
+                <ReactEcharts
+                    option={this.getOption(this.props.data)}
+                    style={{ height: 300, width: 900 }}
+                    ref={e => { this.echarts_react = e }}
+                    onEvents={onEvents}
+                />
             </div>
         )
     }

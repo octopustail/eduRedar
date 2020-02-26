@@ -139,7 +139,6 @@ export default class RiverGraph extends Component {
             .x((d, i) => axis.xScale(i))
             .y0((d, i) => height)
             .y1((d) => {
-                console.log("y1", d, height - direction * yScale(d));
                 return height - direction * yScale(d)
             })
 
