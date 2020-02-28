@@ -66,22 +66,38 @@
 /* 雷达图的样式 */
 .webs polygon,
 .lines line {
-    fill: white;
+    fill: rgba(128, 136, 138,0.6);
     fill-opacity: 0.5;
-    stroke: gray;
-    stroke-dasharray: 10 5;
+    stroke: rgba(128, 136, 138,1);
+    /* stroke-dasharray: 10 5; */
 }
 .webs polygon:nth-child(odd) {
-    fill: lightgray;
+    fill: rgba(128, 136, 138,0.6);
 }
 .areas polygon {
     fill-opacity: 0.5;
     stroke-width: 3;
 }
-.areas circle {
-    fill: white;
-    stroke-width: 3;
+.circles circle {
+    fill: rgba(252,211,3, 1);
+    stroke:rgba(252,211,3, 0.5);
+    stroke-width: 0.5;
 }
 .texts text {
     text-anchor: middle;
+}
+
+.star-tool {
+  font-size: 12px;
+  position: absolute;
+  z-index: 10;
+  top: 95px;
+  left: 130px;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  color: #333;
+  background: #eee;
+  box-shadow: 0 0 5px #999;
 }

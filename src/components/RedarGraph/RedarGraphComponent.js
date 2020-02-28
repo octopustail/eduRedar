@@ -57,8 +57,8 @@ class RedarGraph extends Component {
         redarData.sems1ae1_food = this.props.feature ? this.props.feature[`${this.props.sems}ae_food`] : 0
         redarData.sems1count2_hw = this.props.feature ? this.props.feature[`${this.props.sems}count_hotwater`] : 0
         redarData.sems1ae_shower = this.props.feature ? this.props.feature[`${this.props.sems}ae_shower`] : 0
-        redarScatterGraph.initGraph(elem, data)
-        redarGraph.initGraph(elem, redarData)
+        redarScatterGraph.initGraph(elem, data,this.props.sems)
+        redarGraph.initGraph(elem, redarData,this.props.sems)
 
     }
 

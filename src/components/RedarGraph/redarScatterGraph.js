@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime: 2019-11-20 11:13:33
+ * @LastEditTime: 2020-02-28 09:59:07
  * @LastEditors: Please set LastEditors
  */
 import * as d3 from 'd3'
@@ -53,12 +53,9 @@ redarGraph.initGraph = function (el, data) {
     const MaxDay = 200
     const width = 240
     const height = 240
-    const margin = 50
+    const margin = 30
     // const radius = Math.min(height, height) / 2
     const radius = Math.min(width - margin, height - margin) / 2
-
-    let Mockdata = [[3, 133],
-    [480, 80], [0, 0], [180, 199]]
 
     const angle = d3.scaleLinear()
         .domain([0, MaxMin])

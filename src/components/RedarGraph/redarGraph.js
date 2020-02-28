@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime : 2020-02-19 17:01:43
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-28 11:11:51
+ * @LastEditors: Please set LastEditors
  */
 import * as d3 from 'd3'
 import style from './style.css'
@@ -14,24 +14,26 @@ import { zumaColor as colorScale, schoolCalendar } from '../../config/config'
 let redarGraph = {}
 
 
-redarGraph.initGraph = function (el, data) {
+redarGraph.initGraph = function (el, data, sems) {
     //MaxMin时间要转化成分钟的相对时间 MaxDay:一学期的总天数，应该用相对时间计算获
 
     //清空画布 重新开始画
     // if (data == undefined || !data.hasOwnProperty('sems')) {
     //     return
     // }
-    const sems = data.sems
+    // const sems = data.sems
 
     // d3.select(el).selectAll('svg').remove()
     let formatDatas = []
     const MaxDay = 200
     const width = 240
     const height = 240
-    const margin = 50
+    // const width = 20
+    // const height = 20
+    const margin = 30
 
-    const Redarwidth = 80
-    const Redarheight = 80
+    const Redarwidth = 86
+    const Redarheight = 60
     const Redarmargin = 20
     const rangeMax = 1
     const rangeMin = 0
@@ -50,7 +52,7 @@ redarGraph.initGraph = function (el, data) {
     let svg = d3.select(el)
         .select('svg')
         .append("g")
-        .attr("class", "star")
+        .attr("class", `star_${sems}`)
         .attr("transform", `translate(${(width + margin) / 2},${(height + margin) / 2})`);
 
 
@@ -83,7 +85,7 @@ redarGraph.initGraph = function (el, data) {
 
     //添加纵轴
     let line = svg.append("g")
-        .classed("line", true)
+        .classed("lines", true)
 
     line.selectAll("line")
         .data(polygons.webPoints[0])
@@ -107,7 +109,8 @@ redarGraph.initGraph = function (el, data) {
         area += x + ',' + y + ' ';
         points.push({
             x: x,
-            y: y
+            y: y,
+            v: value[k]
         })
     }
     areasData = {
@@ -121,23 +124,42 @@ redarGraph.initGraph = function (el, data) {
     areas
         .append('polygon')
         .attr('points', areasData.polygon)
-        .attr('stroke', '#ff9')
-        .attr('fill', '#ff0')
+        .attr('stroke', 'rgba(252,211,3, 0.8)')
+        .attr('fill', 'rgba(252,211,3, 0.3)')
     let circle = areas.append('g')
         .classed('circles', true)
-        
-        circle.selectAll('circle')
+
+    circle.selectAll('circle')
         .data(areasData.points)
         .enter()
         .append('circle')
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
-        .attr('r', 3)
-        .attr('stroke', '#777')
+        .attr('r', 1)
+    console.log(data)
 
+    let tooltip = d3.select(`.star_${sems}`)
+        .append('div')
+        .attr("class", "star_tooltip")
 
+    tooltip.append('div')
+        .attr("class", "star-tool")
 
-
+    // d3.select("svg")
+    //     .select(`.star_${sems}`)
+    //     .selectAll("circle")
+    //     .on("mouseover", function (d) {
+    //         let str = ""
+    //         Object.keys(data).forEach((key) => {
+    //             str = str + `${key}: ${data[key]} \n`
+    //         })
+           
+    //         const ttp = tooltip.select('.star-tool')
+    //             // .html(`${data[keys[]].stype}: ${d[2].sdate} ${d[2].stime}`)
+    //             ttp.html(str)
+    //             ttp.style('display', 'block');
+    //             ttp.style('opacity', 1);
+    //     })
 }
 
 export default redarGraph
