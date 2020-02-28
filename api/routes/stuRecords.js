@@ -1,9 +1,9 @@
 /*
  * @Description: 日历散点图视图的数据获取
  * @Author: octo
- * @LastEditors  : Please set LastEditors
+ * @LastEditors: Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime : 2020-02-20 12:51:14
+ * @LastEditTime: 2020-02-28 09:26:24
  */
 let util = require('./util')
 let stuConsumption = require('../../model/stu_consumption')
@@ -94,7 +94,7 @@ function studentGPADataProcess(req, res, next) {
     let grade = req.query.grade || "2010"
     let calendar = grade === "2010" ? schoolCalendar_10[sems] : schoolCalendar_09[sems]
     let regex = grade === "2010" ? /^2010/ : /^29/
-    let flag = parseInt(req.query.flaga) || 3
+    let flag = parseInt(req.query.flag)
 
     new Promise((resolve, reject) => {
         ModelResult

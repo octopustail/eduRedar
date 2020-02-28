@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 14:44:56
- * @LastEditTime : 2020-02-24 15:24:42
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-28 09:26:16
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/api/routes/features.js
  */
@@ -12,7 +12,7 @@ let ModelResult = require('../../model/model_result')
 
 function queryFeatures(req, res, next) {
     let regex = req.query.grade === "2010" ? /^2010/ : /^29/
-    let flag = parseInt(req.query.flag) || 3
+    let flag = parseInt(req.query.flag)
 
     const filter = {
         '_id': 0,

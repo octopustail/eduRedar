@@ -12,7 +12,7 @@ let ModelResult = require('../../model/model_result')
 
 function studentAEDataProcess(req, res, next) {
     const regex = req.query.grade === "2010" ? /^2010/ : /^29/
-    const flag = parseInt(req.query.flag) || 3
+    const flag = parseInt(req.query.flag)
 
     new Promise((resolve, reject) => {
         ModelResult
