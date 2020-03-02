@@ -141,3 +141,54 @@
   display: block;
   padding:4px 10px;
 }
+
+.control-group{
+  width: 300px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.control-item, .control-item:visited,.control-item:focus{
+  background: #AAABD3;
+  color: #eee;
+  border: none;
+  border-radius: 3px
+}
+
+.control-item:hover{
+  color: #6C49B8;
+  background-color: #fff;
+  border-color: none;
+  border-radius: 3px
+}
+
+
+.control-span{
+  width: 30px;
+  text-align: center;
+  color: #6C49B8;
+  background: #eee;
+}
+.sunbrust{
+  display: flex;
+}
+
+.sunbrust-span{
+  color: #eee;
+  margin-bottom:40px;
+}
+.sems-contral{
+  display: flex;
+  flex-direction: column;
+  color:#eee
+}
+
+.sems-contral span{
+  color: #fff
+}
+.sems-contral button{
+  margin-top:40px;
+}
+

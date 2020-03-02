@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-03-01 14:36:33
+ * @LastEditTime: 2020-03-02 15:41:53
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -18,12 +18,12 @@ import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
 import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
 import FeatureParallelCoordinate from '../ParallelCoordinates/FeatureParallelCoordinateComponents'
 import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
-import { Radio } from 'antd'
+import { Radio, Button } from 'antd'
 import { actions as grouplAction } from '../../reducers/group'
 import { actions as generalAction } from '../../reducers/general'
 
-const 
-// get_group_counts = grouplAction.get_group_counts,
+const
+    // get_group_counts = grouplAction.get_group_counts,
     get_group_records = grouplAction.get_group_records,
     get_group_students = grouplAction.get_group_students,
     get_features = grouplAction.get_features,
@@ -34,6 +34,7 @@ const
 
 import style from './style.css'
 import { zumaColor } from '../../config/config'
+import { tupleNum } from 'antd/lib/_util/type';
 
 class Group extends Component {
     constructor(props) {
@@ -48,7 +49,7 @@ class Group extends Component {
             },
             sems: "sems1",
             grade: "29",
-            flag: 3
+            flag: "3"
         }
         this.colormap = zumaColor
     }
@@ -77,10 +78,10 @@ class Group extends Component {
         })
     }
 
-    handleSunburstChange = (grade,flag) => {
+    handleSunburstChange = (grade, flag) => {
         this.setState({
-            grade:grade,
-            flag:flag
+            grade: JSON.stringify(grade),
+            flag: JSON.stringify(flag)
         })
     }
 
@@ -96,19 +97,27 @@ class Group extends Component {
 
 
     render() {
+        let flag
+        if(this.state.flag === "0") flag = "TN"
+        if(this.state.flag === "1") flag = "FN"
+        if(this.state.flag === "2") flag = "FP"
+        if(this.state.flag === "3") flag = "TP"
+        console.log(flag)
         return (
             <div className="general-container">
-                <CateSunburstGraph 
-                handleEvent={this.handleSunburstChange}/>
-                <div>
-                    <div>
-                       
+
+                <div className="sunbrust">
+                    <CateSunburstGraph
+                        handleEvent={this.handleSunburstChange} />
+                    <div className="item-wrapper sems-contral">
                         <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
+                            <div className="sunbrust-span"> SelecteGroup: {this.state.grade === "29" ? "2009" : "2010"}</div>
+                            <div className="sunbrust-span"> Type: {flag}</div>
                             <Radio value="sems1">sems1</Radio>
                             <Radio value="sems2">sems2</Radio>
                         </Radio.Group>
-                        
-                        <button onClick={this.handleSubmit}>submit</button>
+
+                        <Button className="control-item" onClick={this.handleSubmit}>submit</Button>
                     </div>
                 </div>
                 {/* <div>
@@ -134,8 +143,8 @@ class Group extends Component {
                         : null}
 
                 </div> */}
-                
-                <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features}/>
+
+                <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
                 <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
                 {/* <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} /> */}
                 {/* <General

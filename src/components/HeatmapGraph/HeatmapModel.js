@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime: 2020-03-02 11:43:41
+ * @LastEditTime: 2020-03-02 13:15:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -9,6 +9,7 @@
 /**  模型结果展示热力图*/
 import React, { Component } from 'react'
 import * as d3 from 'd3'
+import { Button } from 'antd'
 import { zumaColor } from '../../config/config'
 import style from './style.css'
 
@@ -17,7 +18,7 @@ export default class HeatModelGraph extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            height: 400,
+            height: 300,
             width: 800,
             axis: {},
             page: 1,
@@ -209,14 +210,16 @@ export default class HeatModelGraph extends Component {
     render() {
         return (
             <div className="item-wrapper model-heat">
-                <div style={{ background: "#fff", color: "#000" }} onClick={this.prePage}>上一页</div>
-                <div style={{ background: "#fff", color: "#000" }} onClick={this.nextPage}>下一页</div>
-                <div style={{ background: "#fff", color: "#000" }} >{this.state.page}/</div>
                 <div id="tooltip" class="hidden">
                     <p><span id="value"></span></p>
                 </div>
                 <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
                 </svg>
+                <div className="control-group">
+                <Button className="control-item" onClick={this.prePage}>PrevPage</Button>
+                <span className="control-span"> {this.state.page} </span>
+                <Button className="control-item" onClick={this.nextPage}>NextPage</Button>
+                </div>
             </div>
         )
     }
