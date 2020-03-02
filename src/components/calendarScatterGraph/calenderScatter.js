@@ -2,8 +2,8 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime : 2020-02-17 17:15:23
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-03-01 11:31:57
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import echarts from 'echarts/lib/echarts'
@@ -239,7 +239,7 @@ export default class CalenderScatterGraph extends Component {
 
     render() {
         return (
-            <div className="parallel">
+            <div className="parallel" >
                 <ReactEcharts ref={(e) => { this.echarts_react = e; }} option={this.getOption(this.props.data)} style={{ height: 300, width: 900 }} />
             </div>
         )

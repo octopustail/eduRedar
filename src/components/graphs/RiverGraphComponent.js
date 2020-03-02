@@ -202,7 +202,7 @@ export default class RiverGraph extends Component {
 
     render() {
         return (
-            <div className="river">
+            <div className="item-wrapper river">
                 {/* <span style={{color:"#fff"}}>{this.props.cate}</span> */}
                 <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
                 </svg>

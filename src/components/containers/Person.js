@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime: 2020-02-26 10:31:45
+ * @LastEditTime: 2020-03-01 11:40:24
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -34,7 +34,7 @@ class Person extends Component {
                 <div>
                     <MathLineChart data={this.props.math} />
                 </div>
-                <div className="info">>
+                <div className="info">
                     <span>studentID:{this.props.sid ? this.props.sid : 'unknown'}</span>
                     <span>School:{stu_school ? stu_school : 'unknown'}</span>
                     <span>Type:{wtype ? wtype : 'unknown'}</span>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-03-04 14:51:11
- * @LastEditTime: 2020-02-26 10:22:07
+ * @LastEditTime: 2020-03-01 11:36:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/RedarGraph/RedarGraphComponent.js
@@ -64,7 +64,7 @@ class RedarGraph extends Component {
 
     render() {
         return (
-            <div className="redar">
+            <div className="item-wrapper redar">
                 <div ref="redarGraph">
                 </div>
                 <div style={{ color: "#fff", width: 100, textAlign: "center", fontSize: 9, fontWeight: 200 }}>{this.props.sems}</div>

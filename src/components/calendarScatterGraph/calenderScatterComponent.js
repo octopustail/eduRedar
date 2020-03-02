@@ -3,8 +3,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime : 2020-02-17 14:03:47
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-03-01 11:35:59
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import CalenderScatterGraph from './calenderScatter'
@@ -80,7 +80,7 @@ class CalenderScatterComponent extends Component {
         const data = this.formatData()
         return (
             //画出六个学期的图
-            <div className="person">
+            <div className="item-wrapper person">
                 <Radio.Group onChange={this.handleTypeChange} value={this.state.type}>
                     <Radio value="general">general</Radio>
                     <Radio value="food">food</Radio>

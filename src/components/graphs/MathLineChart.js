@@ -4,7 +4,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-02-26 10:18:36
+ * @LastEditTime: 2020-03-01 11:37:38
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -218,7 +218,7 @@ export default class MathLineChart extends Component {
         //     "axisareaselected": this.onAxisAreaSelected
         // }
         return (
-            <div className="parallel">
+            <div className="item-wrapper parallel">
                 <ReactEcharts option={this.getOption(this.props.data)} style={{ height: 400, width: 500 }} ref={e => { this.echarts_react = e }} />
             </div>
         )

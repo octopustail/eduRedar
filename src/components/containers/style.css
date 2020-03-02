@@ -50,11 +50,14 @@
   justify-content: space-around;
 }
 
-.heatmap,
+.item-wrapper
+/* .heatmap,
 .parallel,
+.river,
 .sankey,
 .filter,
-.redar {
+.redar  */
+{
   display: flex;
   align-items: center;
   flex-direction: column;

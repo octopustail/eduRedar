@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-02-26 11:20:05
+ * @LastEditTime: 2020-03-02 11:45:25
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -67,9 +67,9 @@ export default class ParallelGraph extends Component {
     getOption = (ori_data) => {
         const lineStyle = {
             normal: {
-                color: '#577ceb',
+                color: '#6a60a9',
                 width: 0.5,
-                opacity: 0.6
+                opacity: 0.8
             }
         };
 
@@ -146,7 +146,7 @@ export default class ParallelGraph extends Component {
             "axisareaselected": this.onAxisAreaSelected
         }
         return (
-            <div className="parallel">
+            <div className="item-wrapper parallel">
                 <ReactEcharts
                     option={this.getOption(this.props.data)}
                     style={{ height: 300, width: 900 }}

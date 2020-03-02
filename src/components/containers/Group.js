@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-02-26 16:12:31
+ * @LastEditTime: 2020-03-01 14:36:33
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -111,7 +111,7 @@ class Group extends Component {
                         <button onClick={this.handleSubmit}>submit</button>
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     <div className="riverToggle">
                         {Object.keys(this.state.riverToggle).map((item, index) => (
                             <ToggleButton
@@ -133,17 +133,17 @@ class Group extends Component {
                         />
                         : null}
 
-                </div>
+                </div> */}
                 
                 <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features}/>
                 <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
-                <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
-                <General
+                {/* <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} /> */}
+                {/* <General
                     className="general"
                     handleParallelSelectedId={this.props.handleParallelSelectedId}
                     student_gpa={this.props.student_gpa}
                     general_ae={this.props.general_ae}
-                />
+                /> */}
             </div>
         )
     }

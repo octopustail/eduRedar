@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-06-16 20:01:19
- * @LastEditTime : 2020-02-24 15:30:08
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-03-01 11:21:57
+ * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -137,8 +137,8 @@ export default class Genaral extends Component {
                 </div> */}
                 {/* <Heatmap className="heatmap" data={this.props.student_week_record} /> */}
 
-                <ParallelCoordinate className="parallel" data={this.props.student_gpa} />
-                <AEParallelCoordinate className="parallel" data={this.props.general_ae} handleParallelSelectedId={this.handleParallelSelectedId} />
+                {/* <ParallelCoordinate className="parallel" data={this.props.student_gpa} />
+                <AEParallelCoordinate className="parallel" data={this.props.general_ae} handleParallelSelectedId={this.handleParallelSelectedId} /> */}
 
                 {/* <RiverGraph records={this.props.general_records}/>
                 <RecordScatterGraph records={this.props.general_records}/> */}
