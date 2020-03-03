@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime: 2020-03-03 18:17:44
+ * @LastEditTime: 2020-03-03 21:02:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -13,7 +13,7 @@ import { Button } from 'antd'
 import { zumaColor } from '../../config/config'
 import style from './style.css'
 
-const ITEM_PER_PAGE = 30
+const ITEM_PER_PAGE = 35
 export default class HeatModelGraph extends Component {
     constructor(props) {
         super(props)
