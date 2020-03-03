@@ -10,7 +10,7 @@ body {
 .index {
   display: flex;
   align-items: stretch;
-  flex-direction: row;
-  /* flex-direction: column; */
+  /* flex-direction: row; */
+  flex-direction: column;
   justify-content: center;
 }

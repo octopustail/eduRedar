@@ -3,13 +3,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime: 2020-03-01 11:35:59
+ * @LastEditTime: 2020-03-03 20:23:45
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
 import CalenderScatterGraph from './calenderScatter'
-// import style from './style.css'
-import { connect } from 'react-redux'
+import style from './style.css'
 import { Radio } from 'antd'
 
 class CalenderScatterComponent extends Component {
@@ -72,22 +71,24 @@ class CalenderScatterComponent extends Component {
         result.startTime = records[0][0]["date"]
         result.endTime = records[0][records[0].length - 1]["date"]
         result.stuListLength = stuList.length
-        result.max_value=max_value
-        result.min_value= min_value
+        result.max_value = max_value
+        result.min_value = min_value
         return result
     }
     render() {
         const data = this.formatData()
         return (
             //画出六个学期的图
-            <div className="item-wrapper person">
-                <Radio.Group onChange={this.handleTypeChange} value={this.state.type}>
-                    <Radio value="general">general</Radio>
-                    <Radio value="food">food</Radio>
-                    <Radio value="shower">shower</Radio>
-                    <Radio value="library">library</Radio>
-                    <Radio value="hotwater">hotwater</Radio>
-                </Radio.Group>
+            <div className="item-wrapper-row">
+                <div>
+                    <Radio.Group className="ratio-wrapper" onChange={this.handleTypeChange} value={this.state.type}>
+                        <Radio value="general">general</Radio>
+                        <Radio value="food">food</Radio>
+                        <Radio value="shower">shower</Radio>
+                        <Radio value="library">library</Radio>
+                        <Radio value="hotwater">hotwater</Radio>
+                    </Radio.Group>
+                </div>
                 <CalenderScatterGraph data={data} />
             </div>
         )

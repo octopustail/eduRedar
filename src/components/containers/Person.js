@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime: 2020-03-01 11:40:24
+ * @LastEditTime: 2020-03-03 19:58:37
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -31,25 +31,22 @@ class Person extends Component {
         return (
             //画出六个学期的图
             <div className="person">
-                <div>
-                    <MathLineChart data={this.props.math} />
-                </div>
-                <div className="info">
-                    <span>studentID:{this.props.sid ? this.props.sid : 'unknown'}</span>
-                    <span>School:{stu_school ? stu_school : 'unknown'}</span>
-                    <span>Type:{wtype ? wtype : 'unknown'}</span>
-                </div>
                 <div className="redar-container">
-                    {/* {
-                    this.props.personal_records.map((sems, index) => {
-                        <RedarGraph key={index} data={sems} />
-                    })
-                } */}
                     {
                         this.sems.map((sem, index) => (
                             <RedarGraph className="redar" key={index} data={this.props.personalRecord[index]} sems={sem} feature={this.props.personalFeatures} />
                         ))}
                 </div>
+                <div>
+                    <MathLineChart data={this.props.math} />
+                    <div className="info">
+                        {/* <span>studentID:{this.props.sid ? this.props.sid : 'unknown'}</span> */}
+                        <span>School:{stu_school ? stu_school : 'unknown'}</span>
+                        <span>Type:{wtype ? wtype : 'unknown'}</span>
+                    </div>
+                </div>
+
+
             </div>
         )
     }

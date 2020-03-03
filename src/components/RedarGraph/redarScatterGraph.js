@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime: 2020-02-28 09:59:07
+ * @LastEditTime: 2020-03-03 20:57:48
  * @LastEditors: Please set LastEditors
  */
 import * as d3 from 'd3'
@@ -73,7 +73,7 @@ redarGraph.initGraph = function (el, data) {
     // .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     let gr = svg.append("g")
-        .attr("class", "r axis")
+        // .attr("class", "r axis")
         .selectAll("g")
         .data(r.ticks(4))
         .enter()
@@ -82,6 +82,8 @@ redarGraph.initGraph = function (el, data) {
 
     gr.append("circle")
         .attr("r", r)
+        .style("stroke","#AAABD3")
+        .style("fill","rgba(30, 30, 70, 0.6)")
 
     let ga = svg.append("g")
         .attr("class", "a axis")

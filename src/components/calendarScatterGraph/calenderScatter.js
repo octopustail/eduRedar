@@ -2,7 +2,7 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-01 11:31:57
+ * @LastEditTime: 2020-03-03 20:15:30
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -29,7 +29,7 @@ export default class CalenderScatterGraph extends Component {
  
         const option = {
 
-            backgroundColor: '#404a59',
+            // backgroundColor: '#404a59',
             tooltip: {
                 trigger: 'item'
             },
@@ -37,11 +37,19 @@ export default class CalenderScatterGraph extends Component {
                 top: 40,
                 left: 'center',
                 range: [start, end],
+                cellSize:27,
+                dayLabel:{
+                    color:"#fff"
+                },
+                monthLabel:{
+                    color:"#fff"
+                },
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        color: '#000',
-                        width: 4,
+                        color: "#fff",
+                        opacity:0.4,
+                        width: 2,
                         type: 'solid'
                     }
                 },
@@ -53,11 +61,10 @@ export default class CalenderScatterGraph extends Component {
                 },
 
                 itemStyle: {
-                    normal: {
-                        color: '#323c48',
-                        borderWidth: 1,
-                        borderColor: '#111'
-                    }
+                    color: '#aaabd3',
+                    opacity:0.2,
+                    borderWidth: 1,
+                    borderColor: "rgba(255,255,255,0.3)"
                 }
             }],
 
@@ -91,7 +98,6 @@ export default class CalenderScatterGraph extends Component {
 
         const option = {
             baseOption: {
-                backgroundColor: '#404a59',
                 timeline: {
                     axisType: 'category',
                     autoPlay: true,
@@ -160,11 +166,19 @@ export default class CalenderScatterGraph extends Component {
                     top: 40,
                     left: 'center',
                     range: [start, end],
+                    cellSize:27,
+                    dayLabel:{
+                        color:"#fff"
+                    },
+                    monthLabel:{
+                        color:"#fff"
+                    },
                     splitLine: {
                         show: true,
                         lineStyle: {
-                            color: '#000',
-                            width: 4,
+                            color: "#fff",
+                            opacity:0.4,
+                            width: 2,
                             type: 'solid'
                         }
                     },
@@ -176,11 +190,10 @@ export default class CalenderScatterGraph extends Component {
                     },
 
                     itemStyle: {
-                        normal: {
-                            color: '#323c48',
-                            borderWidth: 1,
-                            borderColor: '#111'
-                        }
+                        color: '#aaabd3',
+                        opacity:0.2,
+                        borderWidth: 1,
+                        borderColor: "rgba(255,255,255,0.3)"
                     }
                 }],
 
@@ -239,8 +252,8 @@ export default class CalenderScatterGraph extends Component {
 
     render() {
         return (
-            <div className="parallel" >
-                <ReactEcharts ref={(e) => { this.echarts_react = e; }} option={this.getOption(this.props.data)} style={{ height: 300, width: 900 }} />
+            <div>
+                <ReactEcharts ref={(e) => { this.echarts_react = e; }} option={this.getOption(this.props.data)} style={{ height: 300, width: 1200 }} />
             </div>
         )
     }

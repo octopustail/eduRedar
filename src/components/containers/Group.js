@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-03-02 15:41:53
+ * @LastEditTime: 2020-03-03 20:08:48
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -13,7 +13,9 @@ import RiverGraph from '../graphs/RiverGraphComponent'
 import BloomGraph from '../graphs/BloomGraghComponent'
 import RecordScatterGraph from '../graphs/RecordScatterGraph'
 import General from '../containers/General'
+import Person from '../containers/Person'
 import CateSunburstGraph from '../graphs/CateSunburstComponent'
+import RiverWithEchartsComponent from '../graphs/RiverWithEchartsComponent'
 import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
 import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
 import FeatureParallelCoordinate from '../ParallelCoordinates/FeatureParallelCoordinateComponents'
@@ -48,8 +50,8 @@ class Group extends Component {
                 library: true
             },
             sems: "sems1",
-            grade: "29",
-            flag: "3"
+            grade: 29,
+            flag: 3,
         }
         this.colormap = zumaColor
     }
@@ -80,15 +82,14 @@ class Group extends Component {
 
     handleSunburstChange = (grade, flag) => {
         this.setState({
-            grade: JSON.stringify(grade),
-            flag: JSON.stringify(flag)
+            grade: grade,
+            flag: flag
         })
     }
 
 
     handleSubmit = () => {
         const { grade, sems, flag } = this.state
-        console.log(this.state)
         this.props.get_group_records(grade, sems, flag)
         this.props.get_features(grade, flag)
         this.props.get_student_gpa(grade, flag)
@@ -98,20 +99,17 @@ class Group extends Component {
 
     render() {
         let flag
-        if(this.state.flag === "0") flag = "TN"
-        if(this.state.flag === "1") flag = "FN"
-        if(this.state.flag === "2") flag = "FP"
-        if(this.state.flag === "3") flag = "TP"
-        console.log(flag)
+        if (JSON.stringify(this.state.flag) === "0") flag = "TN"
+        if (JSON.stringify(this.state.flag) === "1") flag = "FN"
+        if (JSON.stringify(this.state.flag) === "2") flag = "FP"
+        if (JSON.stringify(this.state.flag) === "3") flag = "TP"
         return (
             <div className="general-container">
 
                 <div className="sunbrust">
-                    <CateSunburstGraph
-                        handleEvent={this.handleSunburstChange} />
                     <div className="item-wrapper sems-contral">
                         <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
-                            <div className="sunbrust-span"> SelecteGroup: {this.state.grade === "29" ? "2009" : "2010"}</div>
+                            <div className="sunbrust-span"> SelecteGroup: {this.state.grade === 2010 ? 2010 : 2009}</div>
                             <div className="sunbrust-span"> Type: {flag}</div>
                             <Radio value="sems1">sems1</Radio>
                             <Radio value="sems2">sems2</Radio>
@@ -119,40 +117,26 @@ class Group extends Component {
 
                         <Button className="control-item" onClick={this.handleSubmit}>submit</Button>
                     </div>
+                    <CateSunburstGraph handleEvent={this.handleSunburstChange} />
+                    <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
+
                 </div>
-                {/* <div>
-                    <div className="riverToggle">
-                        {Object.keys(this.state.riverToggle).map((item, index) => (
-                            <ToggleButton
-                                key={index}
-                                item={item}
-                                isToggle={this.state.riverToggle[item]}
-                                toggle={this.handleToggleClick.bind(this)}
-                                color={this.colormap[item]}
-                            />
-                        ))}
-                    </div>
-                    {(JSON.stringify(this.props.dayCount) !== '{}') ?
-                        <RiverGraph
-                            isToggles={this.state.riverToggle}
-                            stuList={this.props.stuList}
-                            counts={this.props.dayCount}
-                            startDate={this.props.startDate}
-                            endDate={this.props.endDate}
-                        />
-                        : null}
-
-                </div> */}
-
+                <div className="two-rows">
+                <div className="grow-row">
                 <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
-                <HeatModelGraph handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
-                {/* <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} /> */}
+                <RiverWithEchartsComponent counts={this.props.dayCount} startDate={this.props.startDate} endDate={this.props.endDate} />
+                <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
+                </div>
+                <Person sid={this.props.sid} />
+                </div>
+
                 {/* <General
                     className="general"
                     handleParallelSelectedId={this.props.handleParallelSelectedId}
                     student_gpa={this.props.student_gpa}
                     general_ae={this.props.general_ae}
                 /> */}
+
             </div>
         )
     }

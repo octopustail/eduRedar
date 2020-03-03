@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-02 11:45:25
+ * @LastEditTime: 2020-03-03 20:10:16
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -146,10 +146,10 @@ export default class ParallelGraph extends Component {
             "axisareaselected": this.onAxisAreaSelected
         }
         return (
-            <div className="item-wrapper parallel">
+            <div className="item-wrapper-left parallel">
                 <ReactEcharts
                     option={this.getOption(this.props.data)}
-                    style={{ height: 300, width: 900 }}
+                    style={{ height: 350, width: 1500 }}
                     ref={e => { this.echarts_react = e }}
                     onEvents={onEvents}
                 />

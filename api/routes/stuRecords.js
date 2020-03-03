@@ -3,7 +3,7 @@
  * @Author: octo
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-10 21:34:55
- * @LastEditTime: 2020-02-28 09:26:24
+ * @LastEditTime: 2020-03-03 16:40:33
  */
 let util = require('./util')
 let stuConsumption = require('../../model/stu_consumption')
@@ -13,17 +13,18 @@ let moment = require('moment')
 const schoolCalendar_09 = {
     sems1: {
         start: new Date('2009-08-31'),
-        end: new Date('2010-02-28'),
+        // end: new Date('2010-02-28'),
+        end: new Date('2010-01-27'),
     },
     sems2: {
         start: new Date('2010-03-01'),
-        end: new Date('2010-02-28'),
+        end: new Date('2010-08-28'),
     }
 }
 const schoolCalendar_10 = {
     sems1: {
         start: new Date('2010-08-31'),
-        end: new Date('2011-02-20'),
+        end: new Date('2011-01-29'),
     },
     sems2: {
         start: new Date('2011-02-21'),

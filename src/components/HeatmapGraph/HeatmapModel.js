@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime: 2020-03-02 13:15:27
+ * @LastEditTime: 2020-03-03 18:17:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -19,7 +19,7 @@ export default class HeatModelGraph extends Component {
         super(props)
         this.state = {
             height: 300,
-            width: 800,
+            width: 1200,
             axis: {},
             page: 1,
             key: '12_lib'
@@ -29,10 +29,11 @@ export default class HeatModelGraph extends Component {
         // this.colors = d3.interpolateRgbBasis(['#347B53', '#9EC2B3']);
         const colors = ["#6a60a9", "#fbd14b"]
 
-        this.margin = { top: 0, right: 10, bottom: 0, left: 10 },
+        this.margin = { top: 10, right: 10, bottom: 10, left: 10 },
             this.width = this.state.width - this.margin.left - this.margin.right,
             this.height = this.state.height - this.margin.top - this.margin.bottom,
-            this.gridSize = Math.floor((this.width - 50) / ITEM_PER_PAGE),
+            // this.gridSize = Math.floor((this.width - 100) / ITEM_PER_PAGE),
+            this.gridSize = 30,
             this.legendElementWidth = this.gridSize * 2,
             this.buckets = 9,
             this.colorScale1 = d3.scaleLinear()

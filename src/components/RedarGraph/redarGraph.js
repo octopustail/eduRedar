@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime: 2020-02-28 11:11:51
+ * @LastEditTime: 2020-03-03 16:26:38
  * @LastEditors: Please set LastEditors
  */
 import * as d3 from 'd3'
@@ -136,7 +136,6 @@ redarGraph.initGraph = function (el, data, sems) {
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
         .attr('r', 1)
-    console.log(data)
 
     let tooltip = d3.select(`.star_${sems}`)
         .append('div')

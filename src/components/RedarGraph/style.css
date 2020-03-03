@@ -7,13 +7,13 @@
 
 .axis line,
 .axis circle {
-  fill: none;
-  stroke: steelblue;
+  fill: rgba(170, 171, 211,0.6);
+  stroke: #AAABD3;
   stroke-dasharray: 4;
 }
 
 .axis:last-of-type circle {
-  stroke: steelblue;
+  stroke: #AAABD3;
   stroke-dasharray: none;
 }
 

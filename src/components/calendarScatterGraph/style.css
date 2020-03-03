@@ -1,0 +1,15 @@
+.ratio-wrapper{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.ratio-wrapper label{
+   margin-left: 20px;
+   margin-top:15px;
+}
+
+
+.ratio-wrapper span{
+    color: #fff;
+}
