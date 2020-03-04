@@ -4,7 +4,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-03 20:39:43
+ * @LastEditTime: 2020-03-04 15:34:05
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -46,6 +46,13 @@ export default class MathLineChart extends Component {
             "g_2010":[64.60,77.98,73.43,83.30,66.38,72.34,58.74,72.99]
         }
         return {
+            legend:{
+                data:["Math Grade","2009 Average Math Grade","2010 Average Math Grade"],
+                textStyle:{
+                    color:"#fff"
+                },
+                top:20,
+            },
             tooltip: {
                 padding: 10,
                 backgroundColor: '#222',
@@ -146,7 +153,7 @@ export default class MathLineChart extends Component {
                     data: data
                 },
                 {
-                    name: '2009 Average Grade',
+                    name: '2009 Average Math Grade',
                     type: 'line',
                     // smooth: true, //是否平滑
                     showAllSymbol: true,
@@ -176,7 +183,7 @@ export default class MathLineChart extends Component {
                     data: averageScore.g_29
                 },
                 {
-                    name: '2010 Average Grade',
+                    name: '2010 Average Math Grade',
                     type: 'line',
                     // smooth: true, //是否平滑
                     showAllSymbol: true,

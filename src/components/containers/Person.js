@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime: 2020-03-03 19:58:37
+ * @LastEditTime: 2020-03-04 17:44:23
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -53,7 +53,6 @@ class Person extends Component {
     componentDidMount() {
         //拿着学号去请求学生的record等信息
         // this.props.get_personal_records(this.props.info)
-        console.log('cdm')
         this.props.get_personal_records(this.state.sid)
     }
 

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime: 2020-03-03 20:57:48
+ * @LastEditTime: 2020-03-04 17:06:29
  * @LastEditors: Please set LastEditors
  */
 import * as d3 from 'd3'
@@ -16,9 +16,9 @@ let redarGraph = {}
 
 redarGraph.initGraph = function (el, data) {
     //MaxMin时间要转化成分钟的相对时间 MaxDay:一学期的总天数，应该用相对时间计算获
-    
     //清空画布 重新开始画
-    if(data==undefined || !data.hasOwnProperty('sems')){
+    console.log("scarter",data)
+    if(JSON.stringify(data) ==="{}" || !data.hasOwnProperty('sems')){
         return 
     }
     const sems = data.sems
@@ -40,7 +40,7 @@ redarGraph.initGraph = function (el, data) {
 
     }
     if (JSON.stringify(data) !== {}) {
-        ['food', 'shower', 'library', 'hotwater'].forEach(function (key) {
+        data.keys.forEach(function (key) {
             let formatData = data[key].map(function (item) {
                 let arr = convertDatatoFormat(startTime_ms, item)
                 arr.push(item)

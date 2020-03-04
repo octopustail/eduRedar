@@ -2,7 +2,7 @@
  * @Description: 用于数据实验的模版barChart
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-03 20:15:30
+ * @LastEditTime: 2020-03-04 15:36:49
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -28,8 +28,7 @@ export default class CalenderScatterGraph extends Component {
             end = '2010-2-28'
  
         const option = {
-
-            // backgroundColor: '#404a59',
+           
             tooltip: {
                 trigger: 'item'
             },

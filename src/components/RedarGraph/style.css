@@ -1,3 +1,20 @@
+.legend-wrapper{
+  margin-top:4px;
+  margin-bottom:4px;
+  clear: both
+}
+
+.legend-wrapper div{
+  float: left;
+  display: inline-block;
+  text-align: center;
+  width: 90px;
+  border-radius: 3px;
+  padding: 2px 6px;
+  cursor: pointer;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
 /* 散点图的样式 */
 .axis text {
   font: 10px sans-serif;
@@ -7,13 +24,13 @@
 
 .axis line,
 .axis circle {
-  fill: rgba(170, 171, 211,0.6);
+  fill: none;
   stroke: #AAABD3;
   stroke-dasharray: 4;
 }
 
 .axis:last-of-type circle {
-  stroke: #AAABD3;
+  stroke: steelblue;
   stroke-dasharray: none;
 }
 
@@ -101,3 +118,4 @@
   background: #eee;
   box-shadow: 0 0 5px #999;
 }
+
