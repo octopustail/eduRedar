@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime: 2020-03-04 19:09:02
+ * @LastEditTime: 2020-03-04 19:54:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -56,8 +56,12 @@ export default class HeatModelGraph extends Component {
             return
         }
 
+        const { page } = this.state
+        const start = (page - 1) * ITEM_PER_PAGE
+        const end = page * ITEM_PER_PAGE
+        const sortedData = this.sorteDataByKey(ori_data)
 
-        const filteredData = ori_data.map(el => {
+        const filteredData = sortedData.map(el => {
             return {
                 'sid': el['sid'],
                 '1_shwr': el['1_shwr'],
@@ -69,10 +73,7 @@ export default class HeatModelGraph extends Component {
                 '6_lib': el['6_lib'],
             }
         })
-        const { page } = this.state
-        const start = (page - 1) * ITEM_PER_PAGE
-        const end = page * ITEM_PER_PAGE
-        // const sortedData = this.sorteDataByKey(filteredData)
+
         const data = filteredData.slice(start, end)
         const colorScale = d3.scaleThreshold()
             .domain([0, 0.01, 0.03, 0.08, 0.2, 0.4, 0.7])
@@ -231,7 +232,7 @@ export default class HeatModelGraph extends Component {
     sorteDataByKey = (data) => {
         const key = this.state.key
         return data.sort((a, b) => {
-            return b[key] - a[key]
+            return b['cal1_f'] - a['cal1_f']
         })
     }
 
