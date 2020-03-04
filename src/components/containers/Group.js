@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-03-03 20:08:48
+ * @LastEditTime: 2020-03-04 19:09:11
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -122,12 +122,12 @@ class Group extends Component {
 
                 </div>
                 <div className="two-rows">
-                <div className="grow-row">
-                <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
-                <RiverWithEchartsComponent counts={this.props.dayCount} startDate={this.props.startDate} endDate={this.props.endDate} />
-                <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
-                </div>
-                <Person sid={this.props.sid} />
+                    <div className="grow-row">
+                        <FeatureParallelCoordinate handleSelectedId={this.props.handleSelectedId} data={this.props.features} />
+                        <RiverWithEchartsComponent counts={this.props.dayCount} startDate={this.props.startDate} endDate={this.props.endDate} />
+                        <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
+                    </div>
+                    <Person sid={this.props.sid} />
                 </div>
 
                 {/* <General

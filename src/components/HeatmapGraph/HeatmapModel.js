@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-17 11:49:41
- * @LastEditTime: 2020-03-03 21:02:29
+ * @LastEditTime: 2020-03-04 19:09:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/HeatmapGraph/HeatmapModel.js
@@ -9,6 +9,7 @@
 /**  模型结果展示热力图*/
 import React, { Component } from 'react'
 import * as d3 from 'd3'
+import * as Chromatic from 'd3-scale-chromatic'
 import { Button } from 'antd'
 import { zumaColor } from '../../config/config'
 import style from './style.css'
@@ -28,7 +29,8 @@ export default class HeatModelGraph extends Component {
         // this.colors = ['#005824', '#1A693B', '#347B53', '#4F8D6B', '#699F83', '#83B09B', '#9EC2B3', '#B8D4CB', '#D2E6E3', '#EDF8FB', '#FFFFFF', '#F1EEF6', '#E6D3E1', '#DBB9CD', '#D19EB9', '#C684A4', '#BB6990', '#B14F7C', '#A63467', '#9B1A53', '#91003F'];
         // this.colors = d3.interpolateRgbBasis(['#347B53', '#9EC2B3']);
         const colors = ["#6a60a9", "#fbd14b"]
-
+        var color = d3.scaleThreshold()
+            .domain([0, 0.1, 0.2, 0.3, 0.4, 0.7, 1])
         this.margin = { top: 10, right: 10, bottom: 10, left: 10 },
             this.width = this.state.width - this.margin.left - this.margin.right,
             this.height = this.state.height - this.margin.top - this.margin.bottom,
@@ -36,12 +38,8 @@ export default class HeatModelGraph extends Component {
             this.gridSize = 30,
             this.legendElementWidth = this.gridSize * 2,
             this.buckets = 9,
-            this.colorScale1 = d3.scaleLinear()
-                .domain([0, 0.1])
-                .range(colors),
-            this.colorScale2 = d3.scaleLinear()
-                .domain([0, 1])
-                .range(colors),
+
+
             // this.colorScale = d3.scaleSequentialSqrt([0, 1], d3.interpolatePuRd)
 
             this.days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
@@ -76,6 +74,10 @@ export default class HeatModelGraph extends Component {
         const end = page * ITEM_PER_PAGE
         // const sortedData = this.sorteDataByKey(filteredData)
         const data = filteredData.slice(start, end)
+        const colorScale = d3.scaleThreshold()
+            .domain([0, 0.01, 0.03, 0.08, 0.2, 0.4, 0.7])
+            .range(Chromatic.schemeOrRd[8])
+
         d3.select("svg").selectAll("g").remove()
         const drawColumns = (key, index) => {
             if (key == "sid") {
@@ -95,9 +97,7 @@ export default class HeatModelGraph extends Component {
                 .attr("height", this.gridSize)
                 .attr("rx", 5.5)
                 .attr("rx", 5.5)
-                .style("fill", d => {
-                    return key === '1_shwr' ? this.colorScale2(d[key]) : this.colorScale1(d[key])
-                })
+                .style("fill", d => colorScale(d[key]))
 
             d3.select(`.one-row-${key}`)
                 .append("text")
@@ -132,12 +132,12 @@ export default class HeatModelGraph extends Component {
 
         Object.keys((data[0])).forEach((element, index) => drawColumns(element, index))
 
-        const legendElementWidth = 30
+        // const legendElementWidth = 30
         // var legend = this.svg.append("g").selectAll(".legend")
-        //     .data([-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        //     .data([0, 1])
         //     .enter().append("g")
         //     .attr("class", "legend");
-        // const colors = ['#005824', '#1A693B', '#347B53', '#4F8D6B', '#699F83', '#83B09B', '#9EC2B3', '#B8D4CB', '#D2E6E3', '#EDF8FB', '#FFFFFF', '#F1EEF6', '#E6D3E1', '#DBB9CD', '#D19EB9', '#C684A4', '#BB6990', '#B14F7C', '#A63467', '#9B1A53', '#91003F'];
+        // const colors = ["#6a60a9", "#fbd14b"]
 
         // legend.append("rect")
         //     .attr("x", function (d, i) { return legendElementWidth * i; })
@@ -145,7 +145,34 @@ export default class HeatModelGraph extends Component {
         //     .attr("width", legendElementWidth)
         //     .attr("height", this.gridSize)
         //     .style("fill", function (d, i) { return colors[i]; });
+        var x = d3.scaleSqrt()
+            .domain([0, 1])
+            .rangeRound([440, 950]);
 
+        var g = this.svg.append("g")
+            .attr("class", "heat-legend")
+            .attr("transform", "translate(180,12)");
+
+        g.selectAll("rect")
+            .data(colorScale.range().map(function (d) {
+                d = colorScale.invertExtent(d);
+                if (d[0] == null) d[0] = x.domain()[0];
+                if (d[1] == null) d[1] = x.domain()[1];
+                return d;
+            }))
+            .enter().append("rect")
+            .attr("height", 8)
+            .attr("x", function (d) { return x(d[0]); })
+            .attr("width", function (d) { return x(d[1]) - x(d[0]); })
+            .attr("fill", function (d) { return colorScale(d[0]); });
+
+
+            
+        g.call(d3.axisBottom(x)
+            .tickSize(13)
+            .tickValues(colorScale.domain()))
+            .select(".domain")
+            .remove();
         // legend.append("text")
         //     .attr("class", "mono")
         //     .text(function (d) { return d; })
@@ -217,9 +244,9 @@ export default class HeatModelGraph extends Component {
                 <svg width={this.state.width} height={this.state.height} ref={element => { this.svg = d3.select(element) }}>
                 </svg>
                 <div className="control-group">
-                <Button className="control-item" onClick={this.prePage}>PrevPage</Button>
-                <span className="control-span"> {this.state.page} </span>
-                <Button className="control-item" onClick={this.nextPage}>NextPage</Button>
+                    <Button className="control-item" onClick={this.prePage}>PrevPage</Button>
+                    <span className="control-span"> {this.state.page} </span>
+                    <Button className="control-item" onClick={this.nextPage}>NextPage</Button>
                 </div>
             </div>
         )

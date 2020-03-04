@@ -90,3 +90,13 @@ text.text-hover {
   background: #ccc;
   border-radius: 3px;
 }
+
+.tick line{
+  fill:#ccc;
+  stroke: #ccc
+}
+
+.tick text{
+  fill:#fff;
+  fontSize:12px;
+}
