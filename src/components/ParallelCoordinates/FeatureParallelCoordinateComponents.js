@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-03 20:10:16
+ * @LastEditTime: 2020-03-05 09:58:32
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -69,7 +69,7 @@ export default class ParallelGraph extends Component {
             normal: {
                 color: '#6a60a9',
                 width: 0.5,
-                opacity: 0.8
+                opacity: 1
             }
         };
 

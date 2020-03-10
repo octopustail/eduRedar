@@ -27,7 +27,6 @@ export function* getGroupCountFlow() {
 }
 
 export function* getGroupRecords(grade, sems, flag) {
-    console.log("saga",grade)
     yield put({ type: IndexAction.FETCH_START })
     try {
         return yield call(get, `/studentRecords?grade=${grade}&sems=${sems}&flag=${flag}`)

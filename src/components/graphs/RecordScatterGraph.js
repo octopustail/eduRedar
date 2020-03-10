@@ -88,7 +88,6 @@ export default class RiverGraph extends Component {
             //在这里可以随意选择缩放操作控制的元素以及他们的变化
             let t = d3.event.transform
             // river.attr("transform", t);
-            console.log(t, t.rescaleX)
 
             //相当于在新的x的scale上重新绘制data，
             //t.rescaleX(x)会拷贝x的比例尺，返回一个新的比例尺

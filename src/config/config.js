@@ -2,39 +2,52 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-02-27 10:13:58
- * @LastEditTime : 2020-02-11 21:45:53
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-03-05 09:29:31
+ * @LastEditors: Please set LastEditors
  */
 import moment from 'moment'
 export const defaultColor = {}
+// export const zumaColor = {
+//     food: '#70C8E8',
+//     library: '#E89157',
+//     shower: '#E6FF9C',
+//     hotwater: '#FFB0D3'
+// }
+
 export const zumaColor = {
-    food: '#70C8E8',
-    library: '#E89157',
-    shower: '#E6FF9C',
-    hotwater: '#FFB0D3'
+    library: '#ef5285',
+    food: '#a5dff9',
+    shower: '#56A902',
+    hotwater: '#feee7d'
 }
 //09年的校历
-export const schoolCalendar = [
-    {
+export const schoolCalendar = {
+    "2009": [{
         start: moment('2009-08-31'),
         end: moment('2010-02-28'),
     }, {
         start: moment('2010-03-01'),
         end: moment('2010-02-28'),
-    }, {
+    },],
+    "2010": [{
         start: moment('2010-08-31'),
         end: moment('2011-02-20'),
     }, {
         start: moment('2011-02-21'),
         end: moment('2011-08-28'),
-    }, {
-        start: moment('2011-08-29'),
-        end: moment('2012-02-19'),
-    }, {
-        start: moment('2012-02-20'),
-        end: moment('2012-08-26'),
-    }
-]
+    },
+    ]
+    // }, ]{
+    //     start: moment('2011-02-21'),
+    //     end: moment('2011-08-28'),
+    // }, {
+    //     start: moment('2011-08-29'),
+    //     end: moment('2012-02-19'),
+    // }, {
+    //     start: moment('2012-02-20'),
+    //     end: moment('2012-08-26'),
+    // }
+}
 
 
 

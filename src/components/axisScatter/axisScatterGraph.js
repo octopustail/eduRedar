@@ -11,7 +11,6 @@ axisScatter.groupByCategory = (array)=>{
     array.forEach(function (elem) {
         collections[elem.stype].push(elem)
     })
-    console.log(collections)
     return collections
 }
 

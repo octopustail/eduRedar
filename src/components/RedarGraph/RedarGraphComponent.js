@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-03-04 14:51:11
- * @LastEditTime: 2020-03-04 17:20:07
+ * @LastEditTime: 2020-03-05 09:31:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /eduRedar/src/components/RedarGraph/RedarGraphComponent.js
@@ -65,21 +65,20 @@ class RedarGraph extends Component {
 
         }
         // console.log(this.state)
-        console.log(data)
-        if(JSON.stringify(this.props.data)!=="{}"){
+        console.log(this.props.data)
+        if (JSON.stringify(this.props.data) !== "{}" && this.props.data !== undefined) {
             data.keys = [];
-            ["food","library","hotwater","shower"].forEach((key)=>{
-                if(this.state[key]){
+            ["food", "library", "hotwater", "shower"].forEach((key) => {
+                if (this.state[key]) {
                     data[key] = this.props.data[key]
                     data.keys.push(key)
                 }
             })
+            data.grade = this.props.data.sid.substring(0, 2) === "29" ? "2009" : "2010"
             data.sid = this.props.data.sid
-            console.log(this.props.data)
             data.sems = this.props.data.sems
         }
-        
-        console.log("redar",data)
+
 
         redarData.prediction = this.props.feature ? this.props.feature[`${this.props.sems}pred_food`] : 0
         redarData.sems1count_lib = this.props.feature ? this.props.feature[`${this.props.sems}count_library`] : 0
@@ -96,10 +95,10 @@ class RedarGraph extends Component {
             <div className="item-wrapper redar">
                 <div className="legend-wrapper">
                     {/* <Checkbox.Group className="ratio-wrapper" onChange={this.handleTypeChange}> */}
-                    <div onClick={this.handleTypeChange} value="food" style={{background: (this.state.food ? zumaColor.food : "rgba(33,33,33,0.5)"), color: ((this.state.food ? "#fff" : "rgba(238, 238, 238,0.4)")) }}>food</div>
-                    <div onClick={this.handleTypeChange} value="shower" style={{background: (this.state.shower ? zumaColor.shower : "rgba(33,33,33,0.5)"), color: ((this.state.shower ? "#fff" : "rgba(238, 238, 238,0.4)"))}}>shower</div>
-                    <div onClick={this.handleTypeChange} value="library" style={{ background: (this.state.library ? zumaColor.library : "rgba(33,33,33,0.5)"), color: ((this.state.library ? "#fff" : "rgba(238, 238, 238,0.4)"))}}>library</div>
-                    <div onClick={this.handleTypeChange} value="hotwater" style={{ background: (this.state.hotwater ? zumaColor.hotwater : "rgba(33,33,33,0.5)"), color: ((this.state.hotwater ? "#fff" : "rgba(238, 238, 238,0.4)"))}}>hotwater</div>
+                    <div onClick={this.handleTypeChange} value="food" style={{ background: (this.state.food ? zumaColor.food : "rgba(33,33,33,0.5)"), color: ((this.state.food ? "#333" : "rgba(238, 238, 238,0.4)")) }}>food</div>
+                    <div onClick={this.handleTypeChange} value="shower" style={{ background: (this.state.shower ? zumaColor.shower : "rgba(33,33,33,0.5)"), color: ((this.state.shower ? "#333" : "rgba(238, 238, 238,0.4)")) }}>shower</div>
+                    <div onClick={this.handleTypeChange} value="library" style={{ background: (this.state.library ? zumaColor.library : "rgba(33,33,33,0.5)"), color: ((this.state.library ? "#333" : "rgba(238, 238, 238,0.4)")) }}>library</div>
+                    <div onClick={this.handleTypeChange} value="hotwater" style={{ background: (this.state.hotwater ? zumaColor.hotwater : "rgba(33,33,33,0.5)"), color: ((this.state.hotwater ? "#333" : "rgba(238, 238, 238,0.4)")) }}>hotwater</div>
                     {/* </Checkbox.Group> */}
                 </div>
                 <div ref="redarGraph">

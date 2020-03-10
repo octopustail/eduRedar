@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-27 20:45:41
- * @LastEditTime : 2020-02-20 19:52:03
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-03-04 21:30:26
+ * @LastEditors: Please set LastEditors
  */
 import {take,call,put} from 'redux-saga/effects'
 import {actionType as IndexAction} from '../reducers'
@@ -27,7 +27,6 @@ export function* getGeneralGpaRecordFlow(){
         let res =  yield call(getGeneralGpaRecord,req.stype,req.list)
         if(res){
             if(res.code === 0){
-                console.log('res',res)
                 yield put({type:GeneralAction.RESPONSE_GENERAL_GPA_FLOW_RECORD,data:res.data})
             }
         }
@@ -37,7 +36,6 @@ export function* getGeneralGpaRecordFlow(){
 export function* getStudentGroup(type){
     yield put({type:IndexAction.FETCH_START})
     try{
-        console.log('type',type)
         return yield call(get,`/studentGroup?stype=${type}`)
     }catch(err){
         yield put({type:IndexAction.SET_MESSAGE,msgContent:`请求错误,${err}`,msgType:0})

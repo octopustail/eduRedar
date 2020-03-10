@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-04 14:51:35
- * @LastEditTime: 2020-03-04 17:06:29
+ * @LastEditTime: 2020-03-05 09:27:51
  * @LastEditors: Please set LastEditors
  */
 import * as d3 from 'd3'
@@ -22,12 +22,13 @@ redarGraph.initGraph = function (el, data) {
         return 
     }
     const sems = data.sems
+    const grade = data.grade
 
     d3.select(el).selectAll('svg').remove()
     let formatDatas = []
     // const startTime_ms = Date.parse(schoolCalendar[`sems${sems}`])
     //当前学期开始时间
-    const startTime_ms = Date.parse(schoolCalendar[sems-1].start)
+    const startTime_ms = Date.parse(schoolCalendar[grade][sems-1].start)
 
     function convertDatatoFormat(startTime_ms, record) {
         let dayStr = record.sdate.split('-').join(',')
@@ -137,7 +138,7 @@ redarGraph.initGraph = function (el, data) {
         //     return d
         // })
         .attr("fill", function (d, i) {
-            return color(d[2].stype)
+            return colorScale[d[2].stype]
         })
         .style("opacity", 0.7)
 
@@ -173,7 +174,7 @@ redarGraph.initGraph = function (el, data) {
         })
         .on('mouseout', function (d) {
             d3.selectAll(".point")
-                .style("fill", function (d) { return color(d[2].stype); })
+                .style("fill", function (d) { return colorScale[d[2].stype]; })
                 .style("stroke", "none")
 
                 let nodes = document.getElementsByClassName(this.getAttribute('class'))

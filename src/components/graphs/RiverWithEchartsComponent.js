@@ -4,7 +4,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-03 20:10:00
+ * @LastEditTime: 2020-03-04 22:04:44
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -65,14 +65,14 @@ export default class RiverEchartsComponent extends Component {
             },
 
             legend: {
-                data: ["food", "library", "hotwater", "shower"],
+                data: ["food", "hotwater","library","shower", ],
                 textStyle:{
                     color:"#ccc",
                     fontSize:14
                 }
             },
 
-            color:Object.keys(zumaColor).map(e=>{return zumaColor[e]}),
+            color:[zumaColor.food,zumaColor.shower,zumaColor.library,zumaColor.hotwater],
 
             singleAxis: {
                 top: 10,

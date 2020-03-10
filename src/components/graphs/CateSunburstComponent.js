@@ -4,7 +4,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-17 15:34:31
- * @LastEditTime: 2020-03-01 11:37:16
+ * @LastEditTime: 2020-03-05 09:57:00
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -69,7 +69,7 @@ export default class SunBurst extends Component {
                 }
                 ]
             }, {
-                name: "FP",
+                name: "FN",
                 value: result[1].length,
                 itemStyle: {
                     color: 'green'
@@ -97,7 +97,7 @@ export default class SunBurst extends Component {
                 }
                 ]
             }, {
-                name: "FN",
+                name: "FP",
                 value: result[2].length,
                 itemStyle: {
                     color: 'blue'
@@ -171,13 +171,13 @@ export default class SunBurst extends Component {
                         },
                         children: [{
                             name: '2009',
-                            value: [34,1],
+                            value: [34,2],
                             itemStyle: {
                                 color: '#538EA6'
                             },
                         }, {
                             name: '2010',
-                            value: [63,1],
+                            value: [63,2],
                             itemStyle: {
                                 color: '#538EA6'
                             },
@@ -211,13 +211,13 @@ export default class SunBurst extends Component {
                         },
                         children: [{
                             name: '2009',
-                            value: [51,2],
+                            value: [51,1],
                             itemStyle: {
                                 color: '#F28C8C'
                             },
                         }, {
                             name: '2010',
-                            value: [38,2],
+                            value: [38,1],
                             itemStyle: {
                                 color: '#F28C8C'
                             },

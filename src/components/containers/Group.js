@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-04-10 20:35:13
- * @LastEditTime: 2020-03-04 19:09:11
+ * @LastEditTime: 2020-03-04 21:29:46
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -109,7 +109,7 @@ class Group extends Component {
                 <div className="sunbrust">
                     <div className="item-wrapper sems-contral">
                         <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
-                            <div className="sunbrust-span"> SelecteGroup: {this.state.grade === 2010 ? 2010 : 2009}</div>
+                            <div className="sunbrust-span"> SelecteGroup: {this.state.grade == 2010 ? 2010 : 2009}</div>
                             <div className="sunbrust-span"> Type: {flag}</div>
                             <Radio value="sems1">sems1</Radio>
                             <Radio value="sems2">sems2</Radio>

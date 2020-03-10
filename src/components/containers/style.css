@@ -101,9 +101,11 @@
 
 .redar {
   flex-basis: 280px;
+  display: flex;
   flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-around;
   flex-shrink: 1;
-
   box-sizing: border-box;
   width: 30%;
 }

@@ -3,7 +3,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-03-16 16:41:07
- * @LastEditTime: 2020-03-04 15:54:29
+ * @LastEditTime: 2020-03-04 20:22:35
  * @LastEditors: Please set LastEditors
  */
 import React, { Component } from 'react'
@@ -83,11 +83,11 @@ class CalenderScatterComponent extends Component {
             <div className="item-wrapper-row">
                 <div>
                     <Radio.Group className="ratio-wrapper" onChange={this.handleTypeChange} value={this.state.type}>
-                        <Radio value="general"><span style={{ display: "inline-block", textAlign: "center", width: "100px", background: "#aaabd3", borderRadius: "3px", padding: "3px 10px" }}>general</span></Radio>
-                        <Radio value="food"><span style={{ display: "inline-block", textAlign: "center", width: "100px", background: zumaColor.food, borderRadius: "3px", padding: "3px 10px" }}>food</span></Radio>
-                        <Radio value="shower"><span style={{ display: "inline-block", textAlign: "center", width: "100px", background: zumaColor.shower, borderRadius: "3px", padding: "3px 10px" }}>shower</span></Radio>
-                        <Radio value="library"><span style={{ display: "inline-block", textAlign: "center", width: "100px", background: zumaColor.library, borderRadius: "3px", padding: "3px 10px" }}>library</span></Radio>
-                        <Radio value="hotwater"><span style={{ display: "inline-block", textAlign: "center", width: "100px", background: zumaColor.hotwater, borderRadius: "3px", padding: "3px 10px" }}>hotwater</span></Radio>
+                        <Radio value="general"><span style={{ display: "inline-block", color: "#666", textAlign: "center", width: "100px", background: "#aaabd3", borderRadius: "3px", padding: "3px 10px" }}>general</span></Radio>
+                        <Radio value="food"><span style={{ display: "inline-block", color: "#666", textAlign: "center", width: "100px", background: zumaColor.food, borderRadius: "3px", padding: "3px 10px" }}>food</span></Radio>
+                        <Radio value="shower"><span style={{ display: "inline-block", color: "#666", textAlign: "center", width: "100px", background: zumaColor.shower, borderRadius: "3px", padding: "3px 10px" }}>shower</span></Radio>
+                        <Radio value="library"><span style={{ display: "inline-block", color: "#666", textAlign: "center", width: "100px", background: zumaColor.library, borderRadius: "3px", padding: "3px 10px" }}>library</span></Radio>
+                        <Radio value="hotwater"><span style={{ display: "inline-block", color: "#666", extAlign: "center", width: "100px", background: zumaColor.hotwater, borderRadius: "3px", padding: "3px 10px" }}>hotwater</span></Radio>
                     </Radio.Group>
                 </div>
                 <CalenderScatterGraph data={data} />
