@@ -9,18 +9,19 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import RiverGraph from '../graphs/RiverGraphComponent'
-import BloomGraph from '../graphs/BloomGraghComponent'
-import RecordScatterGraph from '../graphs/RecordScatterGraph'
-import General from '../containers/General'
-import Person from '../containers/Person'
-import CateSunburstGraph from '../graphs/CateSunburstComponent'
-import RiverWithEchartsComponent from '../graphs/RiverWithEchartsComponent'
-import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
-import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
-import FeatureParallelCoordinate from '../ParallelCoordinates/FeatureParallelCoordinateComponents'
-import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
-import { Radio, Button } from 'antd'
+// import RiverGraph from '../graphs/RiverGraphComponent'
+// import BloomGraph from '../graphs/BloomGraghComponent'
+// import RecordScatterGraph from '../graphs/RecordScatterGraph'
+// import General from '../containers/General'
+// import Person from '../containers/Person'
+// import CateSunburstGraph from '../graphs/CateSunburstComponent'
+// import RiverWithEchartsComponent from '../graphs/RiverWithEchartsComponent'
+// import HeatModelGraph from '../HeatmapGraph/HeatmapModel'
+// import CalenderScatterComponent from '../calendarScatterGraph/calenderScatterComponent'
+// import FeatureParallelCoordinate from '../ParallelCoordinates/FeatureParallelCoordinateComponents'
+import MajorView from "../graphs/MajorView"
+// import { ToggleButton } from '../graphs/widgets/RiverToggleButton'
+// import { Radio, Button } from 'antd'
 import { actions as grouplAction } from '../../reducers/group'
 import { actions as generalAction } from '../../reducers/general'
 
@@ -58,12 +59,8 @@ class Group extends Component {
 
     componentDidMount() {
         const { grade, sems, flag } = this.state
-        // this.props.get_group_counts(grade, flag)
-        // this.props.get_group_students()
         this.props.get_features(grade, flag)
-        this.props.get_group_records(grade, sems, flag)
-        // this.props.get_student_gpa(grade, flag)
-        // this.props.get_general_ae(grade, flag)
+        // this.props.get_group_records(grade, sems, flag)
     }
 
     handleToggleClick(item) {
@@ -103,10 +100,11 @@ class Group extends Component {
         if (JSON.stringify(this.state.flag) === "1") flag = "FN"
         if (JSON.stringify(this.state.flag) === "2") flag = "FP"
         if (JSON.stringify(this.state.flag) === "3") flag = "TP"
+        console.log(this.props)
         return (
             <div className="general-container">
-
-                <div className="sunbrust">
+                <MajorView data={this.props.features}/>
+                {/* <div className="sunbrust">
                     <div className="item-wrapper sems-contral">
                         <Radio.Group name="sems" defaultValue="sems1" onChange={this.handleRadioGroupChange}>
                             <div className="sunbrust-span"> SelecteGroup: {this.state.grade == 2010 ? 2010 : 2009}</div>
@@ -128,15 +126,7 @@ class Group extends Component {
                         <CalenderScatterComponent records={this.props.records} stuList={this.props.stuList} />
                     </div>
                     <Person sid={this.props.sid} />
-                </div>
-
-                {/* <General
-                    className="general"
-                    handleParallelSelectedId={this.props.handleParallelSelectedId}
-                    student_gpa={this.props.student_gpa}
-                    general_ae={this.props.general_ae}
-                /> */}
-
+                </div> */}
             </div>
         )
     }

@@ -21,7 +21,8 @@ function queryFeatures(req, res, next) {
     }
     new Promise((resolve, reject) => {
         ModelResult
-            .find({ sid: { $regex: regex }, flag: flag }, { sid: 1, _id: 0 })
+            // .find({ sid: { $regex: regex }, flag: flag }, { sid: 1, _id: 0 })
+            .find({flag: flag }, { sid: 1, _id: 0 })
             .then(res => {
                 let stu_list = res.map(e => e.sid)
                 resolve(stu_list)

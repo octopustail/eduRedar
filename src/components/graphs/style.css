@@ -33,3 +33,13 @@
   opacity: .5;
   color: #ccc;
 }
+
+.axis path,
+.axis line {
+    stroke: #000;
+    fill: none;
+}
+.bubble {
+    fill: #2ec7c9;
+    fill-opacity: 0.5;
+}
