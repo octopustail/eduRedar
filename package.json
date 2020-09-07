@@ -24,7 +24,7 @@
     "echarts-for-react": "^2.0.15-beta.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
-    "http-proxy": "^1.17.0",
+    "http-proxy": "^1.18.1",
     "http-proxy-middleware": "^0.19.1",
     "jade": "~1.11.0",
     "jquery": "^3.3.1",
